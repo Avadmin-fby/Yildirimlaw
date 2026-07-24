@@ -1,12 +1,99 @@
 import { supabase, isConfigured } from './supabase-client.js';
-const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-const grid=document.getElementById('dynamicArticlesGrid');
-const status=document.getElementById('articlesCmsStatus');
-const detail=document.getElementById('articleDetailPage');
-let articles=[];
-function safeHtml(html){const t=document.createElement('template');t.innerHTML=html||'';t.content.querySelectorAll('script,iframe,object,embed,link,meta,style').forEach(n=>n.remove());t.content.querySelectorAll('*').forEach(el=>{[...el.attributes].forEach(a=>{if(/^on/i.test(a.name)||(/^(href|src)$/i.test(a.name)&&/^javascript:/i.test(a.value)))el.removeAttribute(a.name)})});return t.innerHTML}
-async function load(){if(!grid)return;if(!isConfigured){status.textContent='Makale sistemi henüz yapılandırılmadı.';return}status.textContent='Makaleler yükleniyor…';const {data,error}=await supabase.from('articles').select('*').eq('status','published').order('published_at',{ascending:false});if(error){status.textContent='Makaleler yüklenemedi: '+error.message;return}articles=data||[];status.textContent='';grid.innerHTML=articles.length?articles.map((a,i)=>`<article class="article-page-card"><div class="article-page-image" style="background-image:url('${esc(a.cover_image_url||'')}')"></div><div class="article-page-body"><small>${esc(a.category||'Makale')}</small><h2>${esc(a.title_tr)}</h2><p>${esc(a.summary_tr)}</p><a href="#article-${esc(a.slug)}" class="article-page-link" data-article="${i}">Devamını Oku →</a></div></article>`).join(''):'<p>Henüz yayımlanmış makale bulunmuyor.</p>'}
-function openArticle(i){const a=articles[i];if(!a||!detail)return;document.getElementById('home').style.display='none';document.getElementById('detail').classList.remove('active');document.querySelectorAll('.site-page').forEach(p=>p.classList.remove('active'));detail.classList.add('active');detail.innerHTML=`<section class="article-detail-hero"><small>${esc(a.category||'Makale')}</small><h1>${esc(a.title_tr)}</h1><p>${esc(a.summary_tr)}</p></section><section class="article-detail-content"><a class="back-link" href="#articles-page">← Makalelere Dön</a>${a.cover_image_url?`<img src="${esc(a.cover_image_url)}" alt="${esc(a.title_tr)}">`:''}<div class="article-body">${safeHtml(a.content_html)}</div></section>`;document.title=a.title_tr+' | Yıldırım Law & Consultancy';history.pushState({page:'cms-article',index:i},'',`#article-${a.slug}`);window.scrollTo(0,0)}
-grid?.addEventListener('click',e=>{const a=e.target.closest('[data-article]');if(!a)return;e.preventDefault();openArticle(Number(a.dataset.article))});
-detail?.addEventListener('click',e=>{const b=e.target.closest('.back-link');if(!b)return;e.preventDefault();window.showSitePage?window.showSitePage(null,'articles'):location.hash='#articles-page'});
-await load();
+
+const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+}[char]));
+
+const grid = document.getElementById('dynamicArticlesGrid');
+const statusElement = document.getElementById('articlesCmsStatus');
+const detail = document.getElementById('articleDetailPage');
+let articles = [];
+
+function safeHtml(html) {
+  const template = document.createElement('template');
+  template.innerHTML = html || '';
+  template.content.querySelectorAll('script,iframe,object,embed,link,meta,style').forEach((node) => node.remove());
+  template.content.querySelectorAll('*').forEach((element) => {
+    [...element.attributes].forEach((attribute) => {
+      if (/^on/i.test(attribute.name) || (/^(href|src)$/i.test(attribute.name) && /^javascript:/i.test(attribute.value))) {
+        element.removeAttribute(attribute.name);
+      }
+    });
+  });
+  return template.innerHTML;
+}
+
+async function loadArticles() {
+  if (!grid) return;
+  if (!isConfigured) {
+    statusElement.textContent = 'Makale sistemi yapılandırılmadı.';
+    return;
+  }
+
+  statusElement.textContent = 'Makaleler yükleniyor…';
+  const { data, error } = await supabase.from('articles')
+    .select('*')
+    .eq('status', 'published')
+    .order('published_at', { ascending: false });
+
+  if (error) {
+    statusElement.textContent = `Makaleler yüklenemedi: ${error.message}`;
+    return;
+  }
+
+  articles = data || [];
+  statusElement.textContent = '';
+  grid.innerHTML = articles.length
+    ? articles.map((article, index) => `
+      <article class="article-page-card">
+        <div class="article-page-image" style="background-image:url('${escapeHtml(article.cover_image_url || '')}')"></div>
+        <div class="article-page-body">
+          <small>${escapeHtml(article.category || 'Makale')}</small>
+          <h2>${escapeHtml(article.title_tr)}</h2>
+          <p>${escapeHtml(article.summary_tr)}</p>
+          <a href="#article-${escapeHtml(article.slug)}" class="article-page-link" data-article="${index}">Devamını Oku →</a>
+        </div>
+      </article>`).join('')
+    : '<p>Henüz yayımlanmış makale bulunmuyor.</p>';
+}
+
+function openArticle(index) {
+  const article = articles[index];
+  if (!article || !detail) return;
+
+  document.getElementById('home').style.display = 'none';
+  document.getElementById('detail').classList.remove('active');
+  document.querySelectorAll('.site-page').forEach((page) => page.classList.remove('active'));
+  detail.classList.add('active');
+  detail.innerHTML = `
+    <section class="article-detail-hero">
+      <small>${escapeHtml(article.category || 'Makale')}</small>
+      <h1>${escapeHtml(article.title_tr)}</h1>
+      <p>${escapeHtml(article.summary_tr)}</p>
+    </section>
+    <section class="article-detail-content">
+      <a class="back-link" href="#articles-page">← Makalelere Dön</a>
+      ${article.cover_image_url ? `<img src="${escapeHtml(article.cover_image_url)}" alt="${escapeHtml(article.title_tr)}">` : ''}
+      <div class="article-body">${safeHtml(article.content_html)}</div>
+    </section>`;
+
+  document.title = `${article.title_tr} | Yıldırım Law & Consultancy`;
+  history.pushState({ page: 'cms-article', index }, '', `#article-${article.slug}`);
+  window.scrollTo(0, 0);
+}
+
+grid?.addEventListener('click', (event) => {
+  const link = event.target.closest('[data-article]');
+  if (!link) return;
+  event.preventDefault();
+  openArticle(Number(link.dataset.article));
+});
+
+detail?.addEventListener('click', (event) => {
+  const back = event.target.closest('.back-link');
+  if (!back) return;
+  event.preventDefault();
+  window.showSitePage ? window.showSitePage(null, 'articles') : (location.hash = '#articles-page');
+});
+
+await loadArticles();
