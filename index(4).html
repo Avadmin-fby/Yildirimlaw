@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yıldırım Law &amp; Consultancy</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="description" content="Yıldırım Law & Consultancy, İstanbul merkezli olarak gerçek ve tüzel kişilere hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunar."/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#5a244f"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Yıldırım Law & Consultancy"/>
+<meta property="og:description" content="İstanbul merkezli hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri."/>
+<meta property="og:image" content="https://plus.unsplash.com/premium_photo-1661962550248-59cf249e078b?auto=format&fit=crop&fm=jpg&q=85&w=1600"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+
+:root{
+  --bg:#f7f6f8;
+  --paper:#ffffff;
+  --ink:#17131c;
+  --muted:#6d6872;
+  --line:#ddd9e1;
+  --navy:#16151f;
+  --navy-2:#201d2b;
+  --purple:#5a244f;
+  --purple-2:#7b3f6e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:300}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;margin:0;letter-spacing:-.025em}
+p{line-height:1.75;color:#3d3841}
+.site-header{height:84px;position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(22,21,31,.10);display:flex;align-items:center;justify-content:space-between;padding:0 64px}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:30px;letter-spacing:.20em;line-height:.82;font-weight:500;color:var(--navy)}
+.logo small{display:block;font-family:Inter,Arial,sans-serif;font-size:8px;letter-spacing:.29em;margin-top:11px;font-weight:500;color:#514a56}
+nav{display:flex;gap:27px;font-size:12px;align-items:center;text-transform:uppercase;letter-spacing:.06em}
+nav>a{position:relative;padding:31px 0}
+nav>a:after{content:"";position:absolute;left:0;right:100%;bottom:21px;height:2px;background:var(--purple);transition:.25s}
+nav>a:hover:after{right:0}
+.lang{display:flex;gap:8px;align-items:center;margin-left:12px}
+.lang button{border:0;background:transparent;font:inherit;cursor:pointer;padding:0;color:#111}
+.lang button.active{color:var(--purple);font-weight:500}
+.hero{min-height:790px;padding-top:84px;position:relative;display:flex;align-items:center;justify-content:flex-start;text-align:left;overflow:hidden;border-bottom:0;background:#111}
+.hero-media{position:absolute;inset:0;background-image:url('https://plus.unsplash.com/premium_photo-1661962550248-59cf249e078b?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=90&w=3000');background-position:center 52%;background-size:cover;filter:grayscale(1) contrast(1.08);transform:scale(1);transition:filter 1.15s ease,transform 1.35s cubic-bezier(.22,.61,.36,1)}
+.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,14,.82) 0%,rgba(10,9,14,.58) 38%,rgba(10,9,14,.18) 72%,rgba(10,9,14,.08) 100%),linear-gradient(rgba(15,13,20,.10),rgba(15,13,20,.38))}
+.hero:hover .hero-media{filter:grayscale(0) contrast(1.04);transform:scale(1.08)}
+@media (prefers-reduced-motion:reduce){.hero-media{transition:none;transform:scale(1)}.hero:hover .hero-media{transform:scale(1)}}
+.hero:before,.hero:after{content:"";position:absolute;z-index:3;top:25%;bottom:20%;width:2px;background:rgba(123,63,110,.9)}
+.hero:before{left:9%}.hero:after{right:9%}
+.hero-copy{padding:110px 32px 90px 11%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:relative;z-index:4;max-width:820px}
+.eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:10px;font-weight:500;margin-bottom:22px;color:var(--purple-2)}
+.hero .eyebrow{color:var(--purple);font-weight:500;text-shadow:0 1px 14px rgba(0,0,0,.72)}
+.hero h1{font-size:72px;line-height:1;max-width:760px;color:white;text-align:left;text-shadow:0 2px 18px rgba(0,0,0,.24)}
+.lead{max-width:690px;margin-top:26px;font-size:15px}
+.hero .lead{color:rgba(255,255,255,.9);text-align:left;font-size:16px;line-height:1.8}
+.actions{display:flex;gap:14px;align-items:center;margin-top:34px}
+.button{min-width:174px;height:50px;display:inline-flex;align-items:center;justify-content:center;gap:18px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid transparent;transition:.25s}
+.actions .button{background:transparent;color:#fff;border-color:rgba(255,255,255,.78)}
+.actions .button:hover{background:#fff;color:var(--navy)}
+.text-link{min-width:174px;height:50px;display:inline-flex;align-items:center;justify-content:center;gap:18px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--navy);color:#fff;border:1px solid var(--navy);transition:.25s}
+.text-link:hover{background:var(--purple);border-color:var(--purple)}
+.photo{position:relative;overflow:hidden;background:center/cover no-repeat;filter:grayscale(1)}
+.hero-photo{display:none}
+.practice-section,.firm,.insights,.admin,.contact{padding:92px 64px;border-bottom:1px solid var(--line)}
+.practice-section{display:block;background:var(--paper);padding-top:68px;padding-bottom:72px}
+.section-intro{max-width:720px;margin:0 auto 28px;text-align:center}
+.section-intro p{max-width:680px;margin-left:auto;margin-right:auto}
+.practice-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;border-top:0}
+.practice-list a{display:block;min-height:235px;border:0;position:relative;overflow:hidden;background:#17151c;cursor:pointer;box-shadow:0 8px 22px rgba(20,15,25,.08)}
+.practice-card-image{position:absolute;inset:0;background:center/cover no-repeat;filter:grayscale(1);transition:transform .45s ease,filter .45s ease}
+.practice-list a:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(17,14,20,.92),rgba(17,14,20,.10) 65%)}
+.practice-list a:hover .practice-card-image{transform:scale(1.04);filter:grayscale(.55)}
+.practice-card-content{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff;display:grid;grid-template-columns:28px 1fr 20px;align-items:end;gap:7px}
+.practice-name{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:400;line-height:1.05}
+.num{font-size:9px;color:#d9b8d1;letter-spacing:.12em}
+.firm{background:var(--navy);color:white;position:relative}
+.firm:before{content:"";position:absolute;left:64px;top:0;width:85px;height:4px;background:var(--purple)}
+.firm p{color:#d7d2da}
+.values{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:34px}
+.values article{padding:0 28px;border-left:1px solid rgba(255,255,255,.16)}
+.values article:first-child{border-left:0;padding-left:0}
+.values h3{font-size:26px;color:white}
+.values p{font-size:13px}
+.insights{background:var(--navy-2);color:#fff;position:relative}
+.insights:before{content:"";position:absolute;left:64px;top:0;width:85px;height:4px;background:var(--purple)}
+.insights .eyebrow{color:#d9b8d1}
+.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:30px}
+.article-grid article{border-top:1px solid rgba(255,255,255,.2);padding-top:18px}
+.article-img{height:190px;margin-bottom:18px;background:center/cover no-repeat;filter:grayscale(1)}
+.article-grid small{display:block;color:#cbb8c7;text-transform:uppercase;letter-spacing:.14em;font-size:9px;margin-bottom:10px}
+.article-grid h3{font-size:31px;line-height:1.03;color:white}
+.admin{background:#efedf0}
+.admin h2{font-size:48px;max-width:800px;line-height:1.05}
+.admin-box{margin-top:28px;border:1px solid var(--line);background:white;display:grid;grid-template-columns:240px 1fr;min-height:420px}
+.admin-box aside{background:var(--navy);color:white;padding:28px}
+.admin-box aside span{display:block;border-bottom:1px solid rgba(255,255,255,.15);padding:12px 0;color:#ddd;font-size:14px}
+.admin-content{padding:34px}
+.admin-content h3{font-size:36px;margin-bottom:24px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:flex;flex-direction:column;gap:8px;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:#666}
+input,textarea,select{border:1px solid var(--line);background:#fbfafc;padding:13px;font:inherit;text-transform:none;letter-spacing:0;color:#111}
+textarea{min-height:140px}.full{grid-column:1/-1}
+.admin-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:18px}
+.admin-actions button{border:1px solid var(--navy);background:white;padding:13px 18px}
+.admin-actions .publish{background:var(--navy);color:white}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--navy);color:#fff}
+.contact p{color:#d9d5dc}.contact h2{font-size:44px;line-height:1.03}
+.contact .button{background:var(--purple);color:#fff;border-color:var(--purple)}
+.contact .button:hover{background:transparent;border-color:#fff}
+.detail{display:none}.detail.active{display:block}
+.page-hero{padding-top:84px;min-height:560px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background-position:center;background-size:cover;color:white}
+.page-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(15,13,20,.54),rgba(15,13,20,.68))}
+.page-hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 24px 82px;max-width:920px}
+.breadcrumb{font-size:11px;color:rgba(255,255,255,.72);margin-bottom:28px;text-transform:uppercase;letter-spacing:.08em}
+.page-hero .eyebrow{color:#d9b8d1}
+.page-hero h1{font-size:78px;line-height:.95;color:#fff;text-align:center}
+.page-hero .lead{color:rgba(255,255,255,.85);text-align:center}
+.page-photo{display:none}
+.page-body{display:block;padding:82px 64px 66px;border-bottom:1px solid var(--line);background:#fff}
+.detail-title-wrap{text-align:center;max-width:900px;margin:0 auto 44px}
+.side-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:42px;color:var(--navy);font-weight:400;text-align:center}
+.detail-divider{width:76px;height:2px;background:var(--purple);margin:24px auto 0}
+.content{max-width:900px;margin:0 auto}
+.content p{font-size:16px;max-width:900px;margin:0 0 25px;text-align:justify;text-justify:inter-word;hyphens:auto}
+.topics{padding:48px 64px 74px;border-bottom:1px solid var(--line);background:#f4f2f5;text-align:center}
+.topics .eyebrow{font-size:10px;color:var(--purple);margin-bottom:10px}
+.topics h2{font-family:Inter,Arial,sans-serif;font-size:14px;font-weight:300;letter-spacing:0;max-width:780px;margin:0 auto 8px;color:#555}
+.topic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 70px;max-width:760px;margin:18px auto 0;padding:0;text-align:left}
+.topic-grid li{list-style:none;border-bottom:1px solid var(--line);padding:11px 0;font-size:14px;color:#4b4b4b}
+footer{background:#0f0e15;color:#fff;padding:54px 64px 28px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:70px;border-top:4px solid var(--purple)}
+footer p{color:#d4d4d4;font-size:13px;line-height:1.65}
+footer h4{text-transform:uppercase;letter-spacing:.18em;font-size:11px;margin:0 0 16px;color:#d9b8d1}
+.footer-logo{font-size:25px;color:white}
+@media(max-width:1000px){.practice-list{grid-template-columns:repeat(2,1fr)}.values{grid-template-columns:repeat(2,1fr)}.values article{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding:22px 18px}}
+@media(max-width:900px){
+.site-header,.practice-section,.firm,.insights,.admin,.contact,.page-body,.topics,footer{padding-left:24px;padding-right:24px}
+.site-header{height:76px}.logo{font-size:24px}nav a{display:none}
+.hero{padding-top:76px;min-height:680px;align-items:flex-end}.hero-copy{padding:110px 24px 72px;max-width:760px}.hero h1,.page-hero h1{font-size:48px}.hero:before,.hero:after{display:none}
+.practice-list,.contact,.admin-box,footer{grid-template-columns:1fr}.practice-list a{min-height:260px}
+.values,.article-grid,.form-grid,.topic-grid{grid-template-columns:1fr}.article-grid{gap:40px}.firm:before,.insights:before{left:24px}
+.page-hero{padding-top:76px;min-height:500px}.page-body{padding-top:60px}.side-title{font-size:36px}
+}
+
+
+/* Revision 13: About section, standalone articles/contact pages and WhatsApp access */
+.about-section{padding:96px 64px 94px;background:var(--bg);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.about-section:before{content:"";position:absolute;left:64px;top:0;width:2px;height:72px;background:var(--purple)}
+.about-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.55fr);gap:78px;align-items:start}
+.about-heading h2{font-size:56px;line-height:1.02;margin-top:8px}.about-heading .about-line{width:70px;height:2px;background:var(--purple);margin-top:28px}
+.about-copy p{font-size:15px;line-height:1.95;text-align:justify;margin:0 0 20px;color:#37323b}.about-copy p:last-child{margin-bottom:0}
+.page-shell{padding-top:84px;min-height:100vh;background:var(--bg)}
+.inner-hero{padding:92px 64px 72px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;position:relative;overflow:hidden}
+.inner-hero:after{content:"";position:absolute;right:8%;top:-110px;width:280px;height:280px;border:1px solid rgba(123,63,110,.55);transform:rotate(45deg)}
+.inner-hero .inner-wrap{max-width:1240px;margin:0 auto;position:relative;z-index:1}.inner-hero h1{font-size:64px;line-height:1;color:#fff}.inner-hero p{max-width:720px;color:rgba(255,255,255,.78);font-size:16px;margin-top:22px}
+.content-wrap{max-width:1240px;margin:0 auto;padding:82px 64px 100px}
+.contact-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:70px;align-items:start}.contact-card{background:#fff;border:1px solid var(--line);padding:38px}.contact-card h2{font-size:38px;margin-bottom:24px}.contact-detail{padding:19px 0;border-top:1px solid var(--line)}.contact-detail:first-of-type{border-top:0}.contact-detail small{display:block;color:var(--purple);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}.contact-detail p,.contact-detail a{margin:0;line-height:1.7;color:#343039}
+.contact-form{background:#fff;border:1px solid var(--line);padding:42px}.contact-form h2{font-size:42px;margin-bottom:8px}.contact-form>p{margin:0 0 28px}.public-form{display:grid;grid-template-columns:1fr 1fr;gap:18px}.public-form label{display:flex;flex-direction:column;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#4f4953}.public-form .full{grid-column:1/-1}.public-form input,.public-form select,.public-form textarea{width:100%;border:1px solid var(--line);background:#fbfafc;padding:14px 15px;font:inherit;color:var(--ink);outline:none}.public-form textarea{min-height:150px;resize:vertical}.public-form input:focus,.public-form select:focus,.public-form textarea:focus{border-color:var(--purple)}.form-note{font-size:11px;color:var(--muted);margin:4px 0 0;text-transform:none;letter-spacing:0}.submit-button{grid-column:1/-1;border:0;background:var(--purple);color:#fff;height:52px;font:inherit;font-size:12px;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:.25s}.submit-button:hover{background:var(--purple-2)}
+.whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border:1px solid rgba(22,21,31,.16);box-shadow:0 14px 35px rgba(0,0,0,.16);padding:12px 17px;font-size:12px;font-weight:500;letter-spacing:.04em}.whatsapp-float span:first-child{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:var(--purple);color:#fff;font-size:15px}.whatsapp-float:hover{transform:translateY(-2px)}
+.articles-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.article-page-card{background:#fff;border:1px solid var(--line);overflow:hidden}.article-page-image{height:230px;background:center/cover no-repeat;filter:grayscale(1);transition:.5s}.article-page-card:hover .article-page-image{filter:grayscale(0);transform:scale(1.025)}.article-page-body{padding:28px}.article-page-body small{font-size:10px;letter-spacing:.18em;color:var(--purple);text-transform:uppercase}.article-page-body h2{font-size:30px;line-height:1.1;margin:12px 0 14px}.article-page-body p{font-size:14px;margin:0}.article-page-link{display:inline-block;margin-top:20px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);font-weight:500}
+@media(max-width:900px){.about-inner,.contact-layout{grid-template-columns:1fr;gap:38px}.about-section,.inner-hero{padding-left:24px;padding-right:24px}.about-section:before{left:24px}.content-wrap{padding:60px 24px 80px}.articles-page-grid{grid-template-columns:1fr 1fr}.inner-hero h1{font-size:50px}}
+@media(max-width:620px){.public-form,.articles-page-grid{grid-template-columns:1fr}.public-form .full,.submit-button{grid-column:1}.about-heading h2{font-size:44px}.contact-form,.contact-card{padding:28px}.whatsapp-float{right:14px;bottom:14px}.whatsapp-float .wa-label{display:none}}
+
+
+/* Revision 14: single-file page views */
+.site-page{display:none}
+.site-page.active{display:block}
+body.page-view-open>footer{display:grid}
+
+/* Supabase CMS integration */
+.cms-status{padding:14px 18px;border:1px solid var(--line);background:#fff;margin:22px 0;font-size:13px;color:var(--muted)}
+.cms-status.error{border-color:#a86b73;color:#7a2530;background:#fff8f8}.cms-status:empty{display:none}
+.dynamic-article-link{cursor:pointer}
+.article-detail-page{display:none;padding-top:84px;min-height:100vh;background:#fff}
+.article-detail-page.active{display:block}
+.article-detail-hero{padding:100px 64px 70px;background:var(--navy);color:#fff}
+.article-detail-hero small{color:#d6bfd0;letter-spacing:.16em;text-transform:uppercase}
+.article-detail-hero h1{font-size:66px;max-width:950px;margin:14px 0 18px;color:#fff;line-height:1}
+.article-detail-hero p{color:#d8d4db;max-width:760px}
+.article-detail-content{max-width:900px;margin:auto;padding:70px 24px 90px}
+.article-detail-content img{max-width:100%;height:auto;margin:0 0 36px;filter:grayscale(1)}
+.article-detail-content .article-body{font-size:17px;line-height:1.9}
+.article-detail-content .article-body p{text-align:justify}
+.article-detail-content .back-link{display:inline-block;margin-bottom:32px;color:var(--purple);font-weight:500}
+@media(max-width:700px){.article-detail-hero{padding:80px 24px 55px}.article-detail-hero h1{font-size:44px}}
+
+
+/* Legal pages */
+.legal-page .content-wrap{max-width:1040px}
+.legal-copy{background:#fff;border:1px solid var(--line);padding:48px}
+.legal-copy h2{font-size:34px;margin:36px 0 14px;color:var(--navy)}
+.legal-copy h2:first-child{margin-top:0}
+.legal-copy p,.legal-copy li{font-size:15px;line-height:1.85;color:#3d3841;text-align:justify}
+.legal-copy ul{padding-left:22px}
+.legal-copy .legal-contact{background:#f6f3f6;border-left:3px solid var(--purple);padding:18px 20px;margin-top:28px}
+.kvkk-check{display:flex!important;flex-direction:row!important;align-items:flex-start;gap:10px;text-transform:none!important;letter-spacing:0!important}
+.kvkk-check input{width:auto!important;margin-top:3px}
+.kvkk-check a{color:var(--purple);text-decoration:underline}
+@media(max-width:700px){.legal-copy{padding:28px}}
+
+
+.footer-lawyer-identity{margin-top:18px;padding-top:17px;border-top:1px solid rgba(255,255,255,.14)}
+.footer-lawyer-identity strong{display:block;color:#fff;font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;font-weight:500;letter-spacing:.035em}
+.footer-lawyer-identity span{display:block;margin-top:7px;color:#d9b8d1;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+
+
+.mobile-menu-button{display:none;border:0;background:transparent;font-size:26px;line-height:1;cursor:pointer;color:var(--navy);padding:8px;margin-left:8px}
+@media(max-width:900px){
+ nav{gap:10px}.mobile-menu-button{display:block}.site-header nav{position:relative}.site-header nav.menu-open>a{display:block}.site-header nav.menu-open{position:absolute;top:76px;left:0;right:0;background:#fff;padding:14px 24px 20px;display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(0,0,0,.08)}.site-header nav.menu-open>a{padding:12px 0}.site-header nav.menu-open .lang{margin:8px 0 0}.site-header nav.menu-open .mobile-menu-button{position:absolute;right:18px;top:-64px}
+}
+
+.articles-empty{grid-column:1/-1;margin:8px 0 0;color:rgba(255,255,255,.72);font-size:14px}
+.articles-page-grid>.articles-empty{color:var(--muted);background:#fff;border:1px solid var(--line);padding:28px}
+.article-grid article.cms-home-article{cursor:pointer}
+.article-grid article.cms-home-article:focus{outline:2px solid #d9b8d1;outline-offset:5px}
+
+</style>
+<!-- FINAL HOME SUBTITLE FIX -->
+</head>
+<body>
+<noscript><div style="padding:14px;background:#fff3cd;color:#5f4b00;text-align:center">Bu sitenin dil ve sayfa geçişleri için JavaScript etkin olmalıdır.</div></noscript>
+<header class="site-header">
+<a class="logo" href="#" onclick="showHome(event)">YILDIRIM<small>LAW &amp; CONSULTANCY</small></a>
+<nav>
+<a data-i18n="navPractice" href="#practice" onclick="navigateHomeSection(event,'practice')">Çalışma Alanları</a>
+<a data-i18n="navFirm" href="#firm" onclick="navigateHomeSection(event,'firm')">Büromuz</a>
+<a data-i18n="navInsights" href="#articles-page" onclick="showSitePage(event,'articles')">Makaleler</a>
+<a data-i18n="navContact" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim</a>
+<div class="lang"><button class="active" id="trBtn" onclick="setLang('tr')">TR</button><span>|</span><button id="enBtn" onclick="setLang('en')">EN</button></div><button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Menüyü aç" data-i18n-attr="aria-label:mobileMenuAria" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
+</nav>
+</header>
+<main id="home">
+<section class="hero">
+<div aria-hidden="true" class="hero-media"></div>
+<div class="hero-copy">
+<p class="eyebrow">YILDIRIM LAW &amp; CONSULTANCY</p>
+<h1 data-i18n="heroTitle">Güven, açıklık ve titizlik üzerine kurulu hukuki çözümler.</h1>
+<p class="lead" data-i18n="heroLead">İstanbul merkezli büromuz; Türkiye’de ve yurt dışında faaliyet gösteren yerli ve yabancı gerçek ve tüzel kişilere hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunar.</p>
+<div class="actions"><a class="button" data-i18n="heroBtn" href="#practice" onclick="navigateHomeSection(event,'practice')">Çalışma Alanlarımız →</a><a class="text-link" data-i18n="heroContact" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim →</a></div>
+</div>
+<div class="photo hero-photo"></div>
+</section>
+<section class="about-section" id="about">
+<div class="about-inner">
+<div class="about-heading">
+<p class="eyebrow" data-i18n="aboutEyebrow">HAKKIMIZDA</p>
+<h2 data-i18n="aboutTitle">Biz Kimiz?</h2>
+<div class="about-line"></div>
+</div>
+<div class="about-copy">
+<p data-i18n="aboutP1">Yıldırım Law & Consultancy, İstanbul merkezli olarak faaliyet gösteren; gerçek ve tüzel kişilere ulusal ve uluslararası nitelikte hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunan bir hukuk bürosudur. Büromuz; ticaret ve şirketler hukuku, birleşme ve devralmalar, yabancılar hukuku, ceza hukuku, iş hukuku, icra hukuku ve sözleşmeler hukuku alanlarında müvekkillerinin ticari faaliyetleri sırasında ihtiyaç duyduğu hukuki desteği bütüncül bir yaklaşımla sağlamaktadır.</p>
+<p data-i18n="aboutP2">Hukuki danışmanlık, sözleşme hazırlama ve müzakere süreçleri, dava ve icra takibi, arabuluculuk ile diğer uyuşmazlık çözüm mekanizmaları dâhil olmak üzere faaliyet gösterdiğimiz tüm alanlarda müvekkillerimizin hak ve menfaatlerini korumayı hedefliyoruz. Şeffaf iletişim, güven esasına dayalı iş ilişkisi ve çözüm odaklı yaklaşımımızla, hukuki ihtiyaçlara yalnızca mevcut sorunların giderilmesi perspektifiyle değil, gelecekte doğabilecek risklerin önlenmesi anlayışıyla da yaklaşmaktayız.</p>
+</div>
+</div>
+</section>
+<section class="practice-section" id="practice">
+<div class="section-intro">
+<p class="eyebrow" data-i18n="practiceEyebrow">ÇALIŞMA ALANLARI</p>
+<p data-i18n="practiceIntro">Hukuki hizmet sunduğumuz temel alanlar aşağıdaki gibidir.</p>
+</div>
+<div class="practice-list" id="practiceList"></div>
+</section>
+<section class="firm" id="firm">
+<p class="eyebrow" data-i18n="approachEyebrow">ÇALIŞMA YAKLAŞIMIMIZ</p>
+<div class="values" id="values"></div>
+</section>
+<section class="insights" id="insights">
+<p class="eyebrow" data-i18n="insightsEyebrow">MAKALELER</p>
+<div class="article-grid" id="articles"></div>
+</section>
+<section class="contact" id="contact">
+<h2 data-i18n="contactTitle">İletişime Geçin</h2>
+<div><p data-i18n="contactText">Büromuzun iletişim bilgileri ve başvuru kanalları aşağıda yer almaktadır.</p><p>0 545 905 56 96<br/>f.betulyildirim@outlook.com.tr</p><a class="button" data-i18n="contactForm" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim Formu →</a></div>
+</section>
+</main>
+<main class="detail" id="detail"></main><main class="page-shell site-page" id="articlesPage"><section class="inner-hero"><div class="inner-wrap"><p class="eyebrow" data-i18n="articlesPageEyebrow">YAYINLAR</p><h1 data-i18n="articlesPageTitle">Makaleler</h1><p data-i18n="articlesPageIntro">Hukuki gelişmeler, güncel uygulamalar ve çalışma alanlarımıza ilişkin değerlendirmelerimizi bu sayfada paylaşıyoruz.</p></div></section><section class="content-wrap"><div id="articlesCmsStatus" class="cms-status"></div><div class="articles-page-grid" id="dynamicArticlesGrid"></div></section></main><main class="article-detail-page" id="articleDetailPage"></main><main class="page-shell site-page" id="contactPage"><section class="inner-hero"><div class="inner-wrap"><p class="eyebrow" data-i18n="contactPageEyebrow">İLETİŞİM</p><h1 data-i18n="contactPageTitle">Bize Ulaşın</h1><p data-i18n="contactPageIntro">Hukuki ihtiyaçlarınız ve danışmanlık talepleriniz için aşağıdaki iletişim kanallarından veya form aracılığıyla büromuza ulaşabilirsiniz.</p></div></section><section class="content-wrap"><div class="contact-layout"><aside class="contact-card"><p class="eyebrow" data-i18n="contactInfoEyebrow">İLETİŞİM BİLGİLERİ</p><h2>Yıldırım Law &amp; Consultancy</h2><div class="contact-detail"><small data-i18n="officeAddressLabel">Ofis Adresi</small><p>Soğanlık Yeni, Soğanlık D-100 Kuzey Yanyol No:72<br/>34880 Kartal / İstanbul</p></div><div class="contact-detail"><small data-i18n="phoneLabel">Telefon</small><a href="tel:+905459055696">0 545 905 56 96</a></div><div class="contact-detail"><small data-i18n="emailLabel">E-posta</small><a href="mailto:f.betulyildirim@outlook.com.tr">f.betulyildirim@outlook.com.tr</a></div><div class="contact-detail"><small data-i18n="whatsappLabel">WhatsApp</small><a data-i18n="directMessage" href="https://wa.me/905459055696" rel="noopener" target="_blank">Doğrudan mesaj gönderin →</a></div></aside><div class="contact-form"><p class="eyebrow" data-i18n="contactFormEyebrow">BİZE ULAŞIN</p><h2 data-i18n="contactFormTitle">İletişim Formu</h2><p data-i18n="contactFormIntro">Talebinizin niteliğini kısaca paylaşın; iletiniz e-posta uygulamanız üzerinden büromuza yönlendirilecektir.</p><form class="public-form" id="contactForm"><label><span data-i18n="nameLabel">Ad Soyad</span><input autocomplete="name" name="name" required=""/></label><label><span data-i18n="phoneLabel">Telefon</span><input autocomplete="tel" name="phone" required=""/></label><label><span data-i18n="emailLabel">E-posta</span><input autocomplete="email" name="email" required="" type="email"/></label><label><span data-i18n="subjectLabel">Konu</span><select name="subject"><option data-i18n="subjectAdvisory">Hukuki Danışmanlık Talebi</option><option data-i18n="subjectDispute">Dava ve Uyuşmazlık</option><option data-i18n="subjectCorporate">Şirketler ve Sözleşmeler</option><option data-i18n="subjectImmigration">Yabancılar Hukuku</option><option data-i18n="subjectOther">Diğer</option></select></label><label class="full"><span data-i18n="messageLabel">Mesajınız</span><textarea name="message" required=""></textarea><span class="form-note" data-i18n="formNote">Bu form avukat-müvekkil ilişkisi kurmaz. Acil veya süreye bağlı işlemler için ayrıca telefonla iletişime geçiniz.</span></label><label class="full kvkk-check"><input name="kvkkNotice" required type="checkbox"/><span data-i18n="kvkkConsent"><a href="#kvkk-page" onclick="showSitePage(event,'kvkk')">KVKK Aydınlatma Metni</a>’ni okuduğumu ve kişisel verilerimin belirtilen kapsamda işlenmesine ilişkin bilgilendirildiğimi kabul ederim.</span></label><button class="submit-button" data-i18n="submitMessage" type="submit">Mesajı Gönder →</button></form></div></div></section></main>
+
+<main class="page-shell site-page legal-page" id="kvkkPage">
+<section class="inner-hero"><div class="inner-wrap"><p class="eyebrow">KİŞİSEL VERİLERİN KORUNMASI</p><h1>KVKK Aydınlatma Metni</h1><p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerin işlenmesine ilişkin bilgilendirme.</p></div></section>
+<section class="content-wrap"><article class="legal-copy">
+<h2>1. Veri Sorumlusu</h2>
+<p>Yıldırım Law &amp; Consultancy (“Büro”), müvekkillerinin, müvekkil adaylarının, iş ortaklarının, tedarikçilerinin, internet sitesi ziyaretçilerinin ve iletişim kanalları üzerinden Büro ile irtibata geçen kişilerin kişisel verilerinin korunmasına önem vermektedir.</p>
+<p>Bu metin; hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri, dava ve yasal süreçlerin takibi, sözleşme ilişkilerinin kurulması ve yürütülmesi, teklif ve başvuruların değerlendirilmesi ile internet sitesi ve iletişim kanalları üzerinden edinilen kişisel verilerin işlenmesine ilişkin esasları açıklamaktadır.</p>
+
+<h2>2. İşlenen Kişisel Veriler</h2>
+<p>Somut ilişkinin niteliğine göre kimlik, iletişim, adres, mesleki bilgi, hukuki işlem, dosya ve uyuşmazlık bilgileri, finansal bilgiler, işlem güvenliği kayıtları ile tarafınızca Büroya iletilen belge ve içeriklerde yer alan kişisel veriler işlenebilir. Özel nitelikli kişisel veriler ise yalnızca hukuki hizmetin gerektirdiği ölçüde ve ilgili mevzuatta öngörülen şartlara uygun olarak işlenir.</p>
+
+<h2>3. Kişisel Verilerin İşlenme Amaçları</h2>
+<ul>
+<li>Talep edilen hukuki danışmanlık, dava takibi ve uyuşmazlık çözümü hizmetlerinin sunulması,</li>
+<li>Müvekkil adaylarının taleplerinin değerlendirilmesi ve teklif süreçlerinin yürütülmesi,</li>
+<li>Avukatlık ve danışmanlık sözleşmelerinin kurulması ve ifası,</li>
+<li>Müvekkil ilişkilerinin ve sözleşme süreçlerinin yürütülmesi,</li>
+<li>Dilekçe, sözleşme, hukuki görüş, rapor ve sair hukuki belgelerin hazırlanması,</li>
+<li>Kimlik, temsil ve imza yetkilerinin tespit edilmesi ve kontrolü,</li>
+<li>Dava, arabuluculuk, icra, idari başvuru ve diğer yasal süreçlerin yürütülmesi,</li>
+<li>Yetkili mahkemeler, icra daireleri, arabuluculuk büroları, noterlikler, kamu kurumları ve meslek kuruluşları nezdindeki yükümlülüklerin yerine getirilmesi,</li>
+<li>Hukuki ve mali yükümlülüklerin, arşivleme ve saklama yükümlülüklerinin yerine getirilmesi,</li>
+<li>Bilgi ve işlem güvenliğinin sağlanması, yetkisiz erişimlerin önlenmesi,</li>
+<li>İnternet sitesindeki iletişim formu, e-posta, telefon veya WhatsApp üzerinden iletilen taleplerin yanıtlanması.</li>
+</ul>
+
+<h2>4. Toplanma Yöntemi ve Hukuki Sebep</h2>
+<p>Kişisel veriler; yüz yüze görüşmeler, telefon, e-posta, WhatsApp, internet sitesi iletişim formu, posta, UYAP ve diğer elektronik sistemler, adli ve idari makamlar, sözleşmeler, vekâletnameler ve tarafınızca iletilen belgeler aracılığıyla sözlü, yazılı veya elektronik ortamda toplanabilir.</p>
+<p>Veriler; KVKK’nın 5. ve 6. maddelerinde yer alan kanunlarda açıkça öngörülme, bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma, veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi, bir hakkın tesisi, kullanılması veya korunması için zorunlu olma ve ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru menfaat hukuki sebeplerine dayanılarak işlenir. Açık rıza gereken hâllerde ayrıca açık rıza alınır.</p>
+
+<h2>5. Saklama, Silme ve Anonimleştirme</h2>
+<p>Kişisel veriler, işleme amaçlarının gerektirdiği süre ve ilgili mevzuatta öngörülen zamanaşımı, hak düşürücü süre, mesleki saklama ve arşiv yükümlülükleri boyunca muhafaza edilir. İşleme sebeplerinin ortadan kalkması hâlinde, kanuni saklama yükümlülükleri saklı kalmak üzere, kişisel veriler resen veya ilgili kişinin talebi üzerine silinir, yok edilir veya anonim hâle getirilir.</p>
+
+<h2>6. Kişisel Verilerin Aktarılması</h2>
+<p>Kişisel veriler; hukuki hizmetin yürütülmesi ve yasal yükümlülüklerin yerine getirilmesi amacıyla, gerekli ve ölçülü olmak kaydıyla, yetkili mahkeme ve icra dairelerine, arabuluculuk bürolarına, noterliklere, kolluk birimlerine, kamu kurum ve kuruluşlarına, barolara ve meslek kuruluşlarına, bilirkişi ve uzmanlara, mali müşavir ve bağımsız danışmanlara, hizmet alınan avukatlara, dava ve işlem taraflarına, banka ve ödeme kuruluşlarına ve teknik hizmet sağlayıcılarına aktarılabilir.</p>
+<p>İnternet sitesi, e-posta, veri tabanı, dosya saklama veya bulut hizmetlerinin yurt dışında bulunan sunucular üzerinden sağlanması hâlinde, kişisel verilerin yurt dışına aktarımı KVKK’nın 9. maddesi ve yürürlükteki ilgili mevzuata uygun hukuki güvenceler çerçevesinde gerçekleştirilir.</p>
+
+<h2>7. İlgili Kişinin Hakları</h2>
+<p>KVKK’nın 11. maddesi uyarınca ilgili kişiler;</p>
+<ul>
+<li>Kişisel verilerinin işlenip işlenmediğini öğrenme,</li>
+<li>İşlenmişse buna ilişkin bilgi talep etme,</li>
+<li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+<li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,</li>
+<li>Eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme,</li>
+<li>KVKK’nın 7. maddesindeki şartlar kapsamında silinmesini veya yok edilmesini isteme,</li>
+<li>Düzeltme, silme veya yok etme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
+<li>Münhasıran otomatik sistemler vasıtasıyla analiz sonucunda aleyhe bir sonucun ortaya çıkmasına itiraz etme,</li>
+<li>Kanuna aykırı işleme nedeniyle zarara uğranması hâlinde zararın giderilmesini talep etme</li>
+</ul>
+<p>haklarına sahiptir.</p>
+
+<h2>8. Başvuru Yöntemi</h2>
+<p>KVKK kapsamındaki taleplerinizi, kimliğinizi ve talebinizi açıkça belirterek yazılı şekilde Büro adresine veya kayıtlı iletişim adresimize iletebilirsiniz. Başvurular, talebin niteliğine göre en kısa sürede ve en geç otuz gün içinde sonuçlandırılır.</p>
+<div class="legal-contact"><strong>Yıldırım Law &amp; Consultancy</strong><br>Soğanlık Yeni, Soğanlık D-100 Kuzey Yanyol No:72, 34880 Kartal / İstanbul<br>E-posta: f.betulyildirim@outlook.com.tr<br>Telefon: 0 545 905 56 96</div>
+</article></section></main>
+
+<main class="page-shell site-page legal-page" id="disclaimerPage">
+<section class="inner-hero"><div class="inner-wrap"><p class="eyebrow">YASAL BİLGİLENDİRME</p><h1>Yasal Uyarı</h1><p>İnternet sitesindeki içeriklerin kullanımına ilişkin genel bilgilendirme.</p></div></section>
+<section class="content-wrap"><article class="legal-copy">
+<h2>Genel Bilgilendirme</h2>
+<p>Bu internet sitesinde yer alan açıklamalar, makaleler ve diğer içerikler yalnızca genel bilgilendirme amacıyla sunulmaktadır. İçerikler hukuki görüş, hukuki danışmanlık veya belirli bir uyuşmazlığa ilişkin değerlendirme niteliğinde değildir.</p>
+<h2>Avukat–Müvekkil İlişkisi</h2>
+<p>İnternet sitesinin ziyaret edilmesi, iletişim formunun kullanılması veya Büroya e-posta ya da WhatsApp mesajı gönderilmesi tek başına avukat–müvekkil ilişkisi kurmaz. Böyle bir ilişki ancak gerekli kontrollerin tamamlanması ve taraflar arasında açık bir hukuki hizmet ilişkisinin kurulmasıyla doğar.</p>
+<h2>Süreler ve Güncellik</h2>
+<p>Hukuki işlemler kanuni ve sözleşmesel sürelere tabi olabilir. İnternet sitesi üzerinden gönderilen iletilerin okunmuş veya işleme alınmış olduğu varsayılmamalıdır. Acil veya süreye bağlı işlemlerde ayrıca telefonla iletişime geçilmelidir. Mevzuat ve yargı uygulamaları zaman içinde değişebileceğinden içeriklerin güncelliği her somut olay bakımından ayrıca kontrol edilmelidir.</p>
+<h2>Üçüncü Taraf Bağlantıları</h2>
+<p>Üçüncü taraf internet sitelerine verilen bağlantılar yalnızca bilgilendirme amacı taşır. Bu sitelerin içeriği, güvenliği veya kişisel veri uygulamaları üzerinde Yıldırım Law &amp; Consultancy’nin kontrolü bulunmamaktadır.</p>
+</article></section></main>
+
+<a aria-label="WhatsApp üzerinden iletişime geçin" data-i18n-attr="aria-label:whatsappAria" class="whatsapp-float" href="https://wa.me/905459055696?text=Merhaba%2C%20hukuki%20dan%C4%B1%C5%9Fmanl%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." rel="noopener" target="_blank"><span>◔</span><span class="wa-label">WhatsApp</span></a>
+<footer>
+<div><div class="logo footer-logo">YILDIRIM<small>LAW &amp; CONSULTANCY</small></div><p data-i18n="footerDesc">İstanbul merkezli Yıldırım Law & Consultancy, bireysel ve kurumsal müvekkillerine ulusal ve uluslararası nitelikte hukuki danışmanlık, dava takibi ve uyuşmazlık çözümü hizmetleri sunar.</p>
+</div>
+<div class="footer-lawyer-identity" style="margin-top:0;padding-top:0;border-top:0">
+  <strong>Av. Fatma Betül YILDIRIM</strong>
+  <span data-i18n="footerLawyerTitle">Kurucu Avukat</span>
+</div>
+<div><h4 data-i18n="quickLinks">Hızlı Bağlantılar</h4><p><a data-i18n="quickFirm" href="#firm" onclick="navigateHomeSection(event,'firm')">Büromuz</a><br/><a data-i18n="quickArticles" href="#articles-page" onclick="showSitePage(event,'articles')">Makaleler</a><br/><a data-i18n="quickContact" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim</a><br/><a data-i18n="quickKvkk" href="#kvkk-page" onclick="showSitePage(event,'kvkk')">KVKK Aydınlatma Metni</a><br/><a data-i18n="quickDisclaimer" href="#yasal-uyari" onclick="showSitePage(event,'disclaimer')">Yasal Uyarı</a></p></div>
+<div><h4 data-i18n="navContact">İletişim</h4><p>Soğanlık Yeni, Soğanlık D-100 Kuzey Yanyol No:72<br/>34880 Kartal / İstanbul</p><p>0 545 905 56 96<br/>f.betulyildirim@outlook.com.tr</p></div>
+</footer>
+<script>
+let lang='tr';
+
+const i18n={
+tr:{
+navPractice:"Çalışma Alanları",navFirm:"Büromuz",navInsights:"Makaleler",navAdmin:"Admin",navContact:"İletişim",
+heroTitle:"Güven, açıklık ve titizlik üzerine kurulu hukuki çözümler.",
+heroLead:"İstanbul merkezli büromuz; Türkiye’de ve yurt dışında faaliyet gösteren yerli ve yabancı gerçek ve tüzel kişilere hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunar.",
+heroBtn:"Çalışma Alanlarımız →",heroContact:"İletişim →",aboutEyebrow:"HAKKIMIZDA",aboutTitle:"Biz Kimiz?",aboutP1:"Yıldırım Law & Consultancy, İstanbul merkezli olarak faaliyet gösteren; gerçek ve tüzel kişilere ulusal ve uluslararası nitelikte hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunan bir hukuk bürosudur. Büromuz; ticaret ve şirketler hukuku, birleşme ve devralmalar, yabancılar hukuku, ceza hukuku, iş hukuku, icra hukuku ve sözleşmeler hukuku alanlarında müvekkillerinin ticari faaliyetleri sırasında ihtiyaç duyduğu hukuki desteği bütüncül bir yaklaşımla sağlamaktadır.",aboutP2:"Hukuki danışmanlık, sözleşme hazırlama ve müzakere süreçleri, dava ve icra takibi, arabuluculuk ile diğer uyuşmazlık çözüm mekanizmaları dâhil olmak üzere faaliyet gösterdiğimiz tüm alanlarda müvekkillerimizin hak ve menfaatlerini korumayı hedefliyoruz. Şeffaf iletişim, güven esasına dayalı iş ilişkisi ve çözüm odaklı yaklaşımımızla, hukuki ihtiyaçlara yalnızca mevcut sorunların giderilmesi perspektifiyle değil, gelecekte doğabilecek risklerin önlenmesi anlayışıyla da yaklaşmaktayız.",
+practiceEyebrow:"ÇALIŞMA ALANLARI",practiceIntro:"Hukuki hizmet sunduğumuz temel alanlar aşağıdaki gibidir.",
+approachEyebrow:"ÇALIŞMA YAKLAŞIMIMIZ",insightsEyebrow:"MAKALELER",adminEyebrow:"ADMIN PANEL MOCKUP",
+adminTitle:"Makale ekleme ekranı doğrudan sitenin içinde çalışacak şekilde planlandı.",adminNew:"Yeni Makale",adminPosts:"Makaleler",adminSettings:"Ayarlar",adminNewTitle:"Yeni Makale",
+fieldTitle:"Başlık",fieldTitleValue:"Kira Tespit Davalarında Güncel Uygulama",fieldCat:"Kategori",catLease:"Kira Hukuku",catEmployment:"İş Hukuku",fieldImage:"Kapak Görseli",fieldImageValue:"Görsel yükle alanı",fieldSEO:"SEO Başlığı",fieldSEOValue:"Kira Tespit Davası ve Arabuluculuk",fieldBody:"Makale Metni",fieldBodyValue:"Makalenizi Word benzeri editör alanına yazacaksınız. Taslak kaydedebilir veya yayınlayabilirsiniz.",draftBtn:"Taslak Kaydet",publishBtn:"Yayınla →",
+contactTitle:"İletişime Geçin",contactText:"Büromuzun iletişim bilgileri ve başvuru kanalları aşağıda yer almaktadır.",contactForm:"İletişim Formu →",
+articlesPageEyebrow:"YAYINLAR",articlesPageTitle:"Makaleler",articlesPageIntro:"Hukuki gelişmeler, güncel uygulamalar ve çalışma alanlarımıza ilişkin değerlendirmelerimizi bu sayfada paylaşıyoruz.",contactPageEyebrow:"İLETİŞİM",contactPageTitle:"Bize Ulaşın",contactPageIntro:"Hukuki ihtiyaçlarınız ve danışmanlık talepleriniz için aşağıdaki iletişim kanallarından veya form aracılığıyla büromuza ulaşabilirsiniz.",contactInfoEyebrow:"İLETİŞİM BİLGİLERİ",officeAddressLabel:"Ofis Adresi",phoneLabel:"Telefon",emailLabel:"E-posta",whatsappLabel:"WhatsApp",directMessage:"Doğrudan mesaj gönderin →",contactFormEyebrow:"BİZE ULAŞIN",contactFormTitle:"İletişim Formu",contactFormIntro:"Talebinizin niteliğini kısaca paylaşın; iletiniz e-posta uygulamanız üzerinden büromuza yönlendirilecektir.",nameLabel:"Ad Soyad",subjectLabel:"Konu",subjectAdvisory:"Hukuki Danışmanlık Talebi",subjectDispute:"Dava ve Uyuşmazlık",subjectCorporate:"Şirketler ve Sözleşmeler",subjectImmigration:"Yabancılar Hukuku",subjectOther:"Diğer",messageLabel:"Mesajınız",formNote:"Bu form avukat-müvekkil ilişkisi kurmaz. Acil veya süreye bağlı işlemler için ayrıca telefonla iletişime geçiniz.",submitMessage:"Mesajı Gönder →",kvkkConsent:"<a href=\"#kvkk-page\" onclick=\"showSitePage(event,'kvkk')\">KVKK Aydınlatma Metni</a>’ni okuduğumu ve kişisel verilerimin belirtilen kapsamda işlenmesine ilişkin bilgilendirildiğimi kabul ederim.",whatsappAria:"WhatsApp üzerinden iletişime geçin",mobileMenuAria:"Menüyü aç",quickFirm:"Büromuz",quickArticles:"Makaleler",quickContact:"İletişim",quickKvkk:"KVKK Aydınlatma Metni",quickDisclaimer:"Yasal Uyarı",
+footerLawyerTitle:"Kurucu Avukat",footerDesc:"İstanbul merkezli Yıldırım Law & Consultancy, bireysel ve kurumsal müvekkillerine ulusal ve uluslararası nitelikte hukuki danışmanlık, dava takibi ve uyuşmazlık çözümü hizmetleri sunar.",footerPractice:"Çalışma Alanları",quickLinks:"Hızlı Bağlantılar",quickList:"Büromuz<br>Makaleler<br>İletişim<br>KVKK Aydınlatma Metni<br>Yasal Uyarı",
+caseTypes:"DAVA TÜRLERİ",caseTypesText:"Bu alanda takip edilen başlıca dava ve işlem türleri aşağıdaki gibidir.",
+values:[
+["Mesleki Etik","Bağımsızlık, sadakat yükümlülüğü ve meslek kurallarına uygun hareket etmeyi esas alırız."],
+["Gizlilik","Müvekkil bilgileri ve dosyaya ilişkin belgeler mesleki gizlilik kapsamında korunur."],
+["Titiz İnceleme","Hukuki meseleleri usul, süre, belge ve delil yönünden dikkatli analiz ederiz."],
+["Şeffaf İletişim","Süreç ve olası hukuki yollar hakkında anlaşılır bilgi aktarılmasına önem veririz."],
+["Mesleki Özen","Her dosya kendi somut koşulları ve hukuki çerçevesi içinde değerlendirilir."]
+],
+articles:[]
+},
+en:{
+navPractice:"Practice Areas",navFirm:"The Firm",navInsights:"Articles",navAdmin:"Admin",navContact:"Contact",
+heroTitle:"Legal solutions built on trust, clarity and precision.",
+heroLead:"Our Istanbul-based firm provides strategic, reliable and tailored legal advisory and dispute resolution services to Turkish and foreign individuals and legal entities operating in Türkiye and abroad.",
+heroBtn:"Practice Areas →",heroContact:"Contact →",aboutEyebrow:"ABOUT US",aboutTitle:"Who We Are",aboutP1:"Yıldırım Law & Consultancy is an Istanbul-based law firm providing domestic and international legal advisory and dispute resolution services to individuals and legal entities. The firm provides integrated legal support in corporate and commercial law, mergers and acquisitions, immigration law, criminal law, employment law, enforcement law and contract law.",aboutP2:"Across all of our practice areas, including legal advisory, contract drafting and negotiation, litigation and enforcement proceedings, mediation and other dispute resolution mechanisms, we aim to protect our clients’ rights and interests. Through transparent communication, trust-based professional relationships and a solution-oriented approach, we address legal needs not only by resolving existing issues but also by seeking to prevent risks that may arise in the future.",
+practiceEyebrow:"PRACTICE AREAS",practiceIntro:"The principal areas in which we provide legal services are listed below.",
+approachEyebrow:"OUR APPROACH",insightsEyebrow:"ARTICLES",adminEyebrow:"ADMIN PANEL MOCKUP",
+adminTitle:"The article publishing screen is planned to operate directly within the website.",adminNew:"New Article",adminPosts:"Articles",adminSettings:"Settings",adminNewTitle:"New Article",
+fieldTitle:"Title",fieldTitleValue:"Current Practice in Rent Determination Cases",fieldCat:"Category",catLease:"Lease Law",catEmployment:"Employment Law",fieldImage:"Cover Image",fieldImageValue:"Image upload field",fieldSEO:"SEO Title",fieldSEOValue:"Rent Determination Cases and Mediation",fieldBody:"Article Body",fieldBodyValue:"You will write your article in a Word-like editor. You may save it as a draft or publish it.",draftBtn:"Save Draft",publishBtn:"Publish →",
+contactTitle:"Get in Touch",contactText:"The firm’s contact details and communication channels are provided below.",contactForm:"Contact Form →",
+articlesPageEyebrow:"PUBLICATIONS",articlesPageTitle:"Articles",articlesPageIntro:"We share our analyses of legal developments, current practice and matters within our practice areas on this page.",contactPageEyebrow:"CONTACT",contactPageTitle:"Contact Us",contactPageIntro:"You may reach our firm through the contact channels below or by using the form regarding your legal needs and advisory requests.",contactInfoEyebrow:"CONTACT DETAILS",officeAddressLabel:"Office Address",phoneLabel:"Phone",emailLabel:"E-mail",whatsappLabel:"WhatsApp",directMessage:"Send a direct message →",contactFormEyebrow:"CONTACT US",contactFormTitle:"Contact Form",contactFormIntro:"Please briefly describe your request; your message will be directed to our firm through your e-mail application.",nameLabel:"Full Name",subjectLabel:"Subject",subjectAdvisory:"Legal Advisory Request",subjectDispute:"Litigation and Disputes",subjectCorporate:"Corporate and Contracts",subjectImmigration:"Immigration Law",subjectOther:"Other",messageLabel:"Your Message",formNote:"This form does not create an attorney-client relationship. Please also contact us by phone for urgent or time-sensitive matters.",submitMessage:"Send Message →",kvkkConsent:"I have read the <a href=\"#kvkk-page\" onclick=\"showSitePage(event,'kvkk')\">KVKK Disclosure Notice</a> and acknowledge that I have been informed about the processing of my personal data within the stated scope.",whatsappAria:"Contact via WhatsApp",mobileMenuAria:"Open menu",quickFirm:"The Firm",quickArticles:"Articles",quickContact:"Contact",quickKvkk:"KVKK Disclosure",quickDisclaimer:"Disclaimer",
+footerLawyerTitle:"Attorney at Law",footerDesc:"Istanbul-based Yıldırım Law & Consultancy provides legal advisory, litigation and dispute resolution services to individual and corporate clients.",footerPractice:"Practice Areas",quickLinks:"Quick Links",quickList:"The Firm<br>Articles<br>Contact<br>KVKK Disclosure<br>Disclaimer",
+caseTypes:"CASE TYPES",caseTypesText:"The main case and procedure types handled in this area are listed below.",
+values:[
+["Professional Ethics","We act in accordance with independence, duty of loyalty and professional rules."],
+["Confidentiality","Client information and case-related documents are protected under professional confidentiality."],
+["Careful Review","We analyse legal matters with attention to procedure, deadlines, documents and evidence."],
+["Transparent Communication","We value clear communication regarding the process and possible legal pathways."],
+["Professional Diligence","Each file is assessed within its own facts and legal framework."]
+],
+articles:[]
+}
+};
+
+const practices={
+tr:[
+{title:"Aile Hukuku",summary:"Boşanma, velayet, nafaka ve mal rejimi uyuşmazlıklarına ilişkin danışmanlık ve temsil.",image:"https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1800&q=85",body:["Aile hukuku, bireylerin aile ilişkilerinden doğan kişisel ve malvarlığına ilişkin hak ve yükümlülüklerini düzenleyen temel hukuk alanlarından biridir. Evlilik, boşanma, velayet, nafaka, mal rejiminin tasfiyesi, soybağı ve evlat edinme gibi konular, yalnızca hukuki sonuçları bakımından değil, tarafların kişisel yaşamları üzerindeki etkileri bakımından da özel bir özen ve hassasiyet gerektirir.","Yıldırım Law & Consultancy olarak aile hukukundan kaynaklanan uyuşmazlıklarda müvekkillerimize danışmanlık ve temsil hizmeti sunuyoruz. Her dosya kendi somut koşulları içerisinde değerlendirilmekte; dava öncesi hukuki analiz, müzakere süreçleri, dava takibi ve karar sonrası işlemler bütüncül bir yaklaşımla yürütülmektedir.","Uyuşmazlıkların niteliğine göre önleyici hukuki danışmanlık hizmeti sunulmakta; gerektiğinde yargısal süreçler usule uygun ve özenli şekilde takip edilmektedir. Süreç boyunca müvekkillerimiz düzenli olarak bilgilendirilmekte, hukuki seçenekler ve olası sonuçlar açık bir şekilde değerlendirilmektedir.","Çalışmalarımızda gizlilik, mesleki etik ve özen yükümlülüğü temel ilkelerimiz arasında yer almakta olup her uyuşmazlık kendi hukuki dinamikleri içerisinde ele alınmaktadır."],topics:["Anlaşmalı boşanma","Çekişmeli boşanma","Nafaka davaları","Velayet davaları","Mal rejiminin tasfiyesi"]},
+{title:"İş Hukuku",summary:"İşçilik alacakları, fesih, işe iade ve arabuluculuk süreçlerine ilişkin hukuki destek.",image:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85",body:["İş hukuku, işçi ve işveren arasındaki çalışma ilişkisinden doğan hak ve yükümlülükleri düzenleyen dinamik bir hukuk alanıdır. Ücret, fazla mesai, yıllık izin, kıdem ve ihbar tazminatı, işe iade ve fesih süreçleri hem maddi hukuk hem de usul hukuku bakımından dikkatle değerlendirilmelidir.","Yıldırım Law & Consultancy olarak iş hukuku alanında işçi ve işveren tarafına danışmanlık ve temsil hizmeti sunuyoruz. Dosyalar; iş sözleşmeleri, SGK kayıtları, bordrolar, yazışmalar, tanık delilleri ve fesih gerekçeleri dikkate alınarak incelenmektedir.","Zorunlu arabuluculuk aşaması, dava hazırlığı ve yargılama süreci; süreler, ispat araçları ve talep kalemleri bakımından sistemli şekilde yürütülür. Uyuşmazlığın niteliğine göre ihtarname, arabuluculuk başvurusu, dava dilekçesi ve delil stratejisi birlikte ele alınır.","Bu alandaki çalışmalarımızda tarafların hak ve yükümlülüklerinin mevzuat ve yargı uygulamaları çerçevesinde belirlenmesi, sürecin açık biçimde aktarılması ve dosyanın hukuki çerçevesinin doğru kurulması amaçlanır."],topics:["Kıdem tazminatı","İhbar tazminatı","Fazla mesai alacağı","İşe iade davası","Hizmet tespiti"]},
+{title:"Ticaret Hukuku",summary:"Ticari sözleşmeler, alacak ilişkileri ve ticari uyuşmazlıkların takibi.",image:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85",body:["Ticaret hukuku, tacirler, şirketler ve ticari işletmeler arasındaki hukuki ilişkileri düzenleyen geniş kapsamlı bir alandır. Ticari sözleşmeler, alacak ilişkileri, haksız rekabet, cari hesap uyuşmazlıkları ve ticari davalar, hem hukuki hem de ticari gerçeklik dikkate alınarak değerlendirilmelidir.","Yıldırım Law & Consultancy olarak ticari faaliyetlerden doğan uyuşmazlıklar ve işletmelerin günlük hukuki ihtiyaçları kapsamında danışmanlık ve temsil hizmeti sunuyoruz. Sözleşme hazırlığı, risk analizi, ihtarname süreçleri, dava ve icra takibi bu kapsamda ele alınmaktadır.","Ticari uyuşmazlıklarda belge düzeni, taraflar arasındaki yazışmalar, faturalar, sözleşme hükümleri ve ifa süreçleri birlikte incelenir. Uyuşmazlığın niteliğine göre müzakere, arabuluculuk, dava veya icra yolu değerlendirilir.","Bu alandaki yaklaşımımız, müvekkilin faaliyet alanını ve ticari hedeflerini gözeterek uygulanabilir, ölçülü ve hukuki zemini güçlü çözümler geliştirmeye dayanır."],topics:["Ticari alacak davası","Haksız rekabet davası","Cari hesap uyuşmazlığı","Ticari sözleşme davası","Ticari arabuluculuk"]},
+{title:"Şirketler Hukuku",summary:"Şirket kuruluşu, pay devri, genel kurul ve kurumsal süreçlere ilişkin hukuki danışmanlık.",image:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85",body:["Şirketler hukuku, şirketlerin kuruluşundan sona ermesine kadar geçen süreçte ortaklık yapısı, yönetim, temsil, karar alma mekanizmaları ve kurumsal işlemleri düzenleyen hukuk alanıdır. Şirket içi uyuşmazlıklar, pay devri, genel kurul ve yönetim kurulu kararları, dikkatli belge düzeni ve mevzuata uygunluk gerektirir.","Yıldırım Law & Consultancy olarak şirket kuruluşları, kurumsal yönetim süreçleri, pay sahipliği ilişkileri, sermaye işlemleri ve şirket içi hukuki ihtiyaçlara ilişkin danışmanlık hizmeti sunuyoruz.","Kurumsal işlemlerde ticaret sicili süreçleri, ana sözleşme hükümleri, ortaklık yapısı ve şirketin faaliyet alanı birlikte değerlendirilir.","Bu alanda hedefimiz, şirketlerin hukuki altyapısını güçlendirmek ve kurumsal işlemlerin mevzuata uygun yürütülmesine katkı sağlamaktır."],topics:["Ortaklık uyuşmazlığı","Pay devri işlemleri","Genel kurul iptali","Şirket kuruluşu","Şirket tasfiyesi"]},
+{title:"Sözleşmeler Hukuku",summary:"Sözleşme hazırlığı, incelemesi, müzakere ve sözleşmeden doğan uyuşmazlıklar.",image:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80",body:["Sözleşmeler hukuku, taraflar arasındaki hukuki ilişkinin sınırlarını belirleyen ve işlem güvenliğini sağlayan temel hukuk alanlarından biridir.","Yıldırım Law & Consultancy olarak farklı nitelikteki sözleşmelerin hazırlanması, incelenmesi, müzakere edilmesi ve sözleşmeden doğan uyuşmazlıkların takibi konularında hukuki destek sunuyoruz.","Sözleşme ilişkilerinde yalnızca metnin hazırlanması değil, metnin uygulanabilirliği ve tarafların ileride karşılaşabileceği riskler de dikkate alınmalıdır.","Bu alandaki çalışmalarımız, tarafların yükümlülüklerini açık biçimde belirleyen metinler oluşturmayı amaçlar."],topics:["Sözleşme alacağı davası","Sözleşmenin feshi","Cezai şart alacağı","Kira sözleşmesi uyuşmazlığı","Protokol hazırlanması"]},
+{title:"Birleşme ve Devralmalar",summary:"Hisse devri, şirket devralmaları, due diligence ve kapanış işlemleri.",image:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85",body:["Birleşme ve devralmalar, şirketlerin pay devri, malvarlığı devri, birleşme, bölünme veya yeniden yapılanma süreçlerini kapsayan çok yönlü işlemlerdir.","Yıldırım Law & Consultancy olarak birleşme ve devralma süreçlerinde hukuki due diligence (DD) incelemelerinin ve red flag raporlarının hazırlanması, işlem dokümantasyonu, pay devri sözleşmeleri, kapanış işlemleri ve kurumsal kararların hazırlanması konularında destek sağlıyoruz.","Bu tür işlemlerde amaç, işlem öncesinde mevcut hukuki riskleri tespit etmek ve tarafların yükümlülüklerini açık şekilde düzenlemektir.","Birleşme ve devralmalar alanındaki yaklaşımımız, hukuki risklerin anlaşılır şekilde ortaya konulmasına dayanır."],topics:["Hisse devri","Şirket devralması","Hukuki durum tespiti","Pay devir sözleşmesi","Kapanış işlemleri"]},
+{title:"Fikri Mülkiyet Hukuku",summary:"Marka, telif, tasarım, lisans ve fikri hak uyuşmazlıkları.",image:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",body:["Fikri mülkiyet hukuku; marka, patent, tasarım, telif hakkı, lisans ve ticari sır gibi hakların korunması, kullanılması ve devrine ilişkin süreçleri düzenler.","Yıldırım Law & Consultancy olarak marka ve diğer fikri haklara ilişkin başvuru, itiraz, sözleşme ve uyuşmazlık süreçlerinde hukuki destek sunuyoruz.","Fikri mülkiyet uyuşmazlıklarında hak sahipliği, kullanım şekli, tescil belgeleri ve ihlal iddiasının niteliği birlikte ele alınır.","Bu alandaki hizmetlerimiz, müvekkilin marka değeri ve ticari faaliyeti dikkate alınarak fikri hakların korunmasına yönelik hukuki zemini oluşturmayı amaçlar."],topics:["Marka itirazı","Marka hükümsüzlüğü","Marka ihlali davası","Telif hakkı uyuşmazlığı","Lisans sözleşmesi"]},
+{title:"Yabancılar ve Vatandaşlık Hukuku",summary:"İkamet, çalışma izni, vatandaşlık, deport kararları ve idari başvurular.",image:"https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1800&q=80",body:["Yabancılar ve vatandaşlık hukuku, Türkiye’de bulunan veya Türkiye ile hukuki ilişki kurmak isteyen yabancı kişilerin ikamet, çalışma, vatandaşlık ve idari işlemlerle ilgili süreçlerini kapsar.","Yıldırım Law & Consultancy olarak ikamet izni, çalışma izni, vatandaşlık başvuruları, deport kararlarına itiraz ve idari dava süreçlerinde hukuki destek sunuyoruz.","Yabancılar hukukunda idari makamların uygulamaları, belge eksiklikleri, tebligat tarihleri ve dava açma süreleri özel önem taşır.","Bu alanda amaç, sürecin başından itibaren gerekli belgelerin tespiti ve başvuruların usule uygun hazırlanmasıdır."],topics:["İkamet izni başvurusu","Çalışma izni başvurusu","Vatandaşlık başvurusu","Deport kararına itiraz","Tahdit kodu işlemleri"]},
+{title:"İdare Hukuku",summary:"İdari işlemlere karşı başvuru, iptal ve tam yargı davaları.",image:"https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1800&q=80",body:["İdare hukuku, kamu idareleri tarafından tesis edilen işlemler ile bireyler ve şirketler arasındaki hukuki ilişkileri düzenler.","Yıldırım Law & Consultancy olarak idari işlemlere karşı başvuru ve dava süreçlerinde danışmanlık ve temsil hizmeti sunuyoruz.","İdare hukuku uyuşmazlıklarında sürelerin doğru belirlenmesi ve başvuru yollarının usule uygun kullanılması son derece önemlidir.","Bu alandaki yaklaşımımız, idari sürecin başından itibaren hukuki argümanların doğru kurulmasına dayanır."],topics:["İptal davası","Tam yargı davası","Yürütmenin durdurulması","İdari para cezası itirazı","Disiplin işlemleri"]},
+{title:"İcra ve İflas Hukuku",summary:"Alacak takibi, icra işlemleri, itiraz ve menfi tespit süreçleri.",image:"https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1800&q=85",body:["İcra ve iflas hukuku, alacakların tahsili, borç ilişkilerinin takibi ve borçlu-alacaklı uyuşmazlıklarının çözümüne ilişkin süreçleri düzenler.","Yıldırım Law & Consultancy olarak alacaklı ve borçlu taraflara icra takipleri ve icra hukukundan kaynaklanan uyuşmazlıklarda hukuki destek sunuyoruz.","İcra süreçleri çoğu zaman kısa kanuni sürelere bağlıdır. Bu nedenle borcun dayanağı, ödeme emrinin içeriği ve takip yolu birlikte ele alınmalıdır.","Bu alandaki çalışmalarımızda, kanuni süreler ve hukuki yollar dikkate alınarak takip stratejisi oluşturulur."],topics:["İlamsız icra takibi","İlamlı icra takibi","İtirazın iptali","Menfi tespit davası","Haciz işlemleri"]},
+{title:"Gayrimenkul Hukuku",summary:"Kira, tapu, taşınmaz alım satımı ve inşaat sözleşmelerinden doğan uyuşmazlıklar.",image:"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=85",body:["Gayrimenkul hukuku; taşınmaz mülkiyeti, kira ilişkileri, tapu işlemleri, inşaat sözleşmeleri ve taşınmazlardan doğan uyuşmazlıkları kapsar.","Yıldırım Law & Consultancy olarak kira uyuşmazlıkları, tapu ve taşınmaz işlemleri, tahliye süreçleri, kira tespit ve uyarlama davaları ile inşaat sözleşmelerinden doğan uyuşmazlıklarda hukuki destek sağlıyoruz.","Gayrimenkul işlemlerinde tapu kayıtları, şerhler, sözleşme hükümleri, kullanım durumu ve tarafların edimleri dikkatle incelenmelidir.","Bu alanda amaç, işlem öncesinde hukuki riskleri belirlemek ve müvekkilin taşınmaz üzerindeki haklarını korumaktır."],topics:["Kira tespit davası","Tahliye davası","Tapu iptal ve tescil","Ortaklığın giderilmesi","Elatmanın önlenmesi"]},
+{title:"Ceza Hukuku",summary:"Suç duyurusu, mağdur vekilliği, savunma ve ceza yargılaması süreçleri.",image:"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=80",body:["Ceza hukuku, suç teşkil eden fiiller, soruşturma ve kovuşturma süreçleri ile mağdur ve şüpheli/sanık haklarını düzenleyen temel hukuk alanlarından biridir.","Yıldırım Law & Consultancy olarak suç duyuruları, mağdur vekilliği, savunma, itiraz ve ceza yargılamasına ilişkin süreçlerde hukuki destek sunuyoruz.","Ceza dosyalarında olayın hukuki niteliği, delil durumu, şikayet süreleri ve başvurulabilecek kanun yolları bütüncül şekilde incelenmelidir.","Bu alandaki çalışmalarımızda masumiyet karinesi, mağdur hakları, savunma hakkı ve adil yargılanma ilkeleri gözetilir."],topics:["Suç duyurusu","Mağdur vekilliği","Tutukluluğa itiraz","KYOK itirazı","Uzlaştırma süreci"]}
+],
+en:[
+{title:"Family Law",summary:"Advisory and representation in divorce, custody, alimony and property regime matters.",image:"https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1800&q=85",body:["Family law is a core legal field governing personal and financial rights arising from family relationships. Marriage, divorce, custody, alimony, property regime disputes, parentage and adoption require particular care due to their legal and personal consequences.","Yıldırım Law & Consultancy provides advisory and representation services in family law matters. Each file is assessed according to its specific facts, and pre-litigation analysis, negotiations, litigation and post-judgment steps are handled through a comprehensive approach.","Depending on the nature of the dispute, preventive legal advice may be provided and court proceedings may be followed with procedural care. Clients are informed throughout the process regarding available legal options and potential outcomes.","Confidentiality, professional ethics and diligence form the basis of our work, and each matter is handled within its own legal dynamics."],topics:["Uncontested divorce","Contested divorce","Alimony claims","Custody cases","Property regime liquidation"]},
+{title:"Employment Law",summary:"Legal assistance regarding employment receivables, termination, reinstatement and mediation.",image:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85",body:["Employment law regulates the rights and obligations arising from the employment relationship between employees and employers. Wages, overtime, annual leave, severance and notice pay, reinstatement and termination processes must be reviewed carefully from both substantive and procedural perspectives.","Yıldırım Law & Consultancy provides advisory and representation services for both employees and employers. Employment contracts, SSI records, payrolls, correspondence, witness evidence and termination grounds are reviewed together.","Mandatory mediation, litigation preparation and proceedings are conducted with attention to deadlines, evidence and claim items. Depending on the matter, notices, mediation applications, petitions and evidence strategy are evaluated together.","Our work aims to determine the rights and obligations of the parties in line with legislation and judicial practice, while clearly communicating the process to clients."],topics:["Severance pay","Notice pay","Overtime receivables","Reinstatement cases","Service determination"]},
+{title:"Commercial Law",summary:"Commercial contracts, receivables and commercial disputes.",image:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85",body:["Commercial law governs legal relations between merchants, companies and commercial enterprises. Commercial contracts, receivables, unfair competition, current account disputes and commercial litigation require evaluation with both legal and commercial considerations.","Yıldırım Law & Consultancy provides advisory and representation services in disputes arising from commercial activity and the daily legal needs of businesses. Contract drafting, risk analysis, notices, litigation and enforcement proceedings are handled within this scope.","In commercial disputes, document flow, correspondence, invoices, contractual provisions and performance processes are reviewed together. Depending on the nature of the dispute, negotiation, mediation, litigation or enforcement may be considered.","Our approach is based on developing practical, measured and legally sound solutions by considering the client’s field of activity and commercial objectives."],topics:["Commercial receivables","Unfair competition","Current account disputes","Commercial contract cases","Commercial mediation"]},
+{title:"Corporate Law",summary:"Legal support regarding incorporation, share transfers, general assemblies and corporate procedures.",image:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85",body:["Corporate law regulates ownership structure, management, representation, decision-making mechanisms and corporate transactions throughout a company’s lifecycle. Internal corporate disputes, share transfers and board or general assembly decisions require careful documentation and compliance.","Yıldırım Law & Consultancy provides legal support regarding incorporation, corporate governance, shareholding relations, capital procedures and internal company matters.","Corporate registry processes, articles of association, shareholding structures and the company’s field of activity are assessed together.","Our aim is to strengthen the legal infrastructure of companies and contribute to the proper conduct of corporate procedures."],topics:["Shareholder disputes","Share transfers","General assembly cancellation","Incorporation","Company liquidation"]},
+{title:"Contract Law",summary:"Contract drafting, review, negotiation and contract-related disputes.",image:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80",body:["Contract law is one of the fundamental areas that defines the legal relationship between parties and ensures transactional security.","Yıldırım Law & Consultancy provides legal support in drafting, reviewing, negotiating and following disputes arising from various types of contracts.","Not only the wording of the contract, but also its enforceability and the risks the parties may face are taken into account.","Our work aims to create clear, applicable texts that define obligations and anticipate available legal remedies."],topics:["Contract receivables","Termination of contract","Penalty clause claims","Lease contract disputes","Protocol drafting"]},
+{title:"Mergers & Acquisitions",summary:"Share transfers, acquisitions, due diligence and closing procedures.",image:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85",body:["Mergers and acquisitions cover multi-layered transactions such as share transfers, asset transfers, mergers, demergers and restructurings.","Yıldırım Law & Consultancy provides support in conducting legal due diligence (DD), preparing red flag reports, transaction documentation, share transfer agreements, closing procedures and corporate approvals.","The aim is to identify legal risks before the transaction and clearly structure the parties’ obligations.","Our M&A approach is based on presenting legal risks clearly and managing the transaction through an applicable contractual and closing framework."],topics:["Share transfer","Acquisition","Legal due diligence","Share transfer agreement","Closing procedures"]},
+{title:"Intellectual Property Law",summary:"Trademark, copyright, design, licensing and IP disputes.",image:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",body:["Intellectual property law governs the protection, use and transfer of rights such as trademarks, patents, designs, copyrights, licenses and trade secrets.","Yıldırım Law & Consultancy provides legal support regarding applications, objections, contracts and disputes concerning trademarks and other intellectual property rights.","In IP disputes, ownership, use, registration documents and the nature of the alleged infringement are reviewed together.","Our services aim to establish a legal basis for protecting intellectual property rights with consideration of brand value and commercial activity."],topics:["Trademark objection","Trademark invalidity","Trademark infringement","Copyright dispute","License agreement"]},
+{title:"Immigration & Citizenship Law",summary:"Residence, work permits, citizenship, deportation decisions and administrative applications.",image:"https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1800&q=80",body:["Immigration and citizenship law covers residence, work, citizenship and administrative procedures for foreign individuals in Türkiye or those establishing legal ties with Türkiye.","Yıldırım Law & Consultancy provides legal support in residence permits, work permits, citizenship applications, objections to deportation decisions and administrative lawsuits.","Administrative practice, missing documents, notification dates and litigation deadlines are particularly important in immigration law.","The aim is to determine the necessary documents from the outset and prepare applications in accordance with procedure."],topics:["Residence permit","Work permit","Citizenship application","Deportation objection","Restriction code matters"]},
+{title:"Administrative Law",summary:"Applications against administrative acts, annulment and full remedy actions.",image:"https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1800&q=80",body:["Administrative law regulates legal relations between public authorities and individuals or companies.","Yıldırım Law & Consultancy provides advisory and representation services in applications and lawsuits against administrative acts.","In administrative disputes, deadlines and the proper use of application routes are of particular importance.","Our approach is based on establishing legal arguments accurately from the beginning of the administrative process."],topics:["Annulment action","Full remedy action","Stay of execution","Administrative fine objection","Disciplinary procedures"]},
+{title:"Enforcement & Bankruptcy Law",summary:"Debt collection, enforcement proceedings, objections and negative declaratory actions.",image:"https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1800&q=85",body:["Enforcement and bankruptcy law governs collection of receivables, debt tracking and the resolution of debtor-creditor disputes.","Yıldırım Law & Consultancy provides legal support to creditors and debtors in enforcement proceedings and related disputes.","Enforcement proceedings are often subject to short statutory deadlines. Therefore, the legal basis of the debt, the payment order and the enforcement route must be reviewed together.","Our work is based on establishing a strategy that protects the client’s legal position with attention to deadlines and legal remedies."],topics:["Ordinary enforcement","Judgment enforcement","Annulment of objection","Negative declaratory action","Attachment proceedings"]},
+{title:"Real Estate Law",summary:"Lease, title deed, property transactions and construction-related disputes.",image:"https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=85",body:["Real estate law covers ownership, lease relations, title deed procedures, construction agreements and disputes arising from immovable property.","Yıldırım Law & Consultancy provides legal support in lease disputes, title deed matters, eviction, rent determination and adaptation cases, and construction agreement disputes.","Title deed records, annotations, contractual provisions, usage status and parties’ obligations must be reviewed carefully in real estate transactions.","The aim is to identify legal risks before the transaction and protect the client’s rights over the property."],topics:["Rent determination","Eviction action","Title deed cancellation","Dissolution of co-ownership","Prevention of interference"]},
+{title:"Criminal Law",summary:"Criminal complaints, victim representation, defence and criminal proceedings.",image:"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=80",body:["Criminal law regulates criminal acts, investigation and prosecution processes, and the rights of victims and suspects/defendants.","Yıldırım Law & Consultancy provides legal support in criminal complaints, victim representation, defence, objections and criminal proceedings.","In criminal files, the legal nature of the incident, evidence, complaint periods and available legal remedies must be reviewed as a whole.","Our work is conducted with regard to the presumption of innocence, victim rights, the right to defence and fair trial principles."],topics:["Criminal complaint","Victim representation","Objection to detention","Objection to non-prosecution","Mediation procedure"]}
+]
+};
+
+function toggleMobileMenu(){
+ const nav=document.querySelector('.site-header nav');
+ const btn=document.getElementById('mobileMenuButton');
+ const open=nav.classList.toggle('menu-open');
+ btn.setAttribute('aria-expanded',String(open));
+ btn.textContent=open?'×':'☰';
+}
+function closeMobileMenu(){
+ const nav=document.querySelector('.site-header nav');
+ const btn=document.getElementById('mobileMenuButton');
+ nav.classList.remove('menu-open');
+ if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='☰';}
+}
+
+function setLang(next){
+ lang=next;
+ document.documentElement.lang=next;
+ document.getElementById('trBtn').classList.toggle('active',next==='tr');
+ document.getElementById('enBtn').classList.toggle('active',next==='en');
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(i18n[next][key]!==undefined)el.innerHTML=i18n[next][key]});
+ document.querySelectorAll('[data-i18n-attr]').forEach(el=>{
+  const [attr,key]=el.dataset.i18nAttr.split(':');
+  if(i18n[next][key]!==undefined)el.setAttribute(attr,i18n[next][key]);
+ });
+ renderDynamic();
+ if(window.refreshCmsLanguage) window.refreshCmsLanguage();
+ if(document.getElementById('detail').classList.contains('active') && !document.getElementById('detail').dataset.cmsArticleIndex){
+   const current = document.getElementById('detail').dataset.index || 0;
+   openPractice(Number(current),false);
+ }
+ const activePage=document.querySelector('.site-page.active');
+ if(activePage){
+   const pageName=activePage.id==='articlesPage'?'articles':activePage.id==='contactPage'?'contact':activePage.id==='kvkkPage'?'kvkk':'disclaimer';
+   showSitePage(null,pageName,false);
+ }
+}
+
+
+// Detailed and corporate practice-area descriptions added in Revision 9.
+const practiceExpansion={
+tr:[
+"Hizmet kapsamı belirlenirken uyuşmazlığın hukuki niteliği kadar müvekkilin ticari, mali ve kişisel öncelikleri de dikkate alınır. İlgili mevzuat, güncel yargı yaklaşımı, sözleşmesel düzenlemeler ve mevcut deliller birlikte değerlendirilerek kısa, orta ve uzun vadeli sonuçlar bakımından uygulanabilir bir hukuki yol haritası oluşturulur.",
+"Danışmanlık ve temsil sürecinde dosyanın tüm aşamaları planlı biçimde takip edilir; gerekli başvurular, müzakereler, yazışmalar ve yargısal işlemler süre ve şekil koşulları gözetilerek hazırlanır. Müvekkile yalnızca mevcut hukuki durum değil, alternatif çözüm yolları, muhtemel riskler ve sürecin olası sonuçları da açık ve anlaşılır şekilde aktarılır.",
+"Yurt içi ve sınır aşan unsurlar içeren işlerde, Türk hukukunun emredici düzenlemeleri ile işlemin uluslararası boyutu birlikte ele alınır. Gerektiğinde yabancı dilde belge incelemesi, sözleşme müzakeresi ve farklı ülkelerdeki kişi veya kurumlarla yürütülen süreçlerin koordinasyonu sağlanarak bütüncül ve kurumsal bir hizmet sunulması hedeflenir."
+],
+en:[
+"The scope of our engagement is determined not only by the legal nature of the matter, but also by the client’s commercial, financial and personal priorities. Applicable legislation, current judicial practice, contractual arrangements and available evidence are assessed together to establish a practical legal roadmap addressing short-, medium- and long-term consequences.",
+"Throughout advisory and representation work, each stage is managed in a structured manner. Applications, negotiations, correspondence and court proceedings are prepared with close attention to statutory deadlines and procedural requirements, while clients are informed clearly about available options, material risks and possible outcomes.",
+"For domestic and cross-border matters, mandatory provisions of Turkish law are considered together with the international aspects of the transaction or dispute. Where required, we coordinate foreign-language document review, contract negotiations and communications with persons or institutions in different jurisdictions to provide a consistent and corporate legal service."
+]
+};
+Object.keys(practices).forEach(code=>{
+  practices[code].forEach(item=>{
+    const additions=practiceExpansion[code]||practiceExpansion.en;
+    additions.forEach(paragraph=>{ if(!item.body.includes(paragraph)) item.body.push(paragraph); });
+
+    // Her çalışma alanının açıklamasını en fazla iki bütünlüklü paragrafta sunar.
+    const cleanBody=item.body.map(paragraph=>String(paragraph).trim()).filter(Boolean);
+    if(cleanBody.length>2){
+      const splitPoint=Math.ceil(cleanBody.length/2);
+      item.body=[
+        cleanBody.slice(0,splitPoint).join(' '),
+        cleanBody.slice(splitPoint).join(' ')
+      ];
+    }
+  });
+});
+
+function renderDynamic(){
+ const data=practices[lang];
+ document.getElementById('practiceList').innerHTML=data.map((p,i)=>`<a href="#practice-${i}" onclick="openPractice(${i});return false;"><div class="practice-card-image" style="background-image:url('${p.image}')"></div><div class="practice-card-content"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="practice-name">${p.title}</span><span>→</span></div></a>`).join('');
+ document.getElementById('values').innerHTML=i18n[lang].values.map(v=>`<article><h3>${v[0]}</h3><p>${v[1]}</p></article>`).join('');
+ const homeArticles=document.getElementById('articles');
+ if(homeArticles && !homeArticles.dataset.cmsLoaded){
+   homeArticles.innerHTML=`<p class="articles-empty">${lang==='tr'?'Henüz yayımlanmış bir makale bulunmuyor.':'No articles have been published yet.'}</p>`;
+ }
+ const dynamicGrid=document.getElementById('dynamicArticlesGrid');
+ if(dynamicGrid && !dynamicGrid.dataset.cmsLoaded && !dynamicGrid.children.length){
+   dynamicGrid.innerHTML=`<p class="articles-empty">${lang==='tr'?'Henüz yayımlanmış bir makale bulunmuyor.':'No articles have been published yet.'}</p>`;
+ }
+}
+
+
+function getCmsArticleCards(){
+ const grid=document.getElementById('dynamicArticlesGrid');
+ if(!grid)return [];
+ return Array.from(grid.children).filter(el=>
+   el.matches('article, .article-page-card, [data-article-id], [data-slug]') &&
+   !el.classList.contains('articles-empty')
+ );
+}
+
+function syncHomepageLatestArticles(){
+ const homeGrid=document.getElementById('articles');
+ const sourceGrid=document.getElementById('dynamicArticlesGrid');
+ if(!homeGrid || !sourceGrid)return;
+ const cards=getCmsArticleCards().slice(0,3); // CMS listesi en yeniden eskiye sıralanır.
+ if(!cards.length){
+   homeGrid.dataset.cmsLoaded='false';
+   homeGrid.innerHTML=`<p class="articles-empty">${lang==='tr'?'Henüz yayımlanmış bir makale bulunmuyor.':'No articles have been published yet.'}</p>`;
+   return;
+ }
+ homeGrid.dataset.cmsLoaded='true';
+ homeGrid.innerHTML='';
+ cards.forEach(source=>{
+   const imageNode=source.querySelector('.article-page-image,.article-img,img');
+   let image='';
+   if(imageNode){
+     image=imageNode.tagName==='IMG' ? `url('${imageNode.currentSrc||imageNode.src}')` : imageNode.style.backgroundImage;
+     if(!image)image=getComputedStyle(imageNode).backgroundImage;
+   }
+   const category=(source.querySelector('small,[data-category],.article-category')?.textContent||'').trim();
+   const title=(source.querySelector('h2,h3,[data-title],.article-title')?.textContent||'').trim();
+   if(!title)return;
+   const card=document.createElement('article');
+   card.className='cms-home-article';
+   card.tabIndex=0;
+   card.setAttribute('role','link');
+   card.setAttribute('aria-label',title);
+   const imageDiv=document.createElement('div');
+   imageDiv.className='article-img';
+   if(image) imageDiv.style.backgroundImage=image;
+   const categoryEl=document.createElement('small');
+   categoryEl.textContent=category;
+   const titleEl=document.createElement('h3');
+   titleEl.textContent=title;
+   card.append(imageDiv,categoryEl,titleEl);
+   const openSource=()=>{
+     const link=source.querySelector('a[href]');
+     if(link) link.click(); else source.click();
+   };
+   card.addEventListener('click',openSource);
+   card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSource();}});
+   homeGrid.appendChild(card);
+ });
+}
+
+function initialiseCmsArticleBridge(){
+ const grid=document.getElementById('dynamicArticlesGrid');
+ if(!grid)return;
+ const observer=new MutationObserver(()=>{
+   const realCards=getCmsArticleCards();
+   if(realCards.length){
+     grid.dataset.cmsLoaded='true';
+     Array.from(grid.querySelectorAll(':scope > .articles-empty')).forEach(el=>el.remove());
+   }
+   syncHomepageLatestArticles();
+ });
+ observer.observe(grid,{childList:true,subtree:true,attributes:true,attributeFilter:['style','class','data-article-id','data-slug']});
+ syncHomepageLatestArticles();
+}
+
+function navigateHomeSection(e, sectionId){
+ if(e)e.preventDefault();
+ closeMobileMenu();
+ document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
+ document.title='Yıldırım Law & Consultancy';
+ const home=document.getElementById('home');
+ const detail=document.getElementById('detail');
+ home.style.display='block';
+ detail.classList.remove('active');
+ history.pushState({page:'home',section:sectionId},'',`#${sectionId}`);
+ requestAnimationFrame(()=>{
+   const target=document.getElementById(sectionId);
+   if(target){
+     const headerOffset=document.querySelector('.site-header')?.offsetHeight || 84;
+     const top=target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+     window.scrollTo({top,behavior:'smooth'});
+   }
+ });
+}
+
+function openPractice(i,scroll=true,push=true){
+ closeMobileMenu();
+ document.getElementById('articleDetailPage')?.classList.remove('active');
+ document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
+ const p=practices[lang][i];
+ document.title=p.title+' | Yıldırım Law & Consultancy';
+ const detail=document.getElementById('detail');
+ detail.dataset.index=i;
+ document.getElementById('home').style.display='none';
+ detail.classList.add('active');
+ const breadcrumb=lang==='tr'?'Ana Sayfa / Çalışma Alanları / ':'Home / Practice Areas / ';
+ const contactTitle=lang==='tr'?'Hukuki danışmanlık talebiniz için bizimle iletişime geçebilirsiniz.':'You may contact us regarding your legal advisory request.';
+ const contactText=lang==='tr'?'Dosyanızın niteliğine göre izlenebilecek hukuki yollar ayrıca değerlendirilecektir.':'Available legal options will be assessed according to the nature of your matter.';
+ detail.innerHTML=`<section class="page-hero" style="background-image:url('${p.image}')"><div class="page-hero-copy"><div class="breadcrumb"><a href="#" onclick="showHome(event)">${breadcrumb}${p.title}</a></div><p class="eyebrow">${lang==='tr'?'ÇALIŞMA ALANI':'PRACTICE AREA'}</p><h1>${p.title}</h1><p class="lead">${p.summary}</p></div></section><section class="page-body"><div class="detail-title-wrap"><div class="side-title">${p.title}</div><div class="detail-divider"></div></div><div class="content">${p.body.map(x=>`<p>${x}</p>`).join('')}</div></section><section class="topics"><p class="eyebrow">${i18n[lang].caseTypes}</p><h2>${i18n[lang].caseTypesText}</h2><ul class="topic-grid">${p.topics.map(t=>`<li>${t}</li>`).join('')}</ul></section><section class="contact"><h2>${contactTitle}</h2><div><p>${contactText}</p><a class="button" href="mailto:f.betulyildirim@outlook.com.tr">${lang==='tr'?'İletişim →':'Contact →'}</a></div></section>`;
+ if(push) history.pushState({page:'practice',index:i},'',`#practice-${i}`);
+ if(scroll)window.scrollTo(0,0);
+}
+
+function showHome(e,push=true){
+ if(e)e.preventDefault();
+ closeMobileMenu();
+ document.getElementById('articleDetailPage')?.classList.remove('active');
+ document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
+ document.title='Yıldırım Law & Consultancy';
+ document.getElementById('home').style.display='block';
+ document.getElementById('detail').classList.remove('active');
+ if(push) history.pushState({page:'home'},'','#home');
+ window.scrollTo(0,0);
+}
+
+
+function hideAllPrimaryViews(){
+ document.getElementById('home').style.display='none';
+ document.getElementById('articleDetailPage')?.classList.remove('active');
+ document.getElementById('detail').classList.remove('active');
+ document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
+}
+
+function showSitePage(e,pageName,push=true){
+ if(e)e.preventDefault();
+ closeMobileMenu();
+ hideAllPrimaryViews();
+ const pageMap={
+  articles:{id:'articlesPage',title:lang==='tr'?'Makaleler':'Articles',hash:'#articles-page'},
+  contact:{id:'contactPage',title:lang==='tr'?'İletişim':'Contact',hash:'#contact-page'},
+  kvkk:{id:'kvkkPage',title:'KVKK Aydınlatma Metni',hash:'#kvkk-page'},
+  disclaimer:{id:'disclaimerPage',title:lang==='tr'?'Yasal Uyarı':'Disclaimer',hash:'#yasal-uyari'}
+ };
+ const config=pageMap[pageName]||pageMap.contact;
+ const page=document.getElementById(config.id);
+ if(page)page.classList.add('active');
+ document.title=config.title+' | Yıldırım Law & Consultancy';
+ if(push)history.pushState({page:pageName},'',config.hash);
+ window.scrollTo(0,0);
+}
+
+function initialiseContactForm(){
+ const form=document.getElementById('contactForm');
+ if(!form || form.dataset.bound==='true')return;
+ form.dataset.bound='true';
+ form.addEventListener('submit',function(e){
+  e.preventDefault();
+  const f=new FormData(this);
+  const subject=encodeURIComponent((lang==='tr'?'[Web Sitesi] ':'[Website] ')+f.get('subject'));
+  const body=encodeURIComponent((lang==='tr'?'Ad Soyad: ':'Name: ')+f.get('name')+'\n'+(lang==='tr'?'Telefon: ':'Phone: ')+f.get('phone')+'\n'+(lang==='tr'?'E-posta: ':'Email: ')+f.get('email')+'\n\n'+(lang==='tr'?'Mesaj:\n':'Message:\n')+f.get('message'));
+  window.location.href='mailto:f.betulyildirim@outlook.com.tr?subject='+subject+'&body='+body;
+ });
+}
+initialiseContactForm();
+
+window.addEventListener('popstate',e=>{
+ const state=e.state;
+ if(state&&state.page==='practice'){
+   openPractice(Number(state.index),true,false);
+ }else if(state&&state.page==='articles'){
+   showSitePage(null,'articles',false);
+ }else if(state&&state.page==='contact'){
+   showSitePage(null,'contact',false);
+ }else if(state&&state.page==='kvkk'){
+   showSitePage(null,'kvkk',false);
+ }else if(state&&state.page==='disclaimer'){
+   showSitePage(null,'disclaimer',false);
+ }else if(state&&state.page==='cms-article'){
+   if(window.openCmsArticleByIndex) window.openCmsArticleByIndex(Number(state.index),false);
+ }else{
+   showHome(null,false);
+   const sectionId=state&&state.section ? state.section : (location.hash||'').replace('#','');
+   if(sectionId && sectionId!=='home'){
+     requestAnimationFrame(()=>{
+       const target=document.getElementById(sectionId);
+       if(target){
+         const headerOffset=document.querySelector('.site-header')?.offsetHeight || 84;
+         window.scrollTo(0,target.getBoundingClientRect().top + window.pageYOffset - headerOffset);
+       }
+     });
+   }
+ }
+});
+const initialHash=(location.hash||'#home');
+if(initialHash==='#articles-page'){
+ history.replaceState({page:'articles'},'',initialHash);
+ showSitePage(null,'articles',false);
+}else if(initialHash==='#contact-page'){
+ history.replaceState({page:'contact'},'',initialHash);
+ showSitePage(null,'contact',false);
+}else{
+ history.replaceState({page:'home'},'',initialHash);
+}
+renderDynamic();
+setLang('tr');
+initialiseContactForm();
+initialiseCmsArticleBridge();
+</script>
+
+<script type="module" src="cms-public.js"></script>
+</body>
+</html>
