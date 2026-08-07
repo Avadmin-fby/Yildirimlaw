@@ -8,7 +8,7 @@ const grid = document.getElementById('dynamicArticlesGrid');
 const statusElement = document.getElementById('articlesCmsStatus');
 const detail = document.getElementById('articleDetailPage');
 let articles = [];
-const currentLang = () => window.lang === 'en' ? 'en' : 'tr';
+const currentLang = () => document.documentElement.lang === 'en' ? 'en' : 'tr';
 const field = (article, trKey, enKey) => currentLang() === 'en' && article[enKey] ? article[enKey] : article[trKey];
 
 function safeHtml(html) {

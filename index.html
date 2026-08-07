@@ -564,7 +564,14 @@ function syncHomepageLatestArticles(){
    card.tabIndex=0;
    card.setAttribute('role','link');
    card.setAttribute('aria-label',title);
-   card.innerHTML=`<div class="article-img"${image?` style="background-image:${image}"`:''}></div><small>${category}</small><h3>${title}</h3>`;
+   const imageDiv=document.createElement('div');
+   imageDiv.className='article-img';
+   if(image) imageDiv.style.backgroundImage=image;
+   const categoryEl=document.createElement('small');
+   categoryEl.textContent=category;
+   const titleEl=document.createElement('h3');
+   titleEl.textContent=title;
+   card.append(imageDiv,categoryEl,titleEl);
    const openSource=()=>{
      const link=source.querySelector('a[href]');
      if(link) link.click(); else source.click();
