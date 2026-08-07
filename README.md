@@ -1,24 +1,33 @@
-# Yıldırım Law & Consultancy – Supabase Makale Yönetimi
+# Yıldırım Law & Consultancy — Yayın Paketi v1.0
 
-## Dosyalar
-- `index.html`: Ziyaretçi sitesi ve dinamik makaleler
-- `admin.html`: Yönetici girişi ve makale yönetimi
-- `supabase-config.js`: Proje URL ve publishable key
-- `supabase-setup.sql`: Tablo, RLS ve Storage kurulum komutları
+## Yüklenecek dosyalar
+Bu klasördeki dosyaları adlarını değiştirmeden GitHub deposunun kök dizinine yükleyin. Özellikle `admin.html`, `admin.js`, `cms-public.js`, `supabase-client.js` ve `supabase-config.js` aynı klasörde bulunmalıdır.
 
-## Kurulum
-1. Supabase üzerinde yeni proje oluşturun.
-2. SQL Editor bölümünde `supabase-setup.sql` içeriğini çalıştırın.
-3. Authentication > Users bölümünden kendi e-posta adresinizle bir kullanıcı oluşturun.
-4. Kullanıcının UUID değerini kopyalayın ve SQL dosyasının sonundaki `insert into public.admin_users...` komutunu gerçek UUID ile ayrıca çalıştırın.
-5. Authentication ayarlarında **Allow new users to sign up** seçeneğini kapatın.
-6. Project Settings > API bölümünden Project URL ve **publishable key** değerlerini alın; `supabase-config.js` içine yazın. `service_role` anahtarını hiçbir dosyaya koymayın.
-7. Klasörü Netlify, Cloudflare Pages, GitHub Pages veya kendi hostinginize yükleyin. `file://` ile açmak yerine bir web sunucusunda çalıştırın. Yerel test için klasörde `python3 -m http.server 8080` çalıştırıp `http://localhost:8080` adresini açabilirsiniz.
-8. `admin.html` sayfasından giriş yaparak makale ekleyin.
+## Mevcut Supabase projesi için tek işlem
+Supabase > SQL Editor bölümünde `supabase-security-update.sql` dosyasını **bir kez** çalıştırın. Bu işlem yayın tarihini veritabanı tarafında korur ve görsel dosyalarını admin kullanıcının kendi klasörüyle sınırlar.
 
-## Güvenlik
-- Yazma, düzenleme ve silme yetkisi RLS ile yalnızca `admin_users` tablosunda bulunan hesaba verilir.
-- Ziyaretçiler yalnızca `published` durumundaki makaleleri okuyabilir.
-- Görseller 5 MB ile ve JPEG/PNG/WebP türleriyle sınırlandırılmıştır.
-- Admin kayıt sayfası yoktur; Supabase üzerinde yeni kullanıcı kaydı kapatılmalıdır.
-- Makale içerik alanı HTML kabul eder. Admin hesabını yalnızca siz kullanın ve dışarıdan alınan HTML'i kontrol etmeden yapıştırmayın.
+## Authentication kontrolü
+Supabase Authentication ayarlarında yeni kullanıcı kaydı kapalı tutulmalıdır. Admin hesabı dışında kullanıcı eklemeyin.
+
+## Makale sistemi
+Demo makale yoktur. Admin panelinden yayınlanan gerçek makaleler Makaleler sayfasında listelenir; en yeni üç yayın ana sayfaya otomatik yansır. Taslaklar ziyaretçiye gösterilmez.
+
+## Favicon / FSEK
+Favicon, sitenin koyu mor kurumsal rengi kullanılarak bu paket için sıfırdan oluşturulmuş tipografik bir “Y” tasarımıdır. Hazır ikon, üçüncü kişi logosu veya ikon kütüphanesi kullanılmamıştır.
+
+## Reklam yasağı
+Metinlerde karşılaştırmalı üstünlük, başarı/sonuç garantisi, “en iyi/uzman/lider” gibi ifadeler ve müvekkil referansları kullanılmamıştır. Arama motoru reklamı veya faaliyet alanlarını reklam anahtar kelimesi olarak kullanma ayrıca değerlendirilmelidir.
+
+## Domain kesinleşince
+`canonical`, Open Graph URL ve `sitemap.xml` için gerçek domain eklenmelidir. Domain bilinmediğinden pakete varsayımsal adres yazılmamıştır.
+
+## Dosya adları
+Finder’ın eklediği `(1)` veya `(2)` uzantılı adları kullanmayın. Bu paketteki normalleştirilmiş adları aynen yükleyin.
+
+
+## Code Review v1.1
+- Admin paneline mevcut veritabanı alanlarıyla uyumlu İngilizce başlık, özet ve makale içeriği alanları eklendi.
+- CMS makale kartları dil değişiminde yeniden oluşturulur; İngilizce alanlar varsa kullanılır, yoksa Türkçe içerik gösterilir.
+- Standart hukuk alanları için İngilizce kategori karşılıkları eklendi.
+- Makale detaylarında tarayıcı ileri/geri ve doğrudan `#article-slug` bağlantısı desteği güçlendirildi.
+- Mobil menü erişilebilirlik etiketi TR/EN dil sistemine bağlandı.

@@ -3,8 +3,21 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Yıldırım Law &amp; Consultancy</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="description" content="Yıldırım Law & Consultancy, İstanbul merkezli olarak gerçek ve tüzel kişilere hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunar."/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#5a244f"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Yıldırım Law & Consultancy"/>
+<meta property="og:description" content="İstanbul merkezli hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri."/>
+<meta property="og:image" content="https://plus.unsplash.com/premium_photo-1661962550248-59cf249e078b?auto=format&fit=crop&fm=jpg&q=85&w=1600"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
@@ -180,18 +193,49 @@ body.page-view-open>footer{display:grid}
 .article-detail-content .back-link{display:inline-block;margin-bottom:32px;color:var(--purple);font-weight:500}
 @media(max-width:700px){.article-detail-hero{padding:80px 24px 55px}.article-detail-hero h1{font-size:44px}}
 
+
+/* Legal pages */
+.legal-page .content-wrap{max-width:1040px}
+.legal-copy{background:#fff;border:1px solid var(--line);padding:48px}
+.legal-copy h2{font-size:34px;margin:36px 0 14px;color:var(--navy)}
+.legal-copy h2:first-child{margin-top:0}
+.legal-copy p,.legal-copy li{font-size:15px;line-height:1.85;color:#3d3841;text-align:justify}
+.legal-copy ul{padding-left:22px}
+.legal-copy .legal-contact{background:#f6f3f6;border-left:3px solid var(--purple);padding:18px 20px;margin-top:28px}
+.kvkk-check{display:flex!important;flex-direction:row!important;align-items:flex-start;gap:10px;text-transform:none!important;letter-spacing:0!important}
+.kvkk-check input{width:auto!important;margin-top:3px}
+.kvkk-check a{color:var(--purple);text-decoration:underline}
+@media(max-width:700px){.legal-copy{padding:28px}}
+
+
+.footer-lawyer-identity{margin-top:18px;padding-top:17px;border-top:1px solid rgba(255,255,255,.14)}
+.footer-lawyer-identity strong{display:block;color:#fff;font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;font-weight:500;letter-spacing:.035em}
+.footer-lawyer-identity span{display:block;margin-top:7px;color:#d9b8d1;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+
+
+.mobile-menu-button{display:none;border:0;background:transparent;font-size:26px;line-height:1;cursor:pointer;color:var(--navy);padding:8px;margin-left:8px}
+@media(max-width:900px){
+ nav{gap:10px}.mobile-menu-button{display:block}.site-header nav{position:relative}.site-header nav.menu-open>a{display:block}.site-header nav.menu-open{position:absolute;top:76px;left:0;right:0;background:#fff;padding:14px 24px 20px;display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(0,0,0,.08)}.site-header nav.menu-open>a{padding:12px 0}.site-header nav.menu-open .lang{margin:8px 0 0}.site-header nav.menu-open .mobile-menu-button{position:absolute;right:18px;top:-64px}
+}
+
+.articles-empty{grid-column:1/-1;margin:8px 0 0;color:rgba(255,255,255,.72);font-size:14px}
+.articles-page-grid>.articles-empty{color:var(--muted);background:#fff;border:1px solid var(--line);padding:28px}
+.article-grid article.cms-home-article{cursor:pointer}
+.article-grid article.cms-home-article:focus{outline:2px solid #d9b8d1;outline-offset:5px}
+
 </style>
+<!-- FINAL HOME SUBTITLE FIX -->
 </head>
 <body>
+<noscript><div style="padding:14px;background:#fff3cd;color:#5f4b00;text-align:center">Bu sitenin dil ve sayfa geçişleri için JavaScript etkin olmalıdır.</div></noscript>
 <header class="site-header">
 <a class="logo" href="#" onclick="showHome(event)">YILDIRIM<small>LAW &amp; CONSULTANCY</small></a>
 <nav>
 <a data-i18n="navPractice" href="#practice" onclick="navigateHomeSection(event,'practice')">Çalışma Alanları</a>
 <a data-i18n="navFirm" href="#firm" onclick="navigateHomeSection(event,'firm')">Büromuz</a>
 <a data-i18n="navInsights" href="#articles-page" onclick="showSitePage(event,'articles')">Makaleler</a>
-<a data-i18n="navAdmin" href="admin.html">Admin</a>
 <a data-i18n="navContact" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim</a>
-<div class="lang"><button class="active" id="trBtn" onclick="setLang('tr')">TR</button><span>|</span><button id="enBtn" onclick="setLang('en')">EN</button></div>
+<div class="lang"><button class="active" id="trBtn" onclick="setLang('tr')">TR</button><span>|</span><button id="enBtn" onclick="setLang('en')">EN</button></div><button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Menüyü aç" data-i18n-attr="aria-label:mobileMenuAria" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
 </nav>
 </header>
 <main id="home">
@@ -200,7 +244,7 @@ body.page-view-open>footer{display:grid}
 <div class="hero-copy">
 <p class="eyebrow">YILDIRIM LAW &amp; CONSULTANCY</p>
 <h1 data-i18n="heroTitle">Güven, açıklık ve titizlik üzerine kurulu hukuki çözümler.</h1>
-<p class="lead" data-i18n="heroLead">İstanbul merkezli büromuz; Türkiye’de ve yurt dışında faaliyet gösteren yerli ve yabancı gerçek ve tüzel kişilere, ihtiyaçlarına özel, stratejik ve güvenilir hukuki danışmanlık ile uyuşmazlık çözümü hizmetleri sunar.</p>
+<p class="lead" data-i18n="heroLead">İstanbul merkezli büromuz; Türkiye’de ve yurt dışında faaliyet gösteren yerli ve yabancı gerçek ve tüzel kişilere hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunar.</p>
 <div class="actions"><a class="button" data-i18n="heroBtn" href="#practice" onclick="navigateHomeSection(event,'practice')">Çalışma Alanlarımız →</a><a class="text-link" data-i18n="heroContact" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim →</a></div>
 </div>
 <div class="photo hero-photo"></div>
@@ -213,15 +257,15 @@ body.page-view-open>footer{display:grid}
 <div class="about-line"></div>
 </div>
 <div class="about-copy">
-<p data-i18n="aboutP1">Yıldırım Law &amp; Consultancy, İstanbul merkezli olarak faaliyet gösteren; yerli ve yabancı gerçek ve tüzel kişilere ulusal ve uluslararası nitelikte hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunan bir hukuk bürosudur. Büromuz; ticaret ve şirketler hukuku, birleşme ve devralmalar, rekabet hukuku, enerji hukuku, sermaye piyasası hukuku, sözleşmeler hukuku ve doğrudan yabancı yatırımlar başta olmak üzere, müvekkillerinin ticari faaliyetleri sırasında ihtiyaç duyduğu hukuki desteği bütüncül bir yaklaşımla sağlamaktadır.</p>
-<p data-i18n="aboutP2">Bu çalışma alanlarına bağlı olarak iş hukuku, kira ve gayrimenkul hukuku, icra ve iflas hukuku, idare hukuku ve yabancılar hukuku konularında günlük danışmanlık, sözleşme hazırlama ve müzakere, mevzuata uyum, risk analizi ve dava takibi hizmetleri yürütülmektedir. Ulusal mahkemeler, arabuluculuk ve diğer alternatif uyuşmazlık çözüm mekanizmaları nezdinde müvekkillerimizin hak ve menfaatlerini titizlikle korurken; sınır aşan işlemlerde ve Türkiye’de yatırım yapan yabancı müvekkiller bakımından açık iletişim, güvenilirlik ve çözüm odaklı çalışma anlayışını esas almaktayız.</p>
+<p data-i18n="aboutP1">Yıldırım Law & Consultancy, İstanbul merkezli olarak faaliyet gösteren; gerçek ve tüzel kişilere ulusal ve uluslararası nitelikte hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunan bir hukuk bürosudur. Büromuz; ticaret ve şirketler hukuku, birleşme ve devralmalar, yabancılar hukuku, ceza hukuku, iş hukuku, icra hukuku ve sözleşmeler hukuku alanlarında müvekkillerinin ticari faaliyetleri sırasında ihtiyaç duyduğu hukuki desteği bütüncül bir yaklaşımla sağlamaktadır.</p>
+<p data-i18n="aboutP2">Hukuki danışmanlık, sözleşme hazırlama ve müzakere süreçleri, dava ve icra takibi, arabuluculuk ile diğer uyuşmazlık çözüm mekanizmaları dâhil olmak üzere faaliyet gösterdiğimiz tüm alanlarda müvekkillerimizin hak ve menfaatlerini korumayı hedefliyoruz. Şeffaf iletişim, güven esasına dayalı iş ilişkisi ve çözüm odaklı yaklaşımımızla, hukuki ihtiyaçlara yalnızca mevcut sorunların giderilmesi perspektifiyle değil, gelecekte doğabilecek risklerin önlenmesi anlayışıyla da yaklaşmaktayız.</p>
 </div>
 </div>
 </section>
 <section class="practice-section" id="practice">
 <div class="section-intro">
 <p class="eyebrow" data-i18n="practiceEyebrow">ÇALIŞMA ALANLARI</p>
-<p data-i18n="practiceIntro">Hukuki hizmet sunduğumuz temel alanlar aşağıdaki gibidir. Her başlık ilgili detay sayfasına yönlenir.</p>
+<p data-i18n="practiceIntro">Hukuki hizmet sunduğumuz temel alanlar aşağıdaki gibidir.</p>
 </div>
 <div class="practice-list" id="practiceList"></div>
 </section>
@@ -235,15 +279,89 @@ body.page-view-open>footer{display:grid}
 </section>
 <section class="contact" id="contact">
 <h2 data-i18n="contactTitle">İletişime Geçin</h2>
-<div><p data-i18n="contactText">Hukuki ihtiyaçlarınız için bizimle iletişime geçin, size en uygun çözümü birlikte değerlendirelim.</p><p>0 545 905 56 96<br/>f.betulyildirim@outlook.com.tr</p><a class="button" data-i18n="contactForm" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim Formu →</a></div>
+<div><p data-i18n="contactText">Büromuzun iletişim bilgileri ve başvuru kanalları aşağıda yer almaktadır.</p><p>0 545 905 56 96<br/>f.betulyildirim@outlook.com.tr</p><a class="button" data-i18n="contactForm" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim Formu →</a></div>
 </section>
 </main>
-<main class="detail" id="detail"></main><main class="page-shell site-page" id="articlesPage"><section class="inner-hero"><div class="inner-wrap"><p class="eyebrow">YAYINLAR</p><h1>Makaleler</h1><p>Hukuki gelişmeler, güncel uygulamalar ve çalışma alanlarımıza ilişkin değerlendirmelerimizi bu sayfada paylaşıyoruz.</p></div></section><section class="content-wrap"><div id="articlesCmsStatus" class="cms-status"></div><div class="articles-page-grid" id="dynamicArticlesGrid"></div></section></main><main class="article-detail-page" id="articleDetailPage"></main><main class="page-shell site-page" id="contactPage"><section class="inner-hero"><div class="inner-wrap"><p class="eyebrow">İLETİŞİM</p><h1>Bize Ulaşın</h1><p>Hukuki ihtiyaçlarınız ve danışmanlık talepleriniz için aşağıdaki iletişim kanallarından veya form aracılığıyla büromuza ulaşabilirsiniz.</p></div></section><section class="content-wrap"><div class="contact-layout"><aside class="contact-card"><p class="eyebrow">İLETİŞİM BİLGİLERİ</p><h2>Yıldırım Law &amp; Consultancy</h2><div class="contact-detail"><small>Ofis Adresi</small><p>Soğanlık Yeni, Soğanlık D-100 Kuzey Yanyol No:72<br/>34880 Kartal / İstanbul</p></div><div class="contact-detail"><small>Telefon</small><a href="tel:+905459055696">0 545 905 56 96</a></div><div class="contact-detail"><small>E-posta</small><a href="mailto:f.betulyildirim@outlook.com.tr">f.betulyildirim@outlook.com.tr</a></div><div class="contact-detail"><small>WhatsApp</small><a href="https://wa.me/905459055696" rel="noopener" target="_blank">Doğrudan mesaj gönderin →</a></div></aside><div class="contact-form"><p class="eyebrow">BİZE ULAŞIN</p><h2>İletişim Formu</h2><p>Talebinizin niteliğini kısaca paylaşın; iletiniz e-posta uygulamanız üzerinden büromuza yönlendirilecektir.</p><form class="public-form" id="contactForm"><label>Ad Soyad<input autocomplete="name" name="name" required=""/></label><label>Telefon<input autocomplete="tel" name="phone" required=""/></label><label>E-posta<input autocomplete="email" name="email" required="" type="email"/></label><label>Konu<select name="subject"><option>Hukuki Danışmanlık Talebi</option><option>Dava ve Uyuşmazlık</option><option>Şirketler ve Sözleşmeler</option><option>Yabancılar Hukuku</option><option>Diğer</option></select></label><label class="full">Mesajınız<textarea name="message" required=""></textarea><span class="form-note">Bu form avukat-müvekkil ilişkisi kurmaz. Acil veya süreye bağlı işlemler için ayrıca telefonla iletişime geçiniz.</span></label><button class="submit-button" type="submit">Mesajı Gönder →</button></form></div></div></section></main>
-<a aria-label="WhatsApp üzerinden iletişime geçin" class="whatsapp-float" href="https://wa.me/905459055696?text=Merhaba%2C%20hukuki%20dan%C4%B1%C5%9Fmanl%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." rel="noopener" target="_blank"><span>◔</span><span class="wa-label">WhatsApp</span></a>
+<main class="detail" id="detail"></main><main class="page-shell site-page" id="articlesPage"><section class="inner-hero"><div class="inner-wrap"><p class="eyebrow" data-i18n="articlesPageEyebrow">YAYINLAR</p><h1 data-i18n="articlesPageTitle">Makaleler</h1><p data-i18n="articlesPageIntro">Hukuki gelişmeler, güncel uygulamalar ve çalışma alanlarımıza ilişkin değerlendirmelerimizi bu sayfada paylaşıyoruz.</p></div></section><section class="content-wrap"><div id="articlesCmsStatus" class="cms-status"></div><div class="articles-page-grid" id="dynamicArticlesGrid"></div></section></main><main class="article-detail-page" id="articleDetailPage"></main><main class="page-shell site-page" id="contactPage"><section class="inner-hero"><div class="inner-wrap"><p class="eyebrow" data-i18n="contactPageEyebrow">İLETİŞİM</p><h1 data-i18n="contactPageTitle">Bize Ulaşın</h1><p data-i18n="contactPageIntro">Hukuki ihtiyaçlarınız ve danışmanlık talepleriniz için aşağıdaki iletişim kanallarından veya form aracılığıyla büromuza ulaşabilirsiniz.</p></div></section><section class="content-wrap"><div class="contact-layout"><aside class="contact-card"><p class="eyebrow" data-i18n="contactInfoEyebrow">İLETİŞİM BİLGİLERİ</p><h2>Yıldırım Law &amp; Consultancy</h2><div class="contact-detail"><small data-i18n="officeAddressLabel">Ofis Adresi</small><p>Soğanlık Yeni, Soğanlık D-100 Kuzey Yanyol No:72<br/>34880 Kartal / İstanbul</p></div><div class="contact-detail"><small data-i18n="phoneLabel">Telefon</small><a href="tel:+905459055696">0 545 905 56 96</a></div><div class="contact-detail"><small data-i18n="emailLabel">E-posta</small><a href="mailto:f.betulyildirim@outlook.com.tr">f.betulyildirim@outlook.com.tr</a></div><div class="contact-detail"><small data-i18n="whatsappLabel">WhatsApp</small><a data-i18n="directMessage" href="https://wa.me/905459055696" rel="noopener" target="_blank">Doğrudan mesaj gönderin →</a></div></aside><div class="contact-form"><p class="eyebrow" data-i18n="contactFormEyebrow">BİZE ULAŞIN</p><h2 data-i18n="contactFormTitle">İletişim Formu</h2><p data-i18n="contactFormIntro">Talebinizin niteliğini kısaca paylaşın; iletiniz e-posta uygulamanız üzerinden büromuza yönlendirilecektir.</p><form class="public-form" id="contactForm"><label><span data-i18n="nameLabel">Ad Soyad</span><input autocomplete="name" name="name" required=""/></label><label><span data-i18n="phoneLabel">Telefon</span><input autocomplete="tel" name="phone" required=""/></label><label><span data-i18n="emailLabel">E-posta</span><input autocomplete="email" name="email" required="" type="email"/></label><label><span data-i18n="subjectLabel">Konu</span><select name="subject"><option data-i18n="subjectAdvisory">Hukuki Danışmanlık Talebi</option><option data-i18n="subjectDispute">Dava ve Uyuşmazlık</option><option data-i18n="subjectCorporate">Şirketler ve Sözleşmeler</option><option data-i18n="subjectImmigration">Yabancılar Hukuku</option><option data-i18n="subjectOther">Diğer</option></select></label><label class="full"><span data-i18n="messageLabel">Mesajınız</span><textarea name="message" required=""></textarea><span class="form-note" data-i18n="formNote">Bu form avukat-müvekkil ilişkisi kurmaz. Acil veya süreye bağlı işlemler için ayrıca telefonla iletişime geçiniz.</span></label><label class="full kvkk-check"><input name="kvkkNotice" required type="checkbox"/><span data-i18n="kvkkConsent"><a href="#kvkk-page" onclick="showSitePage(event,'kvkk')">KVKK Aydınlatma Metni</a>’ni okuduğumu ve kişisel verilerimin belirtilen kapsamda işlenmesine ilişkin bilgilendirildiğimi kabul ederim.</span></label><button class="submit-button" data-i18n="submitMessage" type="submit">Mesajı Gönder →</button></form></div></div></section></main>
+
+<main class="page-shell site-page legal-page" id="kvkkPage">
+<section class="inner-hero"><div class="inner-wrap"><p class="eyebrow">KİŞİSEL VERİLERİN KORUNMASI</p><h1>KVKK Aydınlatma Metni</h1><p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerin işlenmesine ilişkin bilgilendirme.</p></div></section>
+<section class="content-wrap"><article class="legal-copy">
+<h2>1. Veri Sorumlusu</h2>
+<p>Yıldırım Law &amp; Consultancy (“Büro”), müvekkillerinin, müvekkil adaylarının, iş ortaklarının, tedarikçilerinin, internet sitesi ziyaretçilerinin ve iletişim kanalları üzerinden Büro ile irtibata geçen kişilerin kişisel verilerinin korunmasına önem vermektedir.</p>
+<p>Bu metin; hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri, dava ve yasal süreçlerin takibi, sözleşme ilişkilerinin kurulması ve yürütülmesi, teklif ve başvuruların değerlendirilmesi ile internet sitesi ve iletişim kanalları üzerinden edinilen kişisel verilerin işlenmesine ilişkin esasları açıklamaktadır.</p>
+
+<h2>2. İşlenen Kişisel Veriler</h2>
+<p>Somut ilişkinin niteliğine göre kimlik, iletişim, adres, mesleki bilgi, hukuki işlem, dosya ve uyuşmazlık bilgileri, finansal bilgiler, işlem güvenliği kayıtları ile tarafınızca Büroya iletilen belge ve içeriklerde yer alan kişisel veriler işlenebilir. Özel nitelikli kişisel veriler ise yalnızca hukuki hizmetin gerektirdiği ölçüde ve ilgili mevzuatta öngörülen şartlara uygun olarak işlenir.</p>
+
+<h2>3. Kişisel Verilerin İşlenme Amaçları</h2>
+<ul>
+<li>Talep edilen hukuki danışmanlık, dava takibi ve uyuşmazlık çözümü hizmetlerinin sunulması,</li>
+<li>Müvekkil adaylarının taleplerinin değerlendirilmesi ve teklif süreçlerinin yürütülmesi,</li>
+<li>Avukatlık ve danışmanlık sözleşmelerinin kurulması ve ifası,</li>
+<li>Müvekkil ilişkilerinin ve sözleşme süreçlerinin yürütülmesi,</li>
+<li>Dilekçe, sözleşme, hukuki görüş, rapor ve sair hukuki belgelerin hazırlanması,</li>
+<li>Kimlik, temsil ve imza yetkilerinin tespit edilmesi ve kontrolü,</li>
+<li>Dava, arabuluculuk, icra, idari başvuru ve diğer yasal süreçlerin yürütülmesi,</li>
+<li>Yetkili mahkemeler, icra daireleri, arabuluculuk büroları, noterlikler, kamu kurumları ve meslek kuruluşları nezdindeki yükümlülüklerin yerine getirilmesi,</li>
+<li>Hukuki ve mali yükümlülüklerin, arşivleme ve saklama yükümlülüklerinin yerine getirilmesi,</li>
+<li>Bilgi ve işlem güvenliğinin sağlanması, yetkisiz erişimlerin önlenmesi,</li>
+<li>İnternet sitesindeki iletişim formu, e-posta, telefon veya WhatsApp üzerinden iletilen taleplerin yanıtlanması.</li>
+</ul>
+
+<h2>4. Toplanma Yöntemi ve Hukuki Sebep</h2>
+<p>Kişisel veriler; yüz yüze görüşmeler, telefon, e-posta, WhatsApp, internet sitesi iletişim formu, posta, UYAP ve diğer elektronik sistemler, adli ve idari makamlar, sözleşmeler, vekâletnameler ve tarafınızca iletilen belgeler aracılığıyla sözlü, yazılı veya elektronik ortamda toplanabilir.</p>
+<p>Veriler; KVKK’nın 5. ve 6. maddelerinde yer alan kanunlarda açıkça öngörülme, bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma, veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi, bir hakkın tesisi, kullanılması veya korunması için zorunlu olma ve ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru menfaat hukuki sebeplerine dayanılarak işlenir. Açık rıza gereken hâllerde ayrıca açık rıza alınır.</p>
+
+<h2>5. Saklama, Silme ve Anonimleştirme</h2>
+<p>Kişisel veriler, işleme amaçlarının gerektirdiği süre ve ilgili mevzuatta öngörülen zamanaşımı, hak düşürücü süre, mesleki saklama ve arşiv yükümlülükleri boyunca muhafaza edilir. İşleme sebeplerinin ortadan kalkması hâlinde, kanuni saklama yükümlülükleri saklı kalmak üzere, kişisel veriler resen veya ilgili kişinin talebi üzerine silinir, yok edilir veya anonim hâle getirilir.</p>
+
+<h2>6. Kişisel Verilerin Aktarılması</h2>
+<p>Kişisel veriler; hukuki hizmetin yürütülmesi ve yasal yükümlülüklerin yerine getirilmesi amacıyla, gerekli ve ölçülü olmak kaydıyla, yetkili mahkeme ve icra dairelerine, arabuluculuk bürolarına, noterliklere, kolluk birimlerine, kamu kurum ve kuruluşlarına, barolara ve meslek kuruluşlarına, bilirkişi ve uzmanlara, mali müşavir ve bağımsız danışmanlara, hizmet alınan avukatlara, dava ve işlem taraflarına, banka ve ödeme kuruluşlarına ve teknik hizmet sağlayıcılarına aktarılabilir.</p>
+<p>İnternet sitesi, e-posta, veri tabanı, dosya saklama veya bulut hizmetlerinin yurt dışında bulunan sunucular üzerinden sağlanması hâlinde, kişisel verilerin yurt dışına aktarımı KVKK’nın 9. maddesi ve yürürlükteki ilgili mevzuata uygun hukuki güvenceler çerçevesinde gerçekleştirilir.</p>
+
+<h2>7. İlgili Kişinin Hakları</h2>
+<p>KVKK’nın 11. maddesi uyarınca ilgili kişiler;</p>
+<ul>
+<li>Kişisel verilerinin işlenip işlenmediğini öğrenme,</li>
+<li>İşlenmişse buna ilişkin bilgi talep etme,</li>
+<li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+<li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,</li>
+<li>Eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme,</li>
+<li>KVKK’nın 7. maddesindeki şartlar kapsamında silinmesini veya yok edilmesini isteme,</li>
+<li>Düzeltme, silme veya yok etme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
+<li>Münhasıran otomatik sistemler vasıtasıyla analiz sonucunda aleyhe bir sonucun ortaya çıkmasına itiraz etme,</li>
+<li>Kanuna aykırı işleme nedeniyle zarara uğranması hâlinde zararın giderilmesini talep etme</li>
+</ul>
+<p>haklarına sahiptir.</p>
+
+<h2>8. Başvuru Yöntemi</h2>
+<p>KVKK kapsamındaki taleplerinizi, kimliğinizi ve talebinizi açıkça belirterek yazılı şekilde Büro adresine veya kayıtlı iletişim adresimize iletebilirsiniz. Başvurular, talebin niteliğine göre en kısa sürede ve en geç otuz gün içinde sonuçlandırılır.</p>
+<div class="legal-contact"><strong>Yıldırım Law &amp; Consultancy</strong><br>Soğanlık Yeni, Soğanlık D-100 Kuzey Yanyol No:72, 34880 Kartal / İstanbul<br>E-posta: f.betulyildirim@outlook.com.tr<br>Telefon: 0 545 905 56 96</div>
+</article></section></main>
+
+<main class="page-shell site-page legal-page" id="disclaimerPage">
+<section class="inner-hero"><div class="inner-wrap"><p class="eyebrow">YASAL BİLGİLENDİRME</p><h1>Yasal Uyarı</h1><p>İnternet sitesindeki içeriklerin kullanımına ilişkin genel bilgilendirme.</p></div></section>
+<section class="content-wrap"><article class="legal-copy">
+<h2>Genel Bilgilendirme</h2>
+<p>Bu internet sitesinde yer alan açıklamalar, makaleler ve diğer içerikler yalnızca genel bilgilendirme amacıyla sunulmaktadır. İçerikler hukuki görüş, hukuki danışmanlık veya belirli bir uyuşmazlığa ilişkin değerlendirme niteliğinde değildir.</p>
+<h2>Avukat–Müvekkil İlişkisi</h2>
+<p>İnternet sitesinin ziyaret edilmesi, iletişim formunun kullanılması veya Büroya e-posta ya da WhatsApp mesajı gönderilmesi tek başına avukat–müvekkil ilişkisi kurmaz. Böyle bir ilişki ancak gerekli kontrollerin tamamlanması ve taraflar arasında açık bir hukuki hizmet ilişkisinin kurulmasıyla doğar.</p>
+<h2>Süreler ve Güncellik</h2>
+<p>Hukuki işlemler kanuni ve sözleşmesel sürelere tabi olabilir. İnternet sitesi üzerinden gönderilen iletilerin okunmuş veya işleme alınmış olduğu varsayılmamalıdır. Acil veya süreye bağlı işlemlerde ayrıca telefonla iletişime geçilmelidir. Mevzuat ve yargı uygulamaları zaman içinde değişebileceğinden içeriklerin güncelliği her somut olay bakımından ayrıca kontrol edilmelidir.</p>
+<h2>Üçüncü Taraf Bağlantıları</h2>
+<p>Üçüncü taraf internet sitelerine verilen bağlantılar yalnızca bilgilendirme amacı taşır. Bu sitelerin içeriği, güvenliği veya kişisel veri uygulamaları üzerinde Yıldırım Law &amp; Consultancy’nin kontrolü bulunmamaktadır.</p>
+</article></section></main>
+
+<a aria-label="WhatsApp üzerinden iletişime geçin" data-i18n-attr="aria-label:whatsappAria" class="whatsapp-float" href="https://wa.me/905459055696?text=Merhaba%2C%20hukuki%20dan%C4%B1%C5%9Fmanl%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." rel="noopener" target="_blank"><span>◔</span><span class="wa-label">WhatsApp</span></a>
 <footer>
-<div><div class="logo footer-logo">YILDIRIM<small>LAW &amp; CONSULTANCY</small></div><p data-i18n="footerDesc">İstanbul merkezli hukuk büromuz, yerli ve yabancı müvekkillere danışmanlık ve temsil hizmeti sunar.</p></div>
-<div><h4 data-i18n="footerPractice">Çalışma Alanları</h4><p id="footerPracticeList"></p></div>
-<div><h4 data-i18n="quickLinks">Hızlı Bağlantılar</h4><p><a href="#firm" onclick="navigateHomeSection(event,'firm')">Büromuz</a><br/><a href="#articles-page" onclick="showSitePage(event,'articles')">Makaleler</a><br/><a href="#contact-page" onclick="showSitePage(event,'contact')">İletişim</a><br/>KVKK Aydınlatma Metni<br/>Yasal Uyarı</p></div>
+<div><div class="logo footer-logo">YILDIRIM<small>LAW &amp; CONSULTANCY</small></div><p data-i18n="footerDesc">İstanbul merkezli Yıldırım Law & Consultancy, bireysel ve kurumsal müvekkillerine ulusal ve uluslararası nitelikte hukuki danışmanlık, dava takibi ve uyuşmazlık çözümü hizmetleri sunar.</p>
+</div>
+<div class="footer-lawyer-identity" style="margin-top:0;padding-top:0;border-top:0">
+  <strong>Av. Fatma Betül YILDIRIM</strong>
+  <span data-i18n="footerLawyerTitle">Kurucu Avukat</span>
+</div>
+<div><h4 data-i18n="quickLinks">Hızlı Bağlantılar</h4><p><a data-i18n="quickFirm" href="#firm" onclick="navigateHomeSection(event,'firm')">Büromuz</a><br/><a data-i18n="quickArticles" href="#articles-page" onclick="showSitePage(event,'articles')">Makaleler</a><br/><a data-i18n="quickContact" href="#contact-page" onclick="showSitePage(event,'contact')">İletişim</a><br/><a data-i18n="quickKvkk" href="#kvkk-page" onclick="showSitePage(event,'kvkk')">KVKK Aydınlatma Metni</a><br/><a data-i18n="quickDisclaimer" href="#yasal-uyari" onclick="showSitePage(event,'disclaimer')">Yasal Uyarı</a></p></div>
 <div><h4 data-i18n="navContact">İletişim</h4><p>Soğanlık Yeni, Soğanlık D-100 Kuzey Yanyol No:72<br/>34880 Kartal / İstanbul</p><p>0 545 905 56 96<br/>f.betulyildirim@outlook.com.tr</p></div>
 </footer>
 <script>
@@ -253,14 +371,15 @@ const i18n={
 tr:{
 navPractice:"Çalışma Alanları",navFirm:"Büromuz",navInsights:"Makaleler",navAdmin:"Admin",navContact:"İletişim",
 heroTitle:"Güven, açıklık ve titizlik üzerine kurulu hukuki çözümler.",
-heroLead:"İstanbul merkezli büromuz; Türkiye’de ve yurt dışında faaliyet gösteren yerli ve yabancı gerçek ve tüzel kişilere, ihtiyaçlarına özel, stratejik ve güvenilir hukuki danışmanlık ile uyuşmazlık çözümü hizmetleri sunar.",
-heroBtn:"Çalışma Alanlarımız →",heroContact:"İletişim →",aboutEyebrow:"HAKKIMIZDA",aboutTitle:"Biz Kimiz?",aboutP1:"Yıldırım Law & Consultancy, İstanbul merkezli olarak faaliyet gösteren; yerli ve yabancı gerçek ve tüzel kişilere ulusal ve uluslararası nitelikte hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunan bir hukuk bürosudur. Büromuz; ticaret ve şirketler hukuku, birleşme ve devralmalar, rekabet hukuku, enerji hukuku, sermaye piyasası hukuku, sözleşmeler hukuku ve doğrudan yabancı yatırımlar başta olmak üzere, müvekkillerinin ticari faaliyetleri sırasında ihtiyaç duyduğu hukuki desteği bütüncül bir yaklaşımla sağlamaktadır.",aboutP2:"Bu çalışma alanlarına bağlı olarak iş hukuku, kira ve gayrimenkul hukuku, icra ve iflas hukuku, idare hukuku ve yabancılar hukuku konularında günlük danışmanlık, sözleşme hazırlama ve müzakere, mevzuata uyum, risk analizi ve dava takibi hizmetleri yürütülmektedir. Ulusal mahkemeler, arabuluculuk ve diğer alternatif uyuşmazlık çözüm mekanizmaları nezdinde müvekkillerimizin hak ve menfaatlerini titizlikle korurken; sınır aşan işlemlerde ve Türkiye’de yatırım yapan yabancı müvekkiller bakımından açık iletişim, güvenilirlik ve çözüm odaklı çalışma anlayışını esas almaktayız.",
-practiceEyebrow:"ÇALIŞMA ALANLARI",practiceIntro:"Hukuki hizmet sunduğumuz temel alanlar aşağıdaki gibidir. Her başlık ilgili detay sayfasına yönlenir.",
+heroLead:"İstanbul merkezli büromuz; Türkiye’de ve yurt dışında faaliyet gösteren yerli ve yabancı gerçek ve tüzel kişilere hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunar.",
+heroBtn:"Çalışma Alanlarımız →",heroContact:"İletişim →",aboutEyebrow:"HAKKIMIZDA",aboutTitle:"Biz Kimiz?",aboutP1:"Yıldırım Law & Consultancy, İstanbul merkezli olarak faaliyet gösteren; gerçek ve tüzel kişilere ulusal ve uluslararası nitelikte hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunan bir hukuk bürosudur. Büromuz; ticaret ve şirketler hukuku, birleşme ve devralmalar, yabancılar hukuku, ceza hukuku, iş hukuku, icra hukuku ve sözleşmeler hukuku alanlarında müvekkillerinin ticari faaliyetleri sırasında ihtiyaç duyduğu hukuki desteği bütüncül bir yaklaşımla sağlamaktadır.",aboutP2:"Hukuki danışmanlık, sözleşme hazırlama ve müzakere süreçleri, dava ve icra takibi, arabuluculuk ile diğer uyuşmazlık çözüm mekanizmaları dâhil olmak üzere faaliyet gösterdiğimiz tüm alanlarda müvekkillerimizin hak ve menfaatlerini korumayı hedefliyoruz. Şeffaf iletişim, güven esasına dayalı iş ilişkisi ve çözüm odaklı yaklaşımımızla, hukuki ihtiyaçlara yalnızca mevcut sorunların giderilmesi perspektifiyle değil, gelecekte doğabilecek risklerin önlenmesi anlayışıyla da yaklaşmaktayız.",
+practiceEyebrow:"ÇALIŞMA ALANLARI",practiceIntro:"Hukuki hizmet sunduğumuz temel alanlar aşağıdaki gibidir.",
 approachEyebrow:"ÇALIŞMA YAKLAŞIMIMIZ",insightsEyebrow:"MAKALELER",adminEyebrow:"ADMIN PANEL MOCKUP",
 adminTitle:"Makale ekleme ekranı doğrudan sitenin içinde çalışacak şekilde planlandı.",adminNew:"Yeni Makale",adminPosts:"Makaleler",adminSettings:"Ayarlar",adminNewTitle:"Yeni Makale",
 fieldTitle:"Başlık",fieldTitleValue:"Kira Tespit Davalarında Güncel Uygulama",fieldCat:"Kategori",catLease:"Kira Hukuku",catEmployment:"İş Hukuku",fieldImage:"Kapak Görseli",fieldImageValue:"Görsel yükle alanı",fieldSEO:"SEO Başlığı",fieldSEOValue:"Kira Tespit Davası ve Arabuluculuk",fieldBody:"Makale Metni",fieldBodyValue:"Makalenizi Word benzeri editör alanına yazacaksınız. Taslak kaydedebilir veya yayınlayabilirsiniz.",draftBtn:"Taslak Kaydet",publishBtn:"Yayınla →",
-contactTitle:"İletişime Geçin",contactText:"Hukuki ihtiyaçlarınız için bizimle iletişime geçin, size en uygun çözümü birlikte değerlendirelim.",contactForm:"İletişim Formu →",
-footerDesc:"İstanbul merkezli hukuk büromuz, yerli ve yabancı müvekkillere danışmanlık ve temsil hizmeti sunar.",footerPractice:"Çalışma Alanları",quickLinks:"Hızlı Bağlantılar",quickList:"Büromuz<br>Makaleler<br>İletişim<br>KVKK Aydınlatma Metni<br>Yasal Uyarı",
+contactTitle:"İletişime Geçin",contactText:"Büromuzun iletişim bilgileri ve başvuru kanalları aşağıda yer almaktadır.",contactForm:"İletişim Formu →",
+articlesPageEyebrow:"YAYINLAR",articlesPageTitle:"Makaleler",articlesPageIntro:"Hukuki gelişmeler, güncel uygulamalar ve çalışma alanlarımıza ilişkin değerlendirmelerimizi bu sayfada paylaşıyoruz.",contactPageEyebrow:"İLETİŞİM",contactPageTitle:"Bize Ulaşın",contactPageIntro:"Hukuki ihtiyaçlarınız ve danışmanlık talepleriniz için aşağıdaki iletişim kanallarından veya form aracılığıyla büromuza ulaşabilirsiniz.",contactInfoEyebrow:"İLETİŞİM BİLGİLERİ",officeAddressLabel:"Ofis Adresi",phoneLabel:"Telefon",emailLabel:"E-posta",whatsappLabel:"WhatsApp",directMessage:"Doğrudan mesaj gönderin →",contactFormEyebrow:"BİZE ULAŞIN",contactFormTitle:"İletişim Formu",contactFormIntro:"Talebinizin niteliğini kısaca paylaşın; iletiniz e-posta uygulamanız üzerinden büromuza yönlendirilecektir.",nameLabel:"Ad Soyad",subjectLabel:"Konu",subjectAdvisory:"Hukuki Danışmanlık Talebi",subjectDispute:"Dava ve Uyuşmazlık",subjectCorporate:"Şirketler ve Sözleşmeler",subjectImmigration:"Yabancılar Hukuku",subjectOther:"Diğer",messageLabel:"Mesajınız",formNote:"Bu form avukat-müvekkil ilişkisi kurmaz. Acil veya süreye bağlı işlemler için ayrıca telefonla iletişime geçiniz.",submitMessage:"Mesajı Gönder →",kvkkConsent:"<a href=\"#kvkk-page\" onclick=\"showSitePage(event,'kvkk')\">KVKK Aydınlatma Metni</a>’ni okuduğumu ve kişisel verilerimin belirtilen kapsamda işlenmesine ilişkin bilgilendirildiğimi kabul ederim.",whatsappAria:"WhatsApp üzerinden iletişime geçin",mobileMenuAria:"Menüyü aç",quickFirm:"Büromuz",quickArticles:"Makaleler",quickContact:"İletişim",quickKvkk:"KVKK Aydınlatma Metni",quickDisclaimer:"Yasal Uyarı",
+footerLawyerTitle:"Kurucu Avukat",footerDesc:"İstanbul merkezli Yıldırım Law & Consultancy, bireysel ve kurumsal müvekkillerine ulusal ve uluslararası nitelikte hukuki danışmanlık, dava takibi ve uyuşmazlık çözümü hizmetleri sunar.",footerPractice:"Çalışma Alanları",quickLinks:"Hızlı Bağlantılar",quickList:"Büromuz<br>Makaleler<br>İletişim<br>KVKK Aydınlatma Metni<br>Yasal Uyarı",
 caseTypes:"DAVA TÜRLERİ",caseTypesText:"Bu alanda takip edilen başlıca dava ve işlem türleri aşağıdaki gibidir.",
 values:[
 ["Mesleki Etik","Bağımsızlık, sadakat yükümlülüğü ve meslek kurallarına uygun hareket etmeyi esas alırız."],
@@ -269,23 +388,20 @@ values:[
 ["Şeffaf İletişim","Süreç ve olası hukuki yollar hakkında anlaşılır bilgi aktarılmasına önem veririz."],
 ["Mesleki Özen","Her dosya kendi somut koşulları ve hukuki çerçevesi içinde değerlendirilir."]
 ],
-articles:[
-["Yabancılar Hukuku","Deport Kararlarına Karşı Başvuru Yolları","https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80"],
-["İş Hukuku","İşçilik Alacaklarında Arabuluculuk Süreci","https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"],
-["Kira Hukuku","Kira Tespit Davalarında Güncel Uygulama","https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"]
-]
+articles:[]
 },
 en:{
 navPractice:"Practice Areas",navFirm:"The Firm",navInsights:"Articles",navAdmin:"Admin",navContact:"Contact",
 heroTitle:"Legal solutions built on trust, clarity and precision.",
-heroLead:"We provide reliable legal solutions tailored to our clients’ needs.",
-heroBtn:"Practice Areas →",heroContact:"Contact →",aboutEyebrow:"ABOUT US",aboutTitle:"Who We Are",aboutP1:"Yıldırım Law & Consultancy is an Istanbul-based law firm providing domestic and international legal advisory and dispute resolution services to Turkish and foreign individuals and legal entities. Our principal areas include corporate and commercial law, mergers and acquisitions, competition law, energy law, capital markets law, contracts and foreign direct investments, through which we provide comprehensive legal support for our clients’ commercial activities.",aboutP2:"In connection with these areas, we advise on employment, lease and real estate, enforcement and bankruptcy, administrative and immigration law matters, including day-to-day advisory, contract drafting and negotiation, regulatory compliance, risk analysis and litigation. We protect our clients’ rights before national courts, mediation and other alternative dispute resolution mechanisms, while prioritising clear communication, reliability and practical solutions in cross-border matters and investments into Türkiye.",
-practiceEyebrow:"PRACTICE AREAS",practiceIntro:"The principal areas in which we provide legal services are listed below. Each heading leads to its related detail page.",
+heroLead:"Our Istanbul-based firm provides strategic, reliable and tailored legal advisory and dispute resolution services to Turkish and foreign individuals and legal entities operating in Türkiye and abroad.",
+heroBtn:"Practice Areas →",heroContact:"Contact →",aboutEyebrow:"ABOUT US",aboutTitle:"Who We Are",aboutP1:"Yıldırım Law & Consultancy is an Istanbul-based law firm providing domestic and international legal advisory and dispute resolution services to individuals and legal entities. The firm provides integrated legal support in corporate and commercial law, mergers and acquisitions, immigration law, criminal law, employment law, enforcement law and contract law.",aboutP2:"Across all of our practice areas, including legal advisory, contract drafting and negotiation, litigation and enforcement proceedings, mediation and other dispute resolution mechanisms, we aim to protect our clients’ rights and interests. Through transparent communication, trust-based professional relationships and a solution-oriented approach, we address legal needs not only by resolving existing issues but also by seeking to prevent risks that may arise in the future.",
+practiceEyebrow:"PRACTICE AREAS",practiceIntro:"The principal areas in which we provide legal services are listed below.",
 approachEyebrow:"OUR APPROACH",insightsEyebrow:"ARTICLES",adminEyebrow:"ADMIN PANEL MOCKUP",
 adminTitle:"The article publishing screen is planned to operate directly within the website.",adminNew:"New Article",adminPosts:"Articles",adminSettings:"Settings",adminNewTitle:"New Article",
 fieldTitle:"Title",fieldTitleValue:"Current Practice in Rent Determination Cases",fieldCat:"Category",catLease:"Lease Law",catEmployment:"Employment Law",fieldImage:"Cover Image",fieldImageValue:"Image upload field",fieldSEO:"SEO Title",fieldSEOValue:"Rent Determination Cases and Mediation",fieldBody:"Article Body",fieldBodyValue:"You will write your article in a Word-like editor. You may save it as a draft or publish it.",draftBtn:"Save Draft",publishBtn:"Publish →",
-contactTitle:"Get in Touch",contactText:"Contact us regarding your legal needs, and we will evaluate the appropriate course together.",contactForm:"Contact Form →",
-footerDesc:"Istanbul based legal counsel providing advisory and representation services to local and international clients.",footerPractice:"Practice Areas",quickLinks:"Quick Links",quickList:"The Firm<br>Articles<br>Contact<br>KVKK Disclosure<br>Disclaimer",
+contactTitle:"Get in Touch",contactText:"The firm’s contact details and communication channels are provided below.",contactForm:"Contact Form →",
+articlesPageEyebrow:"PUBLICATIONS",articlesPageTitle:"Articles",articlesPageIntro:"We share our analyses of legal developments, current practice and matters within our practice areas on this page.",contactPageEyebrow:"CONTACT",contactPageTitle:"Contact Us",contactPageIntro:"You may reach our firm through the contact channels below or by using the form regarding your legal needs and advisory requests.",contactInfoEyebrow:"CONTACT DETAILS",officeAddressLabel:"Office Address",phoneLabel:"Phone",emailLabel:"E-mail",whatsappLabel:"WhatsApp",directMessage:"Send a direct message →",contactFormEyebrow:"CONTACT US",contactFormTitle:"Contact Form",contactFormIntro:"Please briefly describe your request; your message will be directed to our firm through your e-mail application.",nameLabel:"Full Name",subjectLabel:"Subject",subjectAdvisory:"Legal Advisory Request",subjectDispute:"Litigation and Disputes",subjectCorporate:"Corporate and Contracts",subjectImmigration:"Immigration Law",subjectOther:"Other",messageLabel:"Your Message",formNote:"This form does not create an attorney-client relationship. Please also contact us by phone for urgent or time-sensitive matters.",submitMessage:"Send Message →",kvkkConsent:"I have read the <a href=\"#kvkk-page\" onclick=\"showSitePage(event,'kvkk')\">KVKK Disclosure Notice</a> and acknowledge that I have been informed about the processing of my personal data within the stated scope.",whatsappAria:"Contact via WhatsApp",mobileMenuAria:"Open menu",quickFirm:"The Firm",quickArticles:"Articles",quickContact:"Contact",quickKvkk:"KVKK Disclosure",quickDisclaimer:"Disclaimer",
+footerLawyerTitle:"Attorney at Law",footerDesc:"Istanbul-based Yıldırım Law & Consultancy provides legal advisory, litigation and dispute resolution services to individual and corporate clients.",footerPractice:"Practice Areas",quickLinks:"Quick Links",quickList:"The Firm<br>Articles<br>Contact<br>KVKK Disclosure<br>Disclaimer",
 caseTypes:"CASE TYPES",caseTypesText:"The main case and procedure types handled in this area are listed below.",
 values:[
 ["Professional Ethics","We act in accordance with independence, duty of loyalty and professional rules."],
@@ -294,11 +410,7 @@ values:[
 ["Transparent Communication","We value clear communication regarding the process and possible legal pathways."],
 ["Professional Diligence","Each file is assessed within its own facts and legal framework."]
 ],
-articles:[
-["Immigration Law","Legal Remedies Against Deportation Decisions","https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80"],
-["Employment Law","Mandatory Mediation in Employment Receivables","https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"],
-["Lease Law","Current Practice in Rent Determination Cases","https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"]
-]
+articles:[]
 }
 };
 
@@ -309,7 +421,7 @@ tr:[
 {title:"Ticaret Hukuku",summary:"Ticari sözleşmeler, alacak ilişkileri ve ticari uyuşmazlıkların takibi.",image:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85",body:["Ticaret hukuku, tacirler, şirketler ve ticari işletmeler arasındaki hukuki ilişkileri düzenleyen geniş kapsamlı bir alandır. Ticari sözleşmeler, alacak ilişkileri, haksız rekabet, cari hesap uyuşmazlıkları ve ticari davalar, hem hukuki hem de ticari gerçeklik dikkate alınarak değerlendirilmelidir.","Yıldırım Law & Consultancy olarak ticari faaliyetlerden doğan uyuşmazlıklar ve işletmelerin günlük hukuki ihtiyaçları kapsamında danışmanlık ve temsil hizmeti sunuyoruz. Sözleşme hazırlığı, risk analizi, ihtarname süreçleri, dava ve icra takibi bu kapsamda ele alınmaktadır.","Ticari uyuşmazlıklarda belge düzeni, taraflar arasındaki yazışmalar, faturalar, sözleşme hükümleri ve ifa süreçleri birlikte incelenir. Uyuşmazlığın niteliğine göre müzakere, arabuluculuk, dava veya icra yolu değerlendirilir.","Bu alandaki yaklaşımımız, müvekkilin faaliyet alanını ve ticari hedeflerini gözeterek uygulanabilir, ölçülü ve hukuki zemini güçlü çözümler geliştirmeye dayanır."],topics:["Ticari alacak davası","Haksız rekabet davası","Cari hesap uyuşmazlığı","Ticari sözleşme davası","Ticari arabuluculuk"]},
 {title:"Şirketler Hukuku",summary:"Şirket kuruluşu, pay devri, genel kurul ve kurumsal süreçlere ilişkin hukuki danışmanlık.",image:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85",body:["Şirketler hukuku, şirketlerin kuruluşundan sona ermesine kadar geçen süreçte ortaklık yapısı, yönetim, temsil, karar alma mekanizmaları ve kurumsal işlemleri düzenleyen hukuk alanıdır. Şirket içi uyuşmazlıklar, pay devri, genel kurul ve yönetim kurulu kararları, dikkatli belge düzeni ve mevzuata uygunluk gerektirir.","Yıldırım Law & Consultancy olarak şirket kuruluşları, kurumsal yönetim süreçleri, pay sahipliği ilişkileri, sermaye işlemleri ve şirket içi hukuki ihtiyaçlara ilişkin danışmanlık hizmeti sunuyoruz.","Kurumsal işlemlerde ticaret sicili süreçleri, ana sözleşme hükümleri, ortaklık yapısı ve şirketin faaliyet alanı birlikte değerlendirilir.","Bu alanda hedefimiz, şirketlerin hukuki altyapısını güçlendirmek ve kurumsal işlemlerin mevzuata uygun yürütülmesine katkı sağlamaktır."],topics:["Ortaklık uyuşmazlığı","Pay devri işlemleri","Genel kurul iptali","Şirket kuruluşu","Şirket tasfiyesi"]},
 {title:"Sözleşmeler Hukuku",summary:"Sözleşme hazırlığı, incelemesi, müzakere ve sözleşmeden doğan uyuşmazlıklar.",image:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80",body:["Sözleşmeler hukuku, taraflar arasındaki hukuki ilişkinin sınırlarını belirleyen ve işlem güvenliğini sağlayan temel hukuk alanlarından biridir.","Yıldırım Law & Consultancy olarak farklı nitelikteki sözleşmelerin hazırlanması, incelenmesi, müzakere edilmesi ve sözleşmeden doğan uyuşmazlıkların takibi konularında hukuki destek sunuyoruz.","Sözleşme ilişkilerinde yalnızca metnin hazırlanması değil, metnin uygulanabilirliği ve tarafların ileride karşılaşabileceği riskler de dikkate alınmalıdır.","Bu alandaki çalışmalarımız, tarafların yükümlülüklerini açık biçimde belirleyen metinler oluşturmayı amaçlar."],topics:["Sözleşme alacağı davası","Sözleşmenin feshi","Cezai şart alacağı","Kira sözleşmesi uyuşmazlığı","Protokol hazırlanması"]},
-{title:"Birleşme ve Devralmalar",summary:"Hisse devri, şirket devralmaları, due diligence ve kapanış işlemleri.",image:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85",body:["Birleşme ve devralmalar, şirketlerin pay devri, malvarlığı devri, birleşme, bölünme veya yeniden yapılanma süreçlerini kapsayan çok yönlü işlemlerdir.","Yıldırım Law & Consultancy olarak birleşme ve devralma süreçlerinde hukuki durum tespiti, işlem dokümantasyonu, pay devri sözleşmeleri, kapanış işlemleri ve kurumsal kararların hazırlanması konularında destek sağlıyoruz.","Bu tür işlemlerde amaç, işlem öncesinde mevcut hukuki riskleri tespit etmek ve tarafların yükümlülüklerini açık şekilde düzenlemektir.","Birleşme ve devralmalar alanındaki yaklaşımımız, hukuki risklerin anlaşılır şekilde ortaya konulmasına dayanır."],topics:["Hisse devri","Şirket devralması","Hukuki durum tespiti","Pay devir sözleşmesi","Kapanış işlemleri"]},
+{title:"Birleşme ve Devralmalar",summary:"Hisse devri, şirket devralmaları, due diligence ve kapanış işlemleri.",image:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85",body:["Birleşme ve devralmalar, şirketlerin pay devri, malvarlığı devri, birleşme, bölünme veya yeniden yapılanma süreçlerini kapsayan çok yönlü işlemlerdir.","Yıldırım Law & Consultancy olarak birleşme ve devralma süreçlerinde hukuki due diligence (DD) incelemelerinin ve red flag raporlarının hazırlanması, işlem dokümantasyonu, pay devri sözleşmeleri, kapanış işlemleri ve kurumsal kararların hazırlanması konularında destek sağlıyoruz.","Bu tür işlemlerde amaç, işlem öncesinde mevcut hukuki riskleri tespit etmek ve tarafların yükümlülüklerini açık şekilde düzenlemektir.","Birleşme ve devralmalar alanındaki yaklaşımımız, hukuki risklerin anlaşılır şekilde ortaya konulmasına dayanır."],topics:["Hisse devri","Şirket devralması","Hukuki durum tespiti","Pay devir sözleşmesi","Kapanış işlemleri"]},
 {title:"Fikri Mülkiyet Hukuku",summary:"Marka, telif, tasarım, lisans ve fikri hak uyuşmazlıkları.",image:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",body:["Fikri mülkiyet hukuku; marka, patent, tasarım, telif hakkı, lisans ve ticari sır gibi hakların korunması, kullanılması ve devrine ilişkin süreçleri düzenler.","Yıldırım Law & Consultancy olarak marka ve diğer fikri haklara ilişkin başvuru, itiraz, sözleşme ve uyuşmazlık süreçlerinde hukuki destek sunuyoruz.","Fikri mülkiyet uyuşmazlıklarında hak sahipliği, kullanım şekli, tescil belgeleri ve ihlal iddiasının niteliği birlikte ele alınır.","Bu alandaki hizmetlerimiz, müvekkilin marka değeri ve ticari faaliyeti dikkate alınarak fikri hakların korunmasına yönelik hukuki zemini oluşturmayı amaçlar."],topics:["Marka itirazı","Marka hükümsüzlüğü","Marka ihlali davası","Telif hakkı uyuşmazlığı","Lisans sözleşmesi"]},
 {title:"Yabancılar ve Vatandaşlık Hukuku",summary:"İkamet, çalışma izni, vatandaşlık, deport kararları ve idari başvurular.",image:"https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1800&q=80",body:["Yabancılar ve vatandaşlık hukuku, Türkiye’de bulunan veya Türkiye ile hukuki ilişki kurmak isteyen yabancı kişilerin ikamet, çalışma, vatandaşlık ve idari işlemlerle ilgili süreçlerini kapsar.","Yıldırım Law & Consultancy olarak ikamet izni, çalışma izni, vatandaşlık başvuruları, deport kararlarına itiraz ve idari dava süreçlerinde hukuki destek sunuyoruz.","Yabancılar hukukunda idari makamların uygulamaları, belge eksiklikleri, tebligat tarihleri ve dava açma süreleri özel önem taşır.","Bu alanda amaç, sürecin başından itibaren gerekli belgelerin tespiti ve başvuruların usule uygun hazırlanmasıdır."],topics:["İkamet izni başvurusu","Çalışma izni başvurusu","Vatandaşlık başvurusu","Deport kararına itiraz","Tahdit kodu işlemleri"]},
 {title:"İdare Hukuku",summary:"İdari işlemlere karşı başvuru, iptal ve tam yargı davaları.",image:"https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1800&q=80",body:["İdare hukuku, kamu idareleri tarafından tesis edilen işlemler ile bireyler ve şirketler arasındaki hukuki ilişkileri düzenler.","Yıldırım Law & Consultancy olarak idari işlemlere karşı başvuru ve dava süreçlerinde danışmanlık ve temsil hizmeti sunuyoruz.","İdare hukuku uyuşmazlıklarında sürelerin doğru belirlenmesi ve başvuru yollarının usule uygun kullanılması son derece önemlidir.","Bu alandaki yaklaşımımız, idari sürecin başından itibaren hukuki argümanların doğru kurulmasına dayanır."],topics:["İptal davası","Tam yargı davası","Yürütmenin durdurulması","İdari para cezası itirazı","Disiplin işlemleri"]},
@@ -323,7 +435,7 @@ en:[
 {title:"Commercial Law",summary:"Commercial contracts, receivables and commercial disputes.",image:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85",body:["Commercial law governs legal relations between merchants, companies and commercial enterprises. Commercial contracts, receivables, unfair competition, current account disputes and commercial litigation require evaluation with both legal and commercial considerations.","Yıldırım Law & Consultancy provides advisory and representation services in disputes arising from commercial activity and the daily legal needs of businesses. Contract drafting, risk analysis, notices, litigation and enforcement proceedings are handled within this scope.","In commercial disputes, document flow, correspondence, invoices, contractual provisions and performance processes are reviewed together. Depending on the nature of the dispute, negotiation, mediation, litigation or enforcement may be considered.","Our approach is based on developing practical, measured and legally sound solutions by considering the client’s field of activity and commercial objectives."],topics:["Commercial receivables","Unfair competition","Current account disputes","Commercial contract cases","Commercial mediation"]},
 {title:"Corporate Law",summary:"Legal support regarding incorporation, share transfers, general assemblies and corporate procedures.",image:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85",body:["Corporate law regulates ownership structure, management, representation, decision-making mechanisms and corporate transactions throughout a company’s lifecycle. Internal corporate disputes, share transfers and board or general assembly decisions require careful documentation and compliance.","Yıldırım Law & Consultancy provides legal support regarding incorporation, corporate governance, shareholding relations, capital procedures and internal company matters.","Corporate registry processes, articles of association, shareholding structures and the company’s field of activity are assessed together.","Our aim is to strengthen the legal infrastructure of companies and contribute to the proper conduct of corporate procedures."],topics:["Shareholder disputes","Share transfers","General assembly cancellation","Incorporation","Company liquidation"]},
 {title:"Contract Law",summary:"Contract drafting, review, negotiation and contract-related disputes.",image:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80",body:["Contract law is one of the fundamental areas that defines the legal relationship between parties and ensures transactional security.","Yıldırım Law & Consultancy provides legal support in drafting, reviewing, negotiating and following disputes arising from various types of contracts.","Not only the wording of the contract, but also its enforceability and the risks the parties may face are taken into account.","Our work aims to create clear, applicable texts that define obligations and anticipate available legal remedies."],topics:["Contract receivables","Termination of contract","Penalty clause claims","Lease contract disputes","Protocol drafting"]},
-{title:"Mergers & Acquisitions",summary:"Share transfers, acquisitions, due diligence and closing procedures.",image:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85",body:["Mergers and acquisitions cover multi-layered transactions such as share transfers, asset transfers, mergers, demergers and restructurings.","Yıldırım Law & Consultancy provides support in due diligence, transaction documentation, share transfer agreements, closing procedures and corporate approvals.","The aim is to identify legal risks before the transaction and clearly structure the parties’ obligations.","Our M&A approach is based on presenting legal risks clearly and managing the transaction through an applicable contractual and closing framework."],topics:["Share transfer","Acquisition","Legal due diligence","Share transfer agreement","Closing procedures"]},
+{title:"Mergers & Acquisitions",summary:"Share transfers, acquisitions, due diligence and closing procedures.",image:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85",body:["Mergers and acquisitions cover multi-layered transactions such as share transfers, asset transfers, mergers, demergers and restructurings.","Yıldırım Law & Consultancy provides support in conducting legal due diligence (DD), preparing red flag reports, transaction documentation, share transfer agreements, closing procedures and corporate approvals.","The aim is to identify legal risks before the transaction and clearly structure the parties’ obligations.","Our M&A approach is based on presenting legal risks clearly and managing the transaction through an applicable contractual and closing framework."],topics:["Share transfer","Acquisition","Legal due diligence","Share transfer agreement","Closing procedures"]},
 {title:"Intellectual Property Law",summary:"Trademark, copyright, design, licensing and IP disputes.",image:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",body:["Intellectual property law governs the protection, use and transfer of rights such as trademarks, patents, designs, copyrights, licenses and trade secrets.","Yıldırım Law & Consultancy provides legal support regarding applications, objections, contracts and disputes concerning trademarks and other intellectual property rights.","In IP disputes, ownership, use, registration documents and the nature of the alleged infringement are reviewed together.","Our services aim to establish a legal basis for protecting intellectual property rights with consideration of brand value and commercial activity."],topics:["Trademark objection","Trademark invalidity","Trademark infringement","Copyright dispute","License agreement"]},
 {title:"Immigration & Citizenship Law",summary:"Residence, work permits, citizenship, deportation decisions and administrative applications.",image:"https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1800&q=80",body:["Immigration and citizenship law covers residence, work, citizenship and administrative procedures for foreign individuals in Türkiye or those establishing legal ties with Türkiye.","Yıldırım Law & Consultancy provides legal support in residence permits, work permits, citizenship applications, objections to deportation decisions and administrative lawsuits.","Administrative practice, missing documents, notification dates and litigation deadlines are particularly important in immigration law.","The aim is to determine the necessary documents from the outset and prepare applications in accordance with procedure."],topics:["Residence permit","Work permit","Citizenship application","Deportation objection","Restriction code matters"]},
 {title:"Administrative Law",summary:"Applications against administrative acts, annulment and full remedy actions.",image:"https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1800&q=80",body:["Administrative law regulates legal relations between public authorities and individuals or companies.","Yıldırım Law & Consultancy provides advisory and representation services in applications and lawsuits against administrative acts.","In administrative disputes, deadlines and the proper use of application routes are of particular importance.","Our approach is based on establishing legal arguments accurately from the beginning of the administrative process."],topics:["Annulment action","Full remedy action","Stay of execution","Administrative fine objection","Disciplinary procedures"]},
@@ -332,6 +444,20 @@ en:[
 {title:"Criminal Law",summary:"Criminal complaints, victim representation, defence and criminal proceedings.",image:"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=80",body:["Criminal law regulates criminal acts, investigation and prosecution processes, and the rights of victims and suspects/defendants.","Yıldırım Law & Consultancy provides legal support in criminal complaints, victim representation, defence, objections and criminal proceedings.","In criminal files, the legal nature of the incident, evidence, complaint periods and available legal remedies must be reviewed as a whole.","Our work is conducted with regard to the presumption of innocence, victim rights, the right to defence and fair trial principles."],topics:["Criminal complaint","Victim representation","Objection to detention","Objection to non-prosecution","Mediation procedure"]}
 ]
 };
+
+function toggleMobileMenu(){
+ const nav=document.querySelector('.site-header nav');
+ const btn=document.getElementById('mobileMenuButton');
+ const open=nav.classList.toggle('menu-open');
+ btn.setAttribute('aria-expanded',String(open));
+ btn.textContent=open?'×':'☰';
+}
+function closeMobileMenu(){
+ const nav=document.querySelector('.site-header nav');
+ const btn=document.getElementById('mobileMenuButton');
+ nav.classList.remove('menu-open');
+ if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='☰';}
+}
 
 function setLang(next){
  lang=next;
@@ -344,9 +470,15 @@ function setLang(next){
   if(i18n[next][key]!==undefined)el.setAttribute(attr,i18n[next][key]);
  });
  renderDynamic();
- if(document.getElementById('detail').classList.contains('active')){
+ if(window.refreshCmsLanguage) window.refreshCmsLanguage();
+ if(document.getElementById('detail').classList.contains('active') && !document.getElementById('detail').dataset.cmsArticleIndex){
    const current = document.getElementById('detail').dataset.index || 0;
    openPractice(Number(current),false);
+ }
+ const activePage=document.querySelector('.site-page.active');
+ if(activePage){
+   const pageName=activePage.id==='articlesPage'?'articles':activePage.id==='contactPage'?'contact':activePage.id==='kvkkPage'?'kvkk':'disclaimer';
+   showSitePage(null,pageName,false);
  }
 }
 
@@ -384,13 +516,83 @@ Object.keys(practices).forEach(code=>{
 function renderDynamic(){
  const data=practices[lang];
  document.getElementById('practiceList').innerHTML=data.map((p,i)=>`<a href="#practice-${i}" onclick="openPractice(${i});return false;"><div class="practice-card-image" style="background-image:url('${p.image}')"></div><div class="practice-card-content"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="practice-name">${p.title}</span><span>→</span></div></a>`).join('');
- document.getElementById('footerPracticeList').innerHTML=data.slice(0,5).map(p=>p.title).join('<br>');
  document.getElementById('values').innerHTML=i18n[lang].values.map(v=>`<article><h3>${v[0]}</h3><p>${v[1]}</p></article>`).join('');
- document.getElementById('articles').innerHTML=i18n[lang].articles.map(a=>`<article><div class="article-img" style="background-image:url('${a[2]}')"></div><small>${a[0]}</small><h3>${a[1]}</h3></article>`).join('');
+ const homeArticles=document.getElementById('articles');
+ if(homeArticles && !homeArticles.dataset.cmsLoaded){
+   homeArticles.innerHTML=`<p class="articles-empty">${lang==='tr'?'Henüz yayımlanmış bir makale bulunmuyor.':'No articles have been published yet.'}</p>`;
+ }
+ const dynamicGrid=document.getElementById('dynamicArticlesGrid');
+ if(dynamicGrid && !dynamicGrid.dataset.cmsLoaded && !dynamicGrid.children.length){
+   dynamicGrid.innerHTML=`<p class="articles-empty">${lang==='tr'?'Henüz yayımlanmış bir makale bulunmuyor.':'No articles have been published yet.'}</p>`;
+ }
+}
+
+
+function getCmsArticleCards(){
+ const grid=document.getElementById('dynamicArticlesGrid');
+ if(!grid)return [];
+ return Array.from(grid.children).filter(el=>
+   el.matches('article, .article-page-card, [data-article-id], [data-slug]') &&
+   !el.classList.contains('articles-empty')
+ );
+}
+
+function syncHomepageLatestArticles(){
+ const homeGrid=document.getElementById('articles');
+ const sourceGrid=document.getElementById('dynamicArticlesGrid');
+ if(!homeGrid || !sourceGrid)return;
+ const cards=getCmsArticleCards().slice(0,3); // CMS listesi en yeniden eskiye sıralanır.
+ if(!cards.length){
+   homeGrid.dataset.cmsLoaded='false';
+   homeGrid.innerHTML=`<p class="articles-empty">${lang==='tr'?'Henüz yayımlanmış bir makale bulunmuyor.':'No articles have been published yet.'}</p>`;
+   return;
+ }
+ homeGrid.dataset.cmsLoaded='true';
+ homeGrid.innerHTML='';
+ cards.forEach(source=>{
+   const imageNode=source.querySelector('.article-page-image,.article-img,img');
+   let image='';
+   if(imageNode){
+     image=imageNode.tagName==='IMG' ? `url('${imageNode.currentSrc||imageNode.src}')` : imageNode.style.backgroundImage;
+     if(!image)image=getComputedStyle(imageNode).backgroundImage;
+   }
+   const category=(source.querySelector('small,[data-category],.article-category')?.textContent||'').trim();
+   const title=(source.querySelector('h2,h3,[data-title],.article-title')?.textContent||'').trim();
+   if(!title)return;
+   const card=document.createElement('article');
+   card.className='cms-home-article';
+   card.tabIndex=0;
+   card.setAttribute('role','link');
+   card.setAttribute('aria-label',title);
+   card.innerHTML=`<div class="article-img"${image?` style="background-image:${image}"`:''}></div><small>${category}</small><h3>${title}</h3>`;
+   const openSource=()=>{
+     const link=source.querySelector('a[href]');
+     if(link) link.click(); else source.click();
+   };
+   card.addEventListener('click',openSource);
+   card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSource();}});
+   homeGrid.appendChild(card);
+ });
+}
+
+function initialiseCmsArticleBridge(){
+ const grid=document.getElementById('dynamicArticlesGrid');
+ if(!grid)return;
+ const observer=new MutationObserver(()=>{
+   const realCards=getCmsArticleCards();
+   if(realCards.length){
+     grid.dataset.cmsLoaded='true';
+     Array.from(grid.querySelectorAll(':scope > .articles-empty')).forEach(el=>el.remove());
+   }
+   syncHomepageLatestArticles();
+ });
+ observer.observe(grid,{childList:true,subtree:true,attributes:true,attributeFilter:['style','class','data-article-id','data-slug']});
+ syncHomepageLatestArticles();
 }
 
 function navigateHomeSection(e, sectionId){
  if(e)e.preventDefault();
+ closeMobileMenu();
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  document.title='Yıldırım Law & Consultancy';
  const home=document.getElementById('home');
@@ -409,6 +611,7 @@ function navigateHomeSection(e, sectionId){
 }
 
 function openPractice(i,scroll=true,push=true){
+ closeMobileMenu();
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  const p=practices[lang][i];
  document.title=p.title+' | Yıldırım Law & Consultancy';
@@ -426,6 +629,7 @@ function openPractice(i,scroll=true,push=true){
 
 function showHome(e,push=true){
  if(e)e.preventDefault();
+ closeMobileMenu();
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  document.title='Yıldırım Law & Consultancy';
  document.getElementById('home').style.display='block';
@@ -443,12 +647,19 @@ function hideAllPrimaryViews(){
 
 function showSitePage(e,pageName,push=true){
  if(e)e.preventDefault();
+ closeMobileMenu();
  hideAllPrimaryViews();
- const pageId=pageName==='articles'?'articlesPage':'contactPage';
- const page=document.getElementById(pageId);
+ const pageMap={
+  articles:{id:'articlesPage',title:lang==='tr'?'Makaleler':'Articles',hash:'#articles-page'},
+  contact:{id:'contactPage',title:lang==='tr'?'İletişim':'Contact',hash:'#contact-page'},
+  kvkk:{id:'kvkkPage',title:'KVKK Aydınlatma Metni',hash:'#kvkk-page'},
+  disclaimer:{id:'disclaimerPage',title:lang==='tr'?'Yasal Uyarı':'Disclaimer',hash:'#yasal-uyari'}
+ };
+ const config=pageMap[pageName]||pageMap.contact;
+ const page=document.getElementById(config.id);
  if(page)page.classList.add('active');
- document.title=(pageName==='articles'?'Makaleler':'İletişim')+' | Yıldırım Law & Consultancy';
- if(push)history.pushState({page:pageName},'',pageName==='articles'?'#articles-page':'#contact-page');
+ document.title=config.title+' | Yıldırım Law & Consultancy';
+ if(push)history.pushState({page:pageName},'',config.hash);
  window.scrollTo(0,0);
 }
 
@@ -459,8 +670,8 @@ function initialiseContactForm(){
  form.addEventListener('submit',function(e){
   e.preventDefault();
   const f=new FormData(this);
-  const subject=encodeURIComponent('[Web Sitesi] '+f.get('subject'));
-  const body=encodeURIComponent('Ad Soyad: '+f.get('name')+'\nTelefon: '+f.get('phone')+'\nE-posta: '+f.get('email')+'\n\nMesaj:\n'+f.get('message'));
+  const subject=encodeURIComponent((lang==='tr'?'[Web Sitesi] ':'[Website] ')+f.get('subject'));
+  const body=encodeURIComponent((lang==='tr'?'Ad Soyad: ':'Name: ')+f.get('name')+'\n'+(lang==='tr'?'Telefon: ':'Phone: ')+f.get('phone')+'\n'+(lang==='tr'?'E-posta: ':'Email: ')+f.get('email')+'\n\n'+(lang==='tr'?'Mesaj:\n':'Message:\n')+f.get('message'));
   window.location.href='mailto:f.betulyildirim@outlook.com.tr?subject='+subject+'&body='+body;
  });
 }
@@ -474,6 +685,12 @@ window.addEventListener('popstate',e=>{
    showSitePage(null,'articles',false);
  }else if(state&&state.page==='contact'){
    showSitePage(null,'contact',false);
+ }else if(state&&state.page==='kvkk'){
+   showSitePage(null,'kvkk',false);
+ }else if(state&&state.page==='disclaimer'){
+   showSitePage(null,'disclaimer',false);
+ }else if(state&&state.page==='cms-article'){
+   if(window.openCmsArticleByIndex) window.openCmsArticleByIndex(Number(state.index),false);
  }else{
    showHome(null,false);
    const sectionId=state&&state.section ? state.section : (location.hash||'').replace('#','');
@@ -501,6 +718,7 @@ if(initialHash==='#articles-page'){
 renderDynamic();
 setLang('tr');
 initialiseContactForm();
+initialiseCmsArticleBridge();
 </script>
 
 <script type="module" src="cms-public.js"></script>

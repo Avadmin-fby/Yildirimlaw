@@ -5,6 +5,44 @@ const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => 
   '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
 }[char]));
 
+
+function sanitizeArticleHtml(html) {
+  const allowedTags = new Set(['P','H2','H3','H4','STRONG','B','EM','I','UL','OL','LI','BLOCKQUOTE','A','BR','IMG','HR','CODE','PRE']);
+  const template = document.createElement('template');
+  template.innerHTML = String(html || '');
+  const elements = [...template.content.querySelectorAll('*')].reverse();
+  for (const element of elements) {
+    if (!allowedTags.has(element.tagName)) {
+      element.replaceWith(...element.childNodes);
+      continue;
+    }
+    const allowedAttributes = element.tagName === 'A'
+      ? new Set(['href','title','target'])
+      : element.tagName === 'IMG'
+        ? new Set(['src','alt','title','width','height','loading'])
+        : new Set([]);
+    for (const attribute of [...element.attributes]) {
+      if (!allowedAttributes.has(attribute.name.toLowerCase())) element.removeAttribute(attribute.name);
+    }
+    if (element.tagName === 'A') {
+      const href = (element.getAttribute('href') || '').trim();
+      if (!/^(https?:|mailto:|tel:|#)/i.test(href)) element.removeAttribute('href');
+      if (element.getAttribute('target') === '_blank') element.setAttribute('rel','noopener noreferrer nofollow');
+      else element.removeAttribute('target');
+    }
+    if (element.tagName === 'IMG') {
+      const src = (element.getAttribute('src') || '').trim();
+      if (!/^https:\/\//i.test(src)) element.remove();
+      else {
+        element.setAttribute('loading','lazy');
+        element.removeAttribute('width');
+        element.removeAttribute('height');
+      }
+    }
+  }
+  return template.innerHTML.trim();
+}
+
 const ui = {
   setup: $('setupWarning'), login: $('loginPanel'), admin: $('adminPanel'),
   loginForm: $('loginForm'), loginMsg: $('loginMsg'), logout: $('logoutBtn'),
@@ -142,6 +180,24 @@ async function uploadCover(file) {
   return supabase.storage.from('article-images').getPublicUrl(path).data.publicUrl;
 }
 
+
+function storagePathFromPublicUrl(url) {
+  if (!url) return null;
+  try {
+    const marker = '/storage/v1/object/public/article-images/';
+    const parsed = new URL(url);
+    const index = parsed.pathname.indexOf(marker);
+    return index >= 0 ? decodeURIComponent(parsed.pathname.slice(index + marker.length)) : null;
+  } catch { return null; }
+}
+
+async function removeCoverByUrl(url) {
+  const path = storagePathFromPublicUrl(url);
+  if (!path) return;
+  const { error } = await supabase.storage.from('article-images').remove([path]);
+  if (error) console.warn('Eski görsel silinemedi:', error.message);
+}
+
 ui.form?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const submitButton = ui.form.querySelector('button:not([type="button"])');
@@ -155,6 +211,13 @@ ui.form?.addEventListener('submit', async (event) => {
     const slug = slugify(ui.slug.value || ui.titleTr.value);
     if (!slug) throw new Error('Makale bağlantısı (slug) oluşturulamadı.');
 
+    const sanitizedTr = sanitizeArticleHtml(ui.contentHtml.value);
+    if (!sanitizedTr) throw new Error('Makale içeriği boş veya izin verilmeyen HTML öğelerinden oluşuyor.');
+
+    const existingArticle = ui.id.value ? articles.find((item) => item.id === ui.id.value) : null;
+    const oldCoverUrl = existingArticle?.cover_image_url || null;
+    const newCoverFile = ui.coverFile.files[0];
+
     const payload = {
       title_tr: ui.titleTr.value.trim(),
       title_en: ui.titleEn?.value.trim() || null,
@@ -163,10 +226,9 @@ ui.form?.addEventListener('submit', async (event) => {
       status,
       summary_tr: ui.summaryTr.value.trim(),
       summary_en: ui.summaryEn?.value.trim() || null,
-      content_html: ui.contentHtml.value.trim(),
-      content_en_html: ui.contentEnHtml?.value.trim() || null,
-      cover_image_url: await uploadCover(ui.coverFile.files[0]),
-      published_at: status === 'published' ? new Date().toISOString() : null,
+      content_html: sanitizedTr,
+      content_en_html: ui.contentEnHtml?.value.trim() ? sanitizeArticleHtml(ui.contentEnHtml.value) : null,
+      cover_image_url: await uploadCover(newCoverFile),
       author_id: currentUser.id
     };
 
@@ -185,6 +247,7 @@ ui.form?.addEventListener('submit', async (event) => {
     }
 
     if (result.error) throw new Error(result.error.message);
+    if (newCoverFile && oldCoverUrl && oldCoverUrl !== result.data.cover_image_url) await removeCoverByUrl(oldCoverUrl);
 
     resetForm();
     await loadArticles();
@@ -252,6 +315,7 @@ ui.rows?.addEventListener('click', async (event) => {
       alert(`Makale silinemedi: ${error.message}`);
       return;
     }
+    await removeCoverByUrl(article.cover_image_url);
     if (ui.id.value === deleteId) resetForm();
     await loadArticles();
   }
