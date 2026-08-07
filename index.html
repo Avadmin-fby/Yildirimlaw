@@ -619,6 +619,7 @@ function navigateHomeSection(e, sectionId){
 
 function openPractice(i,scroll=true,push=true){
  closeMobileMenu();
+ document.getElementById('articleDetailPage')?.classList.remove('active');
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  const p=practices[lang][i];
  document.title=p.title+' | Yıldırım Law & Consultancy';
@@ -637,6 +638,7 @@ function openPractice(i,scroll=true,push=true){
 function showHome(e,push=true){
  if(e)e.preventDefault();
  closeMobileMenu();
+ document.getElementById('articleDetailPage')?.classList.remove('active');
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  document.title='Yıldırım Law & Consultancy';
  document.getElementById('home').style.display='block';
@@ -648,6 +650,7 @@ function showHome(e,push=true){
 
 function hideAllPrimaryViews(){
  document.getElementById('home').style.display='none';
+ document.getElementById('articleDetailPage')?.classList.remove('active');
  document.getElementById('detail').classList.remove('active');
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
 }
