@@ -39,6 +39,15 @@ function safeHtml(html) {
   const allowedTags = new Set(['P','H2','H3','H4','STRONG','B','EM','I','U','SPAN','UL','OL','LI','BLOCKQUOTE','A','BR','IMG','HR','CODE','PRE']);
   const template = document.createElement('template');
   template.innerHTML = String(html || '');
+
+  // Word/Quill may preserve spaces as non-breaking spaces. Long runs of these
+  // prevent normal line wrapping and can force the article wider than the viewport.
+  const walker = document.createTreeWalker(template.content, NodeFilter.SHOW_TEXT);
+  let textNode;
+  while ((textNode = walker.nextNode())) {
+    if (textNode.parentElement?.closest('pre,code')) continue;
+    textNode.nodeValue = textNode.nodeValue.replace(/[\u00A0\u202F\u2007]/g, ' ');
+  }
   const elements = [...template.content.querySelectorAll('*')].reverse();
   for (const element of elements) {
     if (!allowedTags.has(element.tagName)) {
