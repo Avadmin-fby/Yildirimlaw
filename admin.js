@@ -76,65 +76,110 @@ const ui = {
   titleTr: $('titleTr'), titleEn: $('titleEn'), slug: $('slug'),
   category: $('category'), status: $('status'), summaryTr: $('summaryTr'),
   summaryEn: $('summaryEn'), contentHtml: $('contentHtml'),
-  contentEnHtml: $('contentEnHtml'), contentEditorTr: $('contentEditorTr'), contentEditorEn: $('contentEditorEn'), coverFile: $('coverFile'), coverUrl: $('coverUrl')
+  contentEnHtml: $('contentEnHtml'), coverFile: $('coverFile'), coverUrl: $('coverUrl')
 };
 
 let articles = [];
 let currentUser = null;
+let editorTr = null;
+let editorEn = null;
 
+const toolbarOptions = [
+  [{ header: [2, 3, 4, false] }],
+  ['bold', 'italic', 'underline'],
+  [{ list: 'ordered' }, { list: 'bullet' }],
+  [{ indent: '-1' }, { indent: '+1' }],
+  [{ align: [] }],
+  ['blockquote', 'link'],
+  ['clean']
+];
 
-function syncEditorToTextarea(editor, textarea) {
-  if (!editor || !textarea) return;
-  textarea.value = editor.innerHTML.trim();
+const editorFormats = [
+  'header', 'bold', 'italic', 'underline', 'list', 'indent', 'align', 'blockquote', 'link'
+];
+
+function addSafeStyle(element, name, value) {
+  const current = element.getAttribute('style') || '';
+  const pieces = current.split(';').map((x) => x.trim()).filter(Boolean);
+  pieces.push(`${name}:${value}`);
+  element.setAttribute('style', pieces.join(';'));
 }
 
-function setEditorHtml(editor, textarea, html = '') {
-  if (editor) editor.innerHTML = html || '';
-  if (textarea) textarea.value = html || '';
+function normalizeQuillHtml(html) {
+  const template = document.createElement('template');
+  template.innerHTML = String(html || '');
+
+  for (const element of template.content.querySelectorAll('*')) {
+    const classes = [...element.classList];
+    for (const className of classes) {
+      if (className === 'ql-align-center') addSafeStyle(element, 'text-align', 'center');
+      else if (className === 'ql-align-right') addSafeStyle(element, 'text-align', 'right');
+      else if (className === 'ql-align-justify') addSafeStyle(element, 'text-align', 'justify');
+      else {
+        const match = className.match(/^ql-indent-(\d+)$/);
+        if (match) addSafeStyle(element, 'margin-left', `${Math.min(Number(match[1]), 6) * 2}em`);
+      }
+    }
+    element.removeAttribute('class');
+    element.removeAttribute('contenteditable');
+    if (element.matches('span.ql-ui')) element.remove();
+  }
+
+  return template.innerHTML.trim();
+}
+
+function editorHtml(quill) {
+  if (!quill) return '';
+  const raw = typeof quill.getSemanticHTML === 'function'
+    ? quill.getSemanticHTML()
+    : quill.root.innerHTML;
+  return normalizeQuillHtml(raw);
+}
+
+function syncEditorToTextarea(quill, textarea) {
+  if (!quill || !textarea) return;
+  textarea.value = editorHtml(quill);
+}
+
+function setEditorHtml(quill, textarea, html = '') {
+  if (!quill || !textarea) return;
+  quill.setText('', 'silent');
+  if (String(html || '').trim()) quill.clipboard.dangerouslyPasteHTML(String(html), 'silent');
+  textarea.value = editorHtml(quill);
 }
 
 function syncAllEditors() {
-  syncEditorToTextarea(ui.contentEditorTr, ui.contentHtml);
-  syncEditorToTextarea(ui.contentEditorEn, ui.contentEnHtml);
+  syncEditorToTextarea(editorTr, ui.contentHtml);
+  syncEditorToTextarea(editorEn, ui.contentEnHtml);
 }
 
-function insertSanitizedHtml(editor, html) {
-  const safe = sanitizeArticleHtml(html);
-  editor.focus();
-  document.execCommand('insertHTML', false, safe);
+function initialiseEditors() {
+  if (!window.Quill) {
+    const warning = document.createElement('div');
+    warning.className = 'editor-load-error';
+    warning.textContent = 'Makale editörü yüklenemedi. İnternet bağlantınızı kontrol edip sayfayı yenileyin.';
+    $('articleForm')?.prepend(warning);
+    return;
+  }
+
+  const options = {
+    theme: 'snow',
+    modules: {
+      toolbar: toolbarOptions,
+      history: { delay: 700, maxStack: 100, userOnly: true }
+    },
+    formats: editorFormats,
+    placeholder: 'Makale metnini yazın veya Word’den yapıştırın…'
+  };
+
+  editorTr = new window.Quill('#contentEditorTr', options);
+  editorEn = new window.Quill('#contentEditorEn', options);
+
+  editorTr.on('text-change', () => syncEditorToTextarea(editorTr, ui.contentHtml));
+  editorEn.on('text-change', () => syncEditorToTextarea(editorEn, ui.contentEnHtml));
 }
 
-function initialiseRichEditor(editor, textarea) {
-  if (!editor || !textarea) return;
-  editor.addEventListener('input', () => syncEditorToTextarea(editor, textarea));
-  editor.addEventListener('paste', (event) => {
-    const html = event.clipboardData?.getData('text/html');
-    if (!html) return; // plain text paste can use browser default
-    event.preventDefault();
-    insertSanitizedHtml(editor, html);
-    syncEditorToTextarea(editor, textarea);
-  });
-  const toolbar = document.querySelector(`[data-toolbar-for="${editor.id}"]`);
-  toolbar?.addEventListener('mousedown', (event) => {
-    if (event.target.closest('button')) event.preventDefault(); // keep editor selection
-  });
-  toolbar?.addEventListener('click', (event) => {
-    const button = event.target.closest('button[data-cmd]');
-    if (!button) return;
-    editor.focus();
-    document.execCommand(button.dataset.cmd, false, null);
-    syncEditorToTextarea(editor, textarea);
-  });
-  toolbar?.querySelector('select[data-cmd="formatBlock"]')?.addEventListener('change', (event) => {
-    editor.focus();
-    document.execCommand('formatBlock', false, event.target.value);
-    syncEditorToTextarea(editor, textarea);
-    event.target.value = 'p';
-  });
-}
-
-initialiseRichEditor(ui.contentEditorTr, ui.contentHtml);
-initialiseRichEditor(ui.contentEditorEn, ui.contentEnHtml);
+initialiseEditors();
 
 function showMessage(element, text, isError = false) {
   if (!element) return;
@@ -235,8 +280,8 @@ function resetForm() {
   ui.form?.reset();
   ui.id.value = '';
   ui.coverUrl.value = '';
-  setEditorHtml(ui.contentEditorTr, ui.contentHtml, '');
-  setEditorHtml(ui.contentEditorEn, ui.contentEnHtml, '');
+  setEditorHtml(editorTr, ui.contentHtml, '');
+  setEditorHtml(editorEn, ui.contentEnHtml, '');
   delete ui.slug.dataset.manual;
   ui.formTitle.textContent = 'Yeni Makale';
   showMessage(ui.formMsg, '');
@@ -293,6 +338,7 @@ ui.form?.addEventListener('submit', async (event) => {
     const slug = slugify(ui.slug.value || ui.titleTr.value);
     if (!slug) throw new Error('Makale bağlantısı (slug) oluşturulamadı.');
 
+    if (!editorTr || !editorTr.getText().trim()) throw new Error('Türkçe makale içeriği boş bırakılamaz.');
     const sanitizedTr = sanitizeArticleHtml(ui.contentHtml.value);
     if (!sanitizedTr) throw new Error('Makale içeriği boş veya izin verilmeyen HTML öğelerinden oluşuyor.');
 
@@ -382,8 +428,8 @@ ui.rows?.addEventListener('click', async (event) => {
     ui.status.value = article.status || 'draft';
     ui.summaryTr.value = article.summary_tr || '';
     if (ui.summaryEn) ui.summaryEn.value = article.summary_en || '';
-    setEditorHtml(ui.contentEditorTr, ui.contentHtml, article.content_html || '');
-    setEditorHtml(ui.contentEditorEn, ui.contentEnHtml, article.content_en_html || '');
+    setEditorHtml(editorTr, ui.contentHtml, article.content_html || '');
+    setEditorHtml(editorEn, ui.contentEnHtml, article.content_en_html || '');
     ui.coverUrl.value = article.cover_image_url || '';
     ui.formTitle.textContent = 'Makaleyi Düzenle';
     window.scrollTo({ top: 0, behavior: 'smooth' });

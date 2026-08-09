@@ -1,74 +1,48 @@
-<!doctype html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="same-origin"><meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()"><link rel="icon" href="favicon.svg" type="image/svg+xml"><title>Admin | Yıldırım Law & Consultancy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>:root{--ink:#17131c;--muted:#6d6872;--line:#ddd9e1;--navy:#16151f;--purple:#5a244f;--bg:#f4f2f5}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Arial;color:var(--ink)}h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}.top{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px}.brand{font-family:"Cormorant Garamond";letter-spacing:.15em;font-size:24px}.top a{color:var(--purple);text-decoration:none}.wrap{max-width:1200px;margin:42px auto;padding:0 22px}.panel{background:#fff;border:1px solid var(--line);padding:30px}.login{max-width:480px;margin:70px auto}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.full{grid-column:1/-1}label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase}input,select,textarea{width:100%;margin-top:8px;padding:13px;border:1px solid var(--line);font:inherit;background:#fff}textarea{min-height:280px;resize:vertical}.toolbar{display:flex;gap:12px;justify-content:flex-end;margin-top:20px}.btn{border:1px solid var(--navy);padding:12px 18px;background:#fff;cursor:pointer}.primary{background:var(--navy);color:#fff}.danger{border-color:#9c3d49;color:#8b2633}.msg{padding:12px;margin:15px 0;background:#f3eef2;border-left:3px solid var(--purple)}.msg.error{background:#fff1f1;border-color:#a52c3c}.hidden{display:none!important}.article-list{margin-top:30px}.row{display:grid;grid-template-columns:1fr 120px 140px;gap:15px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}.row-actions{display:flex;gap:6px}.row-actions button{padding:8px;font-size:11px}.hint{font-size:12px;color:var(--muted);line-height:1.6}@media(max-width:750px){.grid,.row{grid-template-columns:1fr}.full{grid-column:auto}.top{padding:0 16px}.panel{padding:20px}}
-.rich-editor-wrap{margin-top:8px;border:1px solid var(--line);background:#fff}
-.rich-toolbar{display:flex;flex-wrap:wrap;gap:6px;padding:9px;border-bottom:1px solid var(--line);background:#f8f7f9;position:sticky;top:0;z-index:2}
-.rich-toolbar button,.rich-toolbar select{width:auto;margin:0;padding:7px 9px;border:1px solid #d7d2da;background:#fff;font:inherit;font-size:12px;cursor:pointer;text-transform:none;letter-spacing:0}
-.rich-toolbar button:hover,.rich-toolbar button:focus,.rich-toolbar select:focus{border-color:var(--purple);outline:none}
-.rich-toolbar .sep{width:1px;background:#d8d4da;margin:2px 2px}
-.rich-editor{min-height:360px;padding:22px 24px;outline:none;font:15px/1.8 Inter,Arial,sans-serif;color:#27222b;text-transform:none;letter-spacing:0;overflow:auto}
-.rich-editor:focus{box-shadow:inset 0 0 0 1px var(--purple)}
-.rich-editor p{margin:0 0 1em;text-align:justify}
-.rich-editor h2{font-family:"Cormorant Garamond",serif;font-size:28px;margin:1.35em 0 .55em;line-height:1.15}
-.rich-editor h3{font-family:"Cormorant Garamond",serif;font-size:23px;margin:1.2em 0 .5em;line-height:1.2}
-.rich-editor h4{font-size:16px;margin:1.1em 0 .45em}
-.rich-editor ul,.rich-editor ol{padding-left:2em;margin:.5em 0 1em}
-.rich-editor li{margin:.35em 0;text-align:justify}
-.rich-editor blockquote{margin:1.2em 0;padding:10px 18px;border-left:3px solid var(--purple);background:#f7f5f7}
-.rich-editor a{color:var(--purple);text-decoration:underline}
-.editor-note{font-size:11px;color:var(--muted);line-height:1.55;margin:7px 0 0;text-transform:none;letter-spacing:0}
-</style></head>
-<body><header class="top"><div class="brand">YILDIRIM <small>ADMIN</small></div><div><a href="index.html">Siteye Dön</a> <button id="logoutBtn" class="btn hidden">Çıkış</button></div></header><main class="wrap">
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="same-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Admin | Yıldırım Law & Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+<style>
+:root{--ink:#17131c;--muted:#6d6872;--line:#ddd9e1;--navy:#16151f;--purple:#5a244f;--bg:#f4f2f5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Arial;color:var(--ink)}h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}.top{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px}.brand{font-family:"Cormorant Garamond";letter-spacing:.15em;font-size:24px}.top a{color:var(--purple);text-decoration:none}.wrap{max-width:1200px;margin:42px auto;padding:0 22px}.panel{background:#fff;border:1px solid var(--line);padding:30px}.login{max-width:480px;margin:70px auto}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.full{grid-column:1/-1}label,.field-label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#333}input,select,textarea{width:100%;margin-top:8px;padding:13px;border:1px solid var(--line);font:inherit;background:#fff}textarea{min-height:280px;resize:vertical}.toolbar{display:flex;gap:12px;justify-content:flex-end;margin-top:20px}.btn{border:1px solid var(--navy);padding:12px 18px;background:#fff;cursor:pointer}.primary{background:var(--navy);color:#fff}.danger{border-color:#9c3d49;color:#8b2633}.msg{padding:12px;margin:15px 0;background:#f3eef2;border-left:3px solid var(--purple)}.msg.error{background:#fff1f1;border-color:#a52c3c}.hidden{display:none!important}.article-list{margin-top:30px}.row{display:grid;grid-template-columns:1fr 120px 140px;gap:15px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}.row-actions{display:flex;gap:6px}.row-actions button{padding:8px;font-size:11px}.hint,.editor-note{font-size:12px;color:var(--muted);line-height:1.6}.editor-field{grid-column:1/-1}.editor-shell{margin-top:8px;background:#fff}.ql-toolbar.ql-snow{border:1px solid var(--line);border-bottom:0;background:#f8f7f9;font-family:Inter,Arial,sans-serif}.ql-container.ql-snow{border:1px solid var(--line);font-family:Inter,Arial,sans-serif;font-size:15px}.ql-editor{min-height:390px;line-height:1.85;color:#27222b}.ql-editor p,.ql-editor li{text-align:justify}.ql-editor h2,.ql-editor h3{font-family:"Cormorant Garamond",serif}.ql-editor h2{font-size:28px;margin:1.2em 0 .45em}.ql-editor h3{font-size:23px;margin:1.05em 0 .4em}.ql-editor h4{font-size:17px;margin:1em 0 .4em}.ql-editor blockquote{border-left-color:var(--purple);background:#f7f5f7;padding:8px 14px}.ql-snow .ql-stroke{stroke:#3b3540}.ql-snow .ql-fill{fill:#3b3540}.ql-snow.ql-toolbar button:hover .ql-stroke,.ql-snow.ql-toolbar button.ql-active .ql-stroke{stroke:var(--purple)}.editor-note{display:block;margin-top:7px;text-transform:none;letter-spacing:0}.editor-load-error{padding:16px;border:1px solid #a52c3c;background:#fff1f1;color:#7a2530;margin-top:8px}
+@media(max-width:750px){.grid,.row{grid-template-columns:1fr}.full,.editor-field{grid-column:auto}.top{padding:0 16px}.panel{padding:20px}.ql-editor{min-height:320px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">YILDIRIM <small>ADMIN</small></div><div><a href="index.html">Siteye Dön</a> <button id="logoutBtn" class="btn hidden">Çıkış</button></div></header>
+<main class="wrap">
 <section id="setupWarning" class="panel hidden"><h2>Bağlantı Ayarı Gerekli</h2><p><code>supabase-config.js</code> dosyasına proje URL ve publishable key bilgilerini ekleyin.</p></section>
 <section id="loginPanel" class="panel login"><h1>Yönetici Girişi</h1><p class="hint">Yalnızca Supabase üzerinde admin olarak yetkilendirilmiş hesap giriş yapabilir.</p><form id="loginForm"><label>E-posta<input id="email" type="email" required autocomplete="username"></label><label style="margin-top:16px">Şifre<input id="password" type="password" required autocomplete="current-password"></label><div id="loginMsg"></div><button class="btn primary" style="margin-top:18px;width:100%">Giriş Yap</button></form></section>
-<section id="adminPanel" class="hidden"><div class="panel"><h1 id="formTitle">Yeni Makale</h1><form id="articleForm"><input type="hidden" id="articleId"><div class="grid"><label>Başlık (TR)<input id="titleTr" required></label><label>Slug<input id="slug" required pattern="[a-z0-9-]+"></label><label>Kategori<input id="category" required></label><label>Durum<select id="status"><option value="draft">Taslak</option><option value="published">Yayında</option></select></label><label class="full">Kısa Açıklama (TR)<textarea id="summaryTr" style="min-height:100px" required></textarea></label><label>Başlık (EN)<input id="titleEn" placeholder="Optional English title"></label><label class="full">Kısa Açıklama (EN)<textarea id="summaryEn" style="min-height:100px" placeholder="Optional English summary"></textarea></label><label class="full">Makale İçeriği (TR)
-      <div class="rich-editor-wrap" data-editor-wrap="tr">
-        <div class="rich-toolbar" data-toolbar-for="contentEditorTr" aria-label="Makale İçeriği (TR) biçimlendirme araçları">
-          <select data-cmd="formatBlock" title="Paragraf / Başlık">
-            <option value="p">Paragraf</option><option value="h2">Başlık 2</option><option value="h3">Başlık 3</option><option value="h4">Başlık 4</option>
-          </select>
-          <span class="sep"></span>
-          <button type="button" data-cmd="bold" title="Kalın"><strong>B</strong></button>
-          <button type="button" data-cmd="italic" title="İtalik"><em>I</em></button>
-          <button type="button" data-cmd="underline" title="Altı çizili"><u>U</u></button>
-          <span class="sep"></span>
-          <button type="button" data-cmd="insertUnorderedList" title="Madde işaretli liste">• Liste</button>
-          <button type="button" data-cmd="insertOrderedList" title="Numaralı liste">1. Liste</button>
-          <button type="button" data-cmd="indent" title="Girintiyi artır">→ Girinti</button>
-          <button type="button" data-cmd="outdent" title="Girintiyi azalt">← Girinti</button>
-          <span class="sep"></span>
-          <button type="button" data-cmd="justifyLeft" title="Sola yasla">Sol</button>
-          <button type="button" data-cmd="justifyCenter" title="Ortala">Orta</button>
-          <button type="button" data-cmd="justifyFull" title="İki yana yasla">İki yana</button>
-          <button type="button" data-cmd="removeFormat" title="Biçimlendirmeyi temizle">Temizle</button>
-        </div>
-        <div id="contentEditorTr" class="rich-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Makale metni..."></div>
-      </div>
-      <textarea id="contentHtml" class="hidden" required></textarea>
-      <span class="editor-note">Word’den doğrudan yapıştırabilirsiniz. Kalın, italik, başlık, liste ve temel girintiler korunur; gerekirse araç çubuğuyla düzenleyin.</span>
-    </label><label class="full">Makale İçeriği (EN)
-      <div class="rich-editor-wrap" data-editor-wrap="en">
-        <div class="rich-toolbar" data-toolbar-for="contentEditorEn" aria-label="Makale İçeriği (EN) biçimlendirme araçları">
-          <select data-cmd="formatBlock" title="Paragraf / Başlık">
-            <option value="p">Paragraf</option><option value="h2">Başlık 2</option><option value="h3">Başlık 3</option><option value="h4">Başlık 4</option>
-          </select>
-          <span class="sep"></span>
-          <button type="button" data-cmd="bold" title="Kalın"><strong>B</strong></button>
-          <button type="button" data-cmd="italic" title="İtalik"><em>I</em></button>
-          <button type="button" data-cmd="underline" title="Altı çizili"><u>U</u></button>
-          <span class="sep"></span>
-          <button type="button" data-cmd="insertUnorderedList" title="Madde işaretli liste">• Liste</button>
-          <button type="button" data-cmd="insertOrderedList" title="Numaralı liste">1. Liste</button>
-          <button type="button" data-cmd="indent" title="Girintiyi artır">→ Girinti</button>
-          <button type="button" data-cmd="outdent" title="Girintiyi azalt">← Girinti</button>
-          <span class="sep"></span>
-          <button type="button" data-cmd="justifyLeft" title="Sola yasla">Sol</button>
-          <button type="button" data-cmd="justifyCenter" title="Ortala">Orta</button>
-          <button type="button" data-cmd="justifyFull" title="İki yana yasla">İki yana</button>
-          <button type="button" data-cmd="removeFormat" title="Biçimlendirmeyi temizle">Temizle</button>
-        </div>
-        <div id="contentEditorEn" class="rich-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Makale metni..."></div>
-      </div>
-      <textarea id="contentEnHtml" class="hidden"></textarea>
-      <span class="editor-note">You can paste directly from Word. Bold, italic, headings, lists and basic indentation are preserved; use the toolbar to adjust formatting if needed.</span>
-    </label><label>Kapak Görseli<input id="coverFile" type="file" accept="image/jpeg,image/png,image/webp"></label><label>Mevcut Görsel URL<input id="coverUrl" type="url" readonly></label></div><p class="hint">Görseller JPEG, PNG veya WebP olmalı ve 5 MB'ı geçmemelidir. Makale metnini Word’den yapıştırabilir veya araç çubuğuyla biçimlendirebilirsiniz. Kaydetme sırasında güvenli olmayan HTML otomatik olarak temizlenir.</p><div id="formMsg"></div><div class="toolbar"><button type="button" id="resetBtn" class="btn">Temizle</button><button class="btn primary">Kaydet / Yayınla</button></div></form></div><div class="panel article-list"><h2>Makaleler</h2><div id="articleRows"></div></div></section></main><script type="module" src="admin.js"></script></body></html>
+<section id="adminPanel" class="hidden">
+<div class="panel"><h1 id="formTitle">Yeni Makale</h1><form id="articleForm"><input type="hidden" id="articleId">
+<div class="grid">
+<label>Başlık (TR)<input id="titleTr" required></label>
+<label>Slug<input id="slug" required pattern="[a-z0-9-]+"></label>
+<label>Kategori<input id="category" required></label>
+<label>Durum<select id="status"><option value="draft">Taslak</option><option value="published">Yayında</option></select></label>
+<label class="full">Kısa Açıklama (TR)<textarea id="summaryTr" style="min-height:100px" required></textarea></label>
+<label>Başlık (EN)<input id="titleEn" placeholder="Optional English title"></label>
+<label class="full">Kısa Açıklama (EN)<textarea id="summaryEn" style="min-height:100px" placeholder="Optional English summary"></textarea></label>
+<div class="editor-field"><span class="field-label">Makale İçeriği (TR)</span><div class="editor-shell"><div id="contentEditorTr"></div></div><textarea id="contentHtml" class="hidden"></textarea><span class="editor-note">Word’den doğrudan yapıştırabilirsiniz. Kalın, italik, başlık, liste, girinti, bağlantı ve hizalama araçları editör tarafından yönetilir.</span></div>
+<div class="editor-field"><span class="field-label">Makale İçeriği (EN)</span><div class="editor-shell"><div id="contentEditorEn"></div></div><textarea id="contentEnHtml" class="hidden"></textarea><span class="editor-note">You can paste directly from Word. The English editor uses exactly the same editor and toolbar as the Turkish version.</span></div>
+<label>Kapak Görseli<input id="coverFile" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<label>Mevcut Görsel URL<input id="coverUrl" type="url" readonly></label>
+</div>
+<p class="hint">Görseller JPEG, PNG veya WebP olmalı ve 5 MB'ı geçmemelidir. Makale içeriği kaydedilmeden önce güvenlik filtresinden geçirilir.</p><div id="formMsg"></div><div class="toolbar"><button type="button" id="resetBtn" class="btn">Temizle</button><button class="btn primary">Kaydet / Yayınla</button></div></form></div>
+<div class="panel article-list"><h2>Makaleler</h2><div id="articleRows"></div></div>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<script type="module" src="admin.js"></script>
+</body>
+</html>
