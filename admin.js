@@ -6,8 +6,32 @@ const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => 
 }[char]));
 
 
+function sanitizeStyle(element) {
+  const raw = element.getAttribute('style') || '';
+  if (!raw) return;
+  const safe = [];
+  for (const declaration of raw.split(';')) {
+    const [nameRaw, ...valueParts] = declaration.split(':');
+    if (!nameRaw || !valueParts.length) continue;
+    const name = nameRaw.trim().toLowerCase();
+    const value = valueParts.join(':').trim().toLowerCase();
+    if (name === 'text-align' && /^(left|right|center|justify)$/.test(value)) safe.push(`text-align:${value}`);
+    else if (name === 'margin-left') {
+      const match = value.match(/^(-?\d+(?:\.\d+)?)(px|pt|em|rem)$/);
+      if (match) {
+        const n = Math.max(0, Math.min(Number(match[1]), 120));
+        safe.push(`margin-left:${n}${match[2]}`);
+      }
+    } else if (name === 'font-weight' && /^(bold|[6-9]00)$/.test(value)) safe.push('font-weight:bold');
+    else if (name === 'font-style' && value === 'italic') safe.push('font-style:italic');
+    else if (name === 'text-decoration' && /underline/.test(value)) safe.push('text-decoration:underline');
+  }
+  if (safe.length) element.setAttribute('style', safe.join(';'));
+  else element.removeAttribute('style');
+}
+
 function sanitizeArticleHtml(html) {
-  const allowedTags = new Set(['P','H2','H3','H4','STRONG','B','EM','I','UL','OL','LI','BLOCKQUOTE','A','BR','IMG','HR','CODE','PRE']);
+  const allowedTags = new Set(['P','H2','H3','H4','STRONG','B','EM','I','U','SPAN','UL','OL','LI','BLOCKQUOTE','A','BR','IMG','HR','CODE','PRE']);
   const template = document.createElement('template');
   template.innerHTML = String(html || '');
   const elements = [...template.content.querySelectorAll('*')].reverse();
@@ -17,13 +41,14 @@ function sanitizeArticleHtml(html) {
       continue;
     }
     const allowedAttributes = element.tagName === 'A'
-      ? new Set(['href','title','target'])
+      ? new Set(['href','title','target','style'])
       : element.tagName === 'IMG'
         ? new Set(['src','alt','title','width','height','loading'])
-        : new Set([]);
+        : new Set(['style']);
     for (const attribute of [...element.attributes]) {
       if (!allowedAttributes.has(attribute.name.toLowerCase())) element.removeAttribute(attribute.name);
     }
+    sanitizeStyle(element);
     if (element.tagName === 'A') {
       const href = (element.getAttribute('href') || '').trim();
       if (!/^(https?:|mailto:|tel:|#)/i.test(href)) element.removeAttribute('href');
@@ -51,11 +76,65 @@ const ui = {
   titleTr: $('titleTr'), titleEn: $('titleEn'), slug: $('slug'),
   category: $('category'), status: $('status'), summaryTr: $('summaryTr'),
   summaryEn: $('summaryEn'), contentHtml: $('contentHtml'),
-  contentEnHtml: $('contentEnHtml'), coverFile: $('coverFile'), coverUrl: $('coverUrl')
+  contentEnHtml: $('contentEnHtml'), contentEditorTr: $('contentEditorTr'), contentEditorEn: $('contentEditorEn'), coverFile: $('coverFile'), coverUrl: $('coverUrl')
 };
 
 let articles = [];
 let currentUser = null;
+
+
+function syncEditorToTextarea(editor, textarea) {
+  if (!editor || !textarea) return;
+  textarea.value = editor.innerHTML.trim();
+}
+
+function setEditorHtml(editor, textarea, html = '') {
+  if (editor) editor.innerHTML = html || '';
+  if (textarea) textarea.value = html || '';
+}
+
+function syncAllEditors() {
+  syncEditorToTextarea(ui.contentEditorTr, ui.contentHtml);
+  syncEditorToTextarea(ui.contentEditorEn, ui.contentEnHtml);
+}
+
+function insertSanitizedHtml(editor, html) {
+  const safe = sanitizeArticleHtml(html);
+  editor.focus();
+  document.execCommand('insertHTML', false, safe);
+}
+
+function initialiseRichEditor(editor, textarea) {
+  if (!editor || !textarea) return;
+  editor.addEventListener('input', () => syncEditorToTextarea(editor, textarea));
+  editor.addEventListener('paste', (event) => {
+    const html = event.clipboardData?.getData('text/html');
+    if (!html) return; // plain text paste can use browser default
+    event.preventDefault();
+    insertSanitizedHtml(editor, html);
+    syncEditorToTextarea(editor, textarea);
+  });
+  const toolbar = document.querySelector(`[data-toolbar-for="${editor.id}"]`);
+  toolbar?.addEventListener('mousedown', (event) => {
+    if (event.target.closest('button')) event.preventDefault(); // keep editor selection
+  });
+  toolbar?.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-cmd]');
+    if (!button) return;
+    editor.focus();
+    document.execCommand(button.dataset.cmd, false, null);
+    syncEditorToTextarea(editor, textarea);
+  });
+  toolbar?.querySelector('select[data-cmd="formatBlock"]')?.addEventListener('change', (event) => {
+    editor.focus();
+    document.execCommand('formatBlock', false, event.target.value);
+    syncEditorToTextarea(editor, textarea);
+    event.target.value = 'p';
+  });
+}
+
+initialiseRichEditor(ui.contentEditorTr, ui.contentHtml);
+initialiseRichEditor(ui.contentEditorEn, ui.contentEnHtml);
 
 function showMessage(element, text, isError = false) {
   if (!element) return;
@@ -156,6 +235,8 @@ function resetForm() {
   ui.form?.reset();
   ui.id.value = '';
   ui.coverUrl.value = '';
+  setEditorHtml(ui.contentEditorTr, ui.contentHtml, '');
+  setEditorHtml(ui.contentEditorEn, ui.contentEnHtml, '');
   delete ui.slug.dataset.manual;
   ui.formTitle.textContent = 'Yeni Makale';
   showMessage(ui.formMsg, '');
@@ -207,6 +288,7 @@ ui.form?.addEventListener('submit', async (event) => {
   try {
     await verifyAdmin();
 
+    syncAllEditors();
     const status = ui.status.value;
     const slug = slugify(ui.slug.value || ui.titleTr.value);
     if (!slug) throw new Error('Makale bağlantısı (slug) oluşturulamadı.');
@@ -300,8 +382,8 @@ ui.rows?.addEventListener('click', async (event) => {
     ui.status.value = article.status || 'draft';
     ui.summaryTr.value = article.summary_tr || '';
     if (ui.summaryEn) ui.summaryEn.value = article.summary_en || '';
-    ui.contentHtml.value = article.content_html || '';
-    if (ui.contentEnHtml) ui.contentEnHtml.value = article.content_en_html || '';
+    setEditorHtml(ui.contentEditorTr, ui.contentHtml, article.content_html || '');
+    setEditorHtml(ui.contentEditorEn, ui.contentEnHtml, article.content_en_html || '');
     ui.coverUrl.value = article.cover_image_url || '';
     ui.formTitle.textContent = 'Makaleyi Düzenle';
     window.scrollTo({ top: 0, behavior: 'smooth' });

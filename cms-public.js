@@ -11,8 +11,32 @@ let articles = [];
 const currentLang = () => document.documentElement.lang === 'en' ? 'en' : 'tr';
 const field = (article, trKey, enKey) => currentLang() === 'en' && article[enKey] ? article[enKey] : article[trKey];
 
+function sanitizeStyle(element) {
+  const raw = element.getAttribute('style') || '';
+  if (!raw) return;
+  const safe = [];
+  for (const declaration of raw.split(';')) {
+    const [nameRaw, ...valueParts] = declaration.split(':');
+    if (!nameRaw || !valueParts.length) continue;
+    const name = nameRaw.trim().toLowerCase();
+    const value = valueParts.join(':').trim().toLowerCase();
+    if (name === 'text-align' && /^(left|right|center|justify)$/.test(value)) safe.push(`text-align:${value}`);
+    else if (name === 'margin-left') {
+      const match = value.match(/^(-?\d+(?:\.\d+)?)(px|pt|em|rem)$/);
+      if (match) {
+        const n = Math.max(0, Math.min(Number(match[1]), 120));
+        safe.push(`margin-left:${n}${match[2]}`);
+      }
+    } else if (name === 'font-weight' && /^(bold|[6-9]00)$/.test(value)) safe.push('font-weight:bold');
+    else if (name === 'font-style' && value === 'italic') safe.push('font-style:italic');
+    else if (name === 'text-decoration' && /underline/.test(value)) safe.push('text-decoration:underline');
+  }
+  if (safe.length) element.setAttribute('style', safe.join(';'));
+  else element.removeAttribute('style');
+}
+
 function safeHtml(html) {
-  const allowedTags = new Set(['P','H2','H3','H4','STRONG','B','EM','I','UL','OL','LI','BLOCKQUOTE','A','BR','IMG','HR','CODE','PRE']);
+  const allowedTags = new Set(['P','H2','H3','H4','STRONG','B','EM','I','U','SPAN','UL','OL','LI','BLOCKQUOTE','A','BR','IMG','HR','CODE','PRE']);
   const template = document.createElement('template');
   template.innerHTML = String(html || '');
   const elements = [...template.content.querySelectorAll('*')].reverse();
@@ -22,13 +46,14 @@ function safeHtml(html) {
       continue;
     }
     const allowedAttributes = element.tagName === 'A'
-      ? new Set(['href','title','target'])
+      ? new Set(['href','title','target','style'])
       : element.tagName === 'IMG'
         ? new Set(['src','alt','title','width','height','loading'])
-        : new Set([]);
+        : new Set(['style']);
     for (const attribute of [...element.attributes]) {
       if (!allowedAttributes.has(attribute.name.toLowerCase())) element.removeAttribute(attribute.name);
     }
+    sanitizeStyle(element);
     if (element.tagName === 'A') {
       const href = (element.getAttribute('href') || '').trim();
       if (!/^(https?:|mailto:|tel:|#)/i.test(href)) element.removeAttribute('href');
@@ -145,6 +170,7 @@ function openArticle(index, push = true) {
     </section>`;
 
   document.title = `${field(article,'title_tr','title_en')} | Yıldırım Law & Consultancy`;
+  if (typeof window.refreshSiteFavicon === 'function') window.refreshSiteFavicon();
   if (push) history.pushState({ page: 'cms-article', index }, '', `#article-${article.slug}`);
   window.scrollTo(0, 0);
 }

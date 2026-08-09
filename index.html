@@ -7,9 +7,9 @@
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Yıldırım Law &amp; Consultancy</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"/>
-<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<link id="faviconSvg" rel="icon" href="./favicon.svg?v=2" type="image/svg+xml"/>
+<link id="faviconPng" rel="icon" href="./favicon-32.png?v=2" sizes="32x32" type="image/png"/>
+<link rel="apple-touch-icon" href="./apple-touch-icon.png?v=2"/>
 <meta name="description" content="Yıldırım Law & Consultancy, İstanbul merkezli olarak gerçek ve tüzel kişilere hukuki danışmanlık ve uyuşmazlık çözümü hizmetleri sunar."/>
 <meta name="robots" content="index, follow"/>
 <meta name="theme-color" content="#5a244f"/>
@@ -188,8 +188,18 @@ body.page-view-open>footer{display:grid}
 .article-detail-hero p{color:#d8d4db;max-width:760px}
 .article-detail-content{max-width:900px;margin:auto;padding:70px 24px 90px}
 .article-detail-content img{max-width:100%;height:auto;margin:0 0 36px;filter:grayscale(1)}
-.article-detail-content .article-body{font-size:17px;line-height:1.9}
-.article-detail-content .article-body p{text-align:justify}
+.article-detail-content .article-body{font-size:17px;line-height:1.9;color:#332e36}
+.article-detail-content .article-body p,.article-detail-content .article-body li{text-align:justify;text-justify:inter-word;hyphens:auto}
+.article-detail-content .article-body p{margin:0 0 1.15em}
+.article-detail-content .article-body h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:34px;line-height:1.15;color:var(--navy);margin:1.65em 0 .65em}
+.article-detail-content .article-body h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;line-height:1.2;color:var(--navy);margin:1.4em 0 .55em}
+.article-detail-content .article-body h4{font-size:18px;line-height:1.35;color:var(--navy);margin:1.25em 0 .5em}
+.article-detail-content .article-body ul,.article-detail-content .article-body ol{margin:.6em 0 1.3em;padding-left:2em}
+.article-detail-content .article-body li{margin:.4em 0;padding-left:.15em}
+.article-detail-content .article-body blockquote{margin:1.4em 0;padding:14px 20px;border-left:3px solid var(--purple);background:#f7f5f7}
+.article-detail-content .article-body a{color:var(--purple);text-decoration:underline;text-underline-offset:2px}
+.article-detail-content .article-body strong,.article-detail-content .article-body b{font-weight:600}
+.article-detail-content .article-body em,.article-detail-content .article-body i{font-style:italic}
 .article-detail-content .back-link{display:inline-block;margin-bottom:32px;color:var(--purple);font-weight:500}
 @media(max-width:700px){.article-detail-hero{padding:80px 24px 55px}.article-detail-hero h1{font-size:44px}}
 
@@ -366,6 +376,16 @@ body.page-view-open>footer{display:grid}
 </footer>
 <script>
 let lang='tr';
+
+function refreshSiteFavicon(){
+  const base = new URL('./', window.location.href);
+  const svg = document.getElementById('faviconSvg');
+  const png = document.getElementById('faviconPng');
+  if(svg) svg.href = new URL('favicon.svg?v=2', base).href;
+  if(png) png.href = new URL('favicon-32.png?v=2', base).href;
+}
+window.refreshSiteFavicon = refreshSiteFavicon;
+refreshSiteFavicon();
 
 const i18n={
 tr:{
@@ -619,7 +639,6 @@ function navigateHomeSection(e, sectionId){
 
 function openPractice(i,scroll=true,push=true){
  closeMobileMenu();
- document.getElementById('articleDetailPage')?.classList.remove('active');
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  const p=practices[lang][i];
  document.title=p.title+' | Yıldırım Law & Consultancy';
@@ -638,7 +657,6 @@ function openPractice(i,scroll=true,push=true){
 function showHome(e,push=true){
  if(e)e.preventDefault();
  closeMobileMenu();
- document.getElementById('articleDetailPage')?.classList.remove('active');
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  document.title='Yıldırım Law & Consultancy';
  document.getElementById('home').style.display='block';
@@ -650,7 +668,6 @@ function showHome(e,push=true){
 
 function hideAllPrimaryViews(){
  document.getElementById('home').style.display='none';
- document.getElementById('articleDetailPage')?.classList.remove('active');
  document.getElementById('detail').classList.remove('active');
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
 }
