@@ -672,6 +672,8 @@ function navigateHomeSection(e, sectionId){
 }
 
 function openPractice(i,scroll=true,push=true){
+ const articleDetailPage=document.getElementById('articleDetailPage');
+ if(articleDetailPage)articleDetailPage.classList.remove('active');
  closeMobileMenu();
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
  const p=practices[lang][i];
@@ -689,6 +691,8 @@ function openPractice(i,scroll=true,push=true){
 }
 
 function showHome(e,push=true){
+ const articleDetailPage=document.getElementById('articleDetailPage');
+ if(articleDetailPage)articleDetailPage.classList.remove('active');
  if(e)e.preventDefault();
  closeMobileMenu();
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
@@ -704,6 +708,8 @@ function hideAllPrimaryViews(){
  document.getElementById('home').style.display='none';
  document.getElementById('detail').classList.remove('active');
  document.querySelectorAll('.site-page').forEach(page=>page.classList.remove('active'));
+ const articleDetailPage=document.getElementById('articleDetailPage');
+ if(articleDetailPage)articleDetailPage.classList.remove('active');
 }
 
 function showSitePage(e,pageName,push=true){
