@@ -758,9 +758,6 @@ window.addEventListener('popstate',e=>{
    showSitePage(null,'disclaimer',false);
  }else if(state&&state.page==='cms-article'){
    if(window.openCmsArticleByIndex) window.openCmsArticleByIndex(Number(state.index),false);
- }else if(new URLSearchParams(location.search).get('article')){
-   const slug=new URLSearchParams(location.search).get('article');
-   if(window.openCmsArticleBySlug) window.openCmsArticleBySlug(slug,false);
  }else{
    showHome(null,false);
    const sectionId=state&&state.section ? state.section : (location.hash||'').replace('#','');
@@ -776,10 +773,7 @@ window.addEventListener('popstate',e=>{
  }
 });
 const initialHash=(location.hash||'#home');
-const initialArticleSlug=new URLSearchParams(location.search).get('article');
-if(initialArticleSlug){
- history.replaceState({page:'cms-article',slug:initialArticleSlug},'',location.pathname+location.search);
-}else if(initialHash==='#articles-page'){
+if(initialHash==='#articles-page'){
  history.replaceState({page:'articles'},'',initialHash);
  showSitePage(null,'articles',false);
 }else if(initialHash==='#contact-page'){
@@ -794,6 +788,6 @@ initialiseContactForm();
 initialiseCmsArticleBridge();
 </script>
 
-<script type="module" src="cms-public-seo.js"></script>
+<script type="module" src="cms-public.js"></script>
 </body>
 </html>
