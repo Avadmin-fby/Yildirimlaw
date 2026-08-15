@@ -115,7 +115,7 @@ function renderLoadedArticles() {
           <small>${escapeHtml(categoryLabel(article))}</small>
           <h2>${escapeHtml(field(article,'title_tr','title_en'))}</h2>
           <p>${escapeHtml(field(article,'summary_tr','summary_en'))}</p>
-          <a href="#article-${escapeHtml(article.slug)}" class="article-page-link" data-article="${index}">${currentLang()==='en'?'Read More →':'Devamını Oku →'}</a>
+          <a href="/?article=${encodeURIComponent(article.slug)}" class="article-page-link" data-article="${index}">${currentLang()==='en'?'Read More →':'Devamını Oku →'}</a>
         </div>
       </article>`).join('')
     : `<p class="articles-empty">${currentLang()==='en'?'No articles have been published yet.':'Henüz yayımlanmış makale bulunmuyor.'}</p>`;
@@ -148,9 +148,14 @@ async function loadArticles() {
   statusElement.textContent = '';
   renderLoadedArticles();
 
+  // SEO-friendly article URLs use ?article=slug. Old #article-slug links remain supported.
+  const params = new URLSearchParams(location.search);
+  let slug = params.get('article');
   const hash = location.hash || '';
-  if (hash.startsWith('#article-')) {
-    const slug = decodeURIComponent(hash.slice('#article-'.length));
+  if (!slug && hash.startsWith('#article-')) {
+    slug = decodeURIComponent(hash.slice('#article-'.length));
+  }
+  if (slug) {
     const index = articles.findIndex((article) => article.slug === slug);
     if (index >= 0) openArticle(index, false);
   }
@@ -179,8 +184,15 @@ function openArticle(index, push = true) {
     </section>`;
 
   document.title = `${field(article,'title_tr','title_en')} | Yıldırım Law & Consultancy`;
+  const canonicalUrl = `${location.origin}/?article=${encodeURIComponent(article.slug)}`;
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
+  canonical.href = canonicalUrl;
+  let description = document.querySelector('meta[name="description"]');
+  if (!description) { description = document.createElement('meta'); description.name = 'description'; document.head.appendChild(description); }
+  description.content = field(article,'summary_tr','summary_en') || '';
   if (typeof window.refreshSiteFavicon === 'function') window.refreshSiteFavicon();
-  if (push) history.pushState({ page: 'cms-article', index }, '', `#article-${article.slug}`);
+  if (push) history.pushState({ page: 'cms-article', index, slug: article.slug }, '', `/?article=${encodeURIComponent(article.slug)}`);
   window.scrollTo(0, 0);
 }
 
